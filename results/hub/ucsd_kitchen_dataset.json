@@ -1,0 +1,75 @@
+{
+  "action_dim": 8,
+  "actionabi_best_fit_frame": null,
+  "cartesian_translation_frame": "world",
+  "cartesian_translation_nrmse": 0.950451792068086,
+  "cli_corroboration": null,
+  "config_action_names": "motor_0..motor_7 (RLDS names stripped)",
+  "converter_status": "blocked",
+  "dataset": "ucsd_kitchen_dataset",
+  "ecosystem": "OXE-port",
+  "episodes_evaluated": 150,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "unsupported"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": null,
+      "source_quote": "Cartesian EE action; frame not stated.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_kitchen_dataset_converted_externally_to_rlds",
+      "verdict": "unlabeled"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "documented",
+      "source_quote": "1x gripper open/close channel.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_kitchen_dataset_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "identity",
+      "source_quote": "action channels documented in canonical (source) order.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_kitchen_dataset_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_kitchen_dataset_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "action(8): 'end-effector position and orientation, gripper open/close and episode termination' -- delta-vs-absolute NOT stated -> documentation-absent on target.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_kitchen_dataset_converted_externally_to_rlds",
+      "verdict": "unlabeled"
+    }
+  },
+  "hf_repo": "lerobot/ucsd_kitchen_dataset",
+  "outcome": "report_without_unique_requirement",
+  "ranked_best": [],
+  "revision": "fd7751e366e56297317beae5db71aa1a193d1e7f",
+  "rows_evaluated": 3970,
+  "runtime_seconds": 0.04333761299494654,
+  "state_dim": 21
+}

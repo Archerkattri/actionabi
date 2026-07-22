@@ -1,0 +1,433 @@
+{
+  "binary": "build-bridge/actionabi",
+  "by_excitation": {
+    "policy": {
+      "actionabi_calibrated": {
+        "abstention_rate": 0.9111111111111111,
+        "emitted": 4,
+        "equivalence_set_coverage": 0.0,
+        "false_unique_certifications": 4,
+        "mean_equivalence_set_size": 9.155555555555555,
+        "per_field_accuracy_when_emitted": {
+          "lag": 1.0,
+          "permutation": 1.0,
+          "scale": 0.375,
+          "sign": 0.9583333333333334,
+          "target": 1.0
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.3111111111111111,
+          "permutation": 0.7851851851851851,
+          "scale": 0.2703703703703703,
+          "sign": 0.8518518518518519,
+          "target": 0.9333333333333333
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.5426006514487837,
+        "mean_argmin_heldout_loss": 0.36593252001469484,
+        "median": 0.16150795065175638
+      },
+      "traces": 45
+    },
+    "random": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.044444444444444446,
+        "false_unique_certifications": 0,
+        "mean_equivalence_set_size": 14.422222222222222,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.4666666666666667,
+          "permutation": 0.4666666666666667,
+          "scale": 0.21851851851851853,
+          "sign": 0.674074074074074,
+          "target": 0.5555555555555556
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.3623981003816161,
+        "mean_argmin_heldout_loss": 0.3956656943438289,
+        "median": 0.3585440497069501
+      },
+      "traces": 45
+    }
+  },
+  "by_lag": {
+    "0": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.09090909090909091,
+        "false_unique_certifications": 0,
+        "mean_equivalence_set_size": 12.090909090909092,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.7727272727272727,
+          "permutation": 0.9242424242424242,
+          "scale": 0.3636363636363636,
+          "sign": 0.9318181818181818,
+          "target": 0.6818181818181818
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.17700327114228223,
+        "mean_argmin_heldout_loss": 0.38344131723011365,
+        "median": 0.07543580150829383
+      },
+      "traces": 22
+    },
+    "1": {
+      "actionabi_calibrated": {
+        "abstention_rate": 0.9642857142857143,
+        "emitted": 1,
+        "equivalence_set_coverage": 0.0,
+        "false_unique_certifications": 1,
+        "mean_equivalence_set_size": 12.821428571428571,
+        "per_field_accuracy_when_emitted": {
+          "lag": 1.0,
+          "permutation": 1.0,
+          "scale": 0.6666666666666666,
+          "sign": 1.0,
+          "target": 1.0
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.2857142857142857,
+          "permutation": 0.5833333333333333,
+          "scale": 0.19047619047619047,
+          "sign": 0.7380952380952381,
+          "target": 0.7142857142857143
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.3723057160237827,
+        "mean_argmin_heldout_loss": 0.3885599516762572,
+        "median": 0.25191030160034183
+      },
+      "traces": 28
+    },
+    "2": {
+      "actionabi_calibrated": {
+        "abstention_rate": 0.925,
+        "emitted": 3,
+        "equivalence_set_coverage": 0.0,
+        "false_unique_certifications": 3,
+        "mean_equivalence_set_size": 10.9,
+        "per_field_accuracy_when_emitted": {
+          "lag": 1.0,
+          "permutation": 1.0,
+          "scale": 0.27777777777777773,
+          "sign": 0.9444444444444445,
+          "target": 1.0
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.25,
+          "permutation": 0.4916666666666667,
+          "scale": 0.21666666666666665,
+          "sign": 0.6875,
+          "target": 0.8
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.6601577954642964,
+        "mean_argmin_heldout_loss": 0.3739133005033968,
+        "median": 0.4938750988380274
+      },
+      "traces": 40
+    }
+  },
+  "by_lag_and_excitation": {
+    "lag0_policy": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.0,
+        "false_unique_certifications": 0,
+        "mean_equivalence_set_size": 11.181818181818182,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.5454545454545454,
+          "permutation": 0.8787878787878789,
+          "scale": 0.303030303030303,
+          "sign": 0.8787878787878789,
+          "target": 0.9090909090909091
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.09434710040576882,
+        "mean_argmin_heldout_loss": 0.4295507825185471,
+        "median": 0.06928926867763778
+      },
+      "traces": 11
+    },
+    "lag0_random": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.18181818181818182,
+        "false_unique_certifications": 0,
+        "mean_equivalence_set_size": 13.0,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 1.0,
+          "permutation": 0.9696969696969696,
+          "scale": 0.42424242424242425,
+          "sign": 0.9848484848484849,
+          "target": 0.45454545454545453
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.2596594418787957,
+        "mean_argmin_heldout_loss": 0.3373318519416802,
+        "median": 0.20887753584378455
+      },
+      "traces": 11
+    },
+    "lag1_policy": {
+      "actionabi_calibrated": {
+        "abstention_rate": 0.9285714285714286,
+        "emitted": 1,
+        "equivalence_set_coverage": 0.0,
+        "false_unique_certifications": 1,
+        "mean_equivalence_set_size": 8.785714285714286,
+        "per_field_accuracy_when_emitted": {
+          "lag": 1.0,
+          "permutation": 1.0,
+          "scale": 0.6666666666666666,
+          "sign": 1.0,
+          "target": 1.0
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.14285714285714285,
+          "permutation": 0.773809523809524,
+          "scale": 0.29761904761904756,
+          "sign": 0.8928571428571427,
+          "target": 0.9285714285714286
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.3720839633016012,
+        "mean_argmin_heldout_loss": 0.32977375668798586,
+        "median": 0.1672666998189266
+      },
+      "traces": 14
+    },
+    "lag1_random": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.0,
+        "false_unique_certifications": 0,
+        "mean_equivalence_set_size": 16.857142857142858,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.42857142857142855,
+          "permutation": 0.3928571428571428,
+          "scale": 0.08333333333333333,
+          "sign": 0.5833333333333333,
+          "target": 0.5
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.3725274687459642,
+        "mean_argmin_heldout_loss": 0.4473461466645284,
+        "median": 0.3362052207594619
+      },
+      "traces": 14
+    },
+    "lag2_policy": {
+      "actionabi_calibrated": {
+        "abstention_rate": 0.85,
+        "emitted": 3,
+        "equivalence_set_coverage": 0.0,
+        "false_unique_certifications": 3,
+        "mean_equivalence_set_size": 8.3,
+        "per_field_accuracy_when_emitted": {
+          "lag": 1.0,
+          "permutation": 1.0,
+          "scale": 0.27777777777777773,
+          "sign": 0.9444444444444445,
+          "target": 1.0
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.3,
+          "permutation": 0.7416666666666667,
+          "scale": 0.23333333333333334,
+          "sign": 0.8083333333333332,
+          "target": 0.95
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.9085017862254695,
+        "mean_argmin_heldout_loss": 0.3562536099662724,
+        "median": 0.8903141849991582
+      },
+      "traces": 20
+    },
+    "lag2_random": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.0,
+        "false_unique_certifications": 0,
+        "mean_equivalence_set_size": 13.5,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.2,
+          "permutation": 0.24166666666666664,
+          "scale": 0.19999999999999998,
+          "sign": 0.5666666666666667,
+          "target": 0.65
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.4118138047031235,
+        "mean_argmin_heldout_loss": 0.39157299104052107,
+        "median": 0.44456829813975324
+      },
+      "traces": 20
+    }
+  },
+  "cpp_python_parity_max_gap": 2.7755575615628914e-16,
+  "dataset": "../actionshift/artifacts/actionabi_bridge",
+  "dataset_manifest_backbone_sha256": "3e6c95d63a2132843323e24cf7ba962b8cf2610f04b2a5a43f3efb6fef8497a8",
+  "dataset_manifest_sha256": "aaee673a5e97fcfdad4cac22dc73db05c945188500475de0f8ee0a40c070d0ac",
+  "declared_grammar": {
+    "basis_contracts_per_trace": 432,
+    "frame": "declared base; base/tool degenerate under identity rotation (equivalence)",
+    "gripper": "excluded (unobservable from pose response; structural limitation)",
+    "lags": [
+      0,
+      1,
+      2
+    ],
+    "permutations": "all 720",
+    "scales": [
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5,
+      2.0
+    ],
+    "signs": [
+      -1,
+      1
+    ],
+    "targets": [
+      "delta_position",
+      "absolute_position"
+    ]
+  },
+  "num_traces": 90,
+  "overall": {
+    "actionabi_calibrated": {
+      "abstention_rate": 0.9555555555555556,
+      "emitted": 4,
+      "equivalence_set_coverage": 0.022222222222222223,
+      "false_unique_certifications": 4,
+      "mean_equivalence_set_size": 11.78888888888889,
+      "per_field_accuracy_when_emitted": {
+        "lag": 1.0,
+        "permutation": 1.0,
+        "scale": 0.375,
+        "sign": 0.9583333333333334,
+        "target": 1.0
+      }
+    },
+    "forced_argmin": {
+      "exact_contract_accuracy": 0.0,
+      "per_field_accuracy": {
+        "lag": 0.3888888888888889,
+        "permutation": 0.625925925925926,
+        "scale": 0.2444444444444445,
+        "sign": 0.7629629629629631,
+        "target": 0.7444444444444445
+      }
+    },
+    "loss_gap_truth_minus_argmin": {
+      "mean": 0.45249937591519984,
+      "mean_argmin_heldout_loss": 0.38079910717926185,
+      "median": 0.29864214822800994
+    },
+    "traces": 90
+  },
+  "results_sha256": "d38656b45f19f96b72b9da147097cdd4cd91b1cbec2feeed026650dfc015f212",
+  "schema_version": "1.0",
+  "structural_limitations": {
+    "frame": "identity end-effector rotation makes base/tool observationally identical; not identifiable",
+    "gripper_inverted": "labeled but not observable from the tcp-pose response; ActionABI abstains on this field",
+    "lag_gt_0": "ActionABI C++ delta observable spans lag+1 steps whereas the physical response is a single-step delay; see by_lag strata",
+    "space": "always cartesian; not varied"
+  }
+}

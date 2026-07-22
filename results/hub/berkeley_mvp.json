@@ -1,0 +1,75 @@
+{
+  "action_dim": 8,
+  "actionabi_best_fit_frame": null,
+  "cartesian_translation_frame": "world",
+  "cartesian_translation_nrmse": 0.7872941096592748,
+  "cli_corroboration": null,
+  "config_action_names": "motor_0..motor_7 (RLDS names stripped)",
+  "converter_status": "blocked",
+  "dataset": "berkeley_mvp",
+  "ecosystem": "OXE-port",
+  "episodes_evaluated": 480,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "unsupported"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "joint-space action; no Cartesian frame applies.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_mvp_converted_externally_to_rlds",
+      "verdict": "unlabeled"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "high",
+      "documented_value": "documented",
+      "source_quote": "1x gripper binary state (1 = closed, 0 = open).",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_mvp_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "identity",
+      "source_quote": "action channels documented in canonical (source) order.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_mvp_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_mvp_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "high",
+      "documented_value": "delta",
+      "source_quote": "action(8): 'Robot action, consists of [7 delta joint pos, 1x gripper binary state]' -> delta JOINT positions.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_mvp_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    }
+  },
+  "hf_repo": "lerobot/berkeley_mvp",
+  "outcome": "report_without_unique_requirement",
+  "ranked_best": [],
+  "revision": "076135b96e92917da3404c2aa3d97e36f312cf73",
+  "rows_evaluated": 45308,
+  "runtime_seconds": 0.4107055600034073,
+  "state_dim": 15
+}

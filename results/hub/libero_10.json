@@ -1,0 +1,79 @@
+{
+  "action_dim": 7,
+  "actionabi_best_fit_frame": "world",
+  "cartesian_translation_frame": "world",
+  "cartesian_translation_nrmse": 0.3012209222778378,
+  "cli_corroboration": null,
+  "config_action_names": "x,y,z,roll,pitch,yaw,gripper (semantic EE-axis names retained in config)",
+  "converter_status": "blocked",
+  "dataset": "libero_10",
+  "ecosystem": "LIBERO",
+  "episodes_evaluated": 117,
+  "equivalence_fields": {
+    "frame": "partially_identified",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "partially_identified"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_best_fit": "world",
+      "actionabi_status": "partially_identified",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "tool",
+      "source_quote": "OSC_POSE delta is applied in the controller/EE frame; robosuite default.",
+      "source_url": "https://libero-project.github.io/",
+      "verdict": "partial_discrepant"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "documented",
+      "source_quote": "gripper continuous in [-1,1] (robosuite/OSC).",
+      "source_url": "https://libero-project.github.io/",
+      "verdict": "abstention_consistent"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "high",
+      "documented_value": "identity",
+      "source_quote": "action = [x,y,z,roll,pitch,yaw,gripper] in canonical order (config-documented).",
+      "source_url": "https://huggingface.co/datasets/lerobot/libero_10",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://huggingface.co/datasets/lerobot/libero_10",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "partially_identified",
+      "actionabi_values": [
+        "delta",
+        "velocity"
+      ],
+      "documentation_confidence": "high",
+      "documented_value": "delta",
+      "source_quote": "config action.names = [x,y,z,roll,pitch,yaw,gripper]; LIBERO uses the robosuite OSC_POSE controller -> delta end-effector pose + gripper.",
+      "source_url": "https://huggingface.co/datasets/lerobot/libero_10",
+      "verdict": "partial_consistent"
+    }
+  },
+  "hf_repo": "lerobot/libero_10",
+  "outcome": "partial_cartesian",
+  "ranked_best": [],
+  "revision": "551d7d86f25edd0ffeda8b60053c15438cfd1d6a",
+  "rows_evaluated": 32259,
+  "runtime_seconds": 0.23027106901281513,
+  "state_dim": 8
+}

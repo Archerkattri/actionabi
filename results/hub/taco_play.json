@@ -1,0 +1,119 @@
+{
+  "action_dim": 7,
+  "actionabi_best_fit_frame": null,
+  "cartesian_translation_frame": null,
+  "cartesian_translation_nrmse": null,
+  "cli_corroboration": {
+    "heldout_loss": {
+      "absolute": 0.5054306297499098,
+      "delta": 0.09040773869708457,
+      "velocity": 0.3357306482505127
+    },
+    "min_loss_target": "delta"
+  },
+  "config_action_names": "motor_0..motor_6 (RLDS names stripped; source has THREE candidate action fields)",
+  "converter_status": "blocked",
+  "dataset": "taco_play",
+  "ecosystem": "OXE-port",
+  "episodes_evaluated": 3603,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "unsupported"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "base",
+      "source_quote": "the absolute 'actions' field is in robot base frame (rel_actions_world also base).",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/taco_play",
+      "verdict": "abstention_consistent"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "documented",
+      "source_quote": "gripper channel: -1=open, 1=close.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/taco_play",
+      "verdict": "abstention_consistent"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "identity",
+      "source_quote": "action channels documented in canonical (source) order.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/taco_play",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/taco_play",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "absolute",
+      "source_quote": "action.actions(7): 'Absolute desired values for gripper pose (x,y,z,yaw,pitch,roll,gripper)'; source also carries rel_actions_gripper/world deltas -> which field LeRobot used is not documented at config level.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/taco_play",
+      "verdict": "abstention_consistent"
+    }
+  },
+  "hf_repo": "lerobot/taco_play",
+  "outcome": "report_without_unique_requirement",
+  "ranked_best": [
+    {
+      "lag": 6,
+      "median_scale": 0.08264784936791388,
+      "nrmse": 0.7262134961738428,
+      "target": "delta"
+    },
+    {
+      "lag": 6,
+      "median_scale": 0.20661962359800903,
+      "nrmse": 0.7262134967086565,
+      "target": "velocity"
+    },
+    {
+      "lag": 5,
+      "median_scale": 0.06762457744779428,
+      "nrmse": 0.7395015638478177,
+      "target": "delta"
+    },
+    {
+      "lag": 5,
+      "median_scale": 0.202873732091651,
+      "nrmse": 0.739501565466614,
+      "target": "velocity"
+    },
+    {
+      "lag": 4,
+      "median_scale": 0.05271524190440244,
+      "nrmse": 0.7560967684303405,
+      "target": "delta"
+    },
+    {
+      "lag": 4,
+      "median_scale": 0.1976821556208486,
+      "nrmse": 0.7560967709970341,
+      "target": "velocity"
+    }
+  ],
+  "revision": "15f69c9346a10fa5e9a93f0460febd86d3450206",
+  "rows_evaluated": 237798,
+  "runtime_seconds": 2.159957091003889,
+  "state_dim": 7
+}

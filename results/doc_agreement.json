@@ -1,0 +1,347 @@
+{
+  "aggregate": {
+    "abstention_or_partial_consistent": 25,
+    "contradictions": 0,
+    "false_unique_certifications": 0,
+    "flagged_partial_discrepancies": 1,
+    "scored_field_labels": 27,
+    "unique_certifications_correct": 1,
+    "unique_field_certifications": 1,
+    "verdict_counts": {
+      "abstention_consistent": 23,
+      "agreement": 1,
+      "equivalence_consistent": 1,
+      "partial_consistent": 1,
+      "partial_discrepant": 1,
+      "unlabeled": 3
+    }
+  },
+  "datasets": {
+    "aloha": {
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "action is 14-DoF joint-space; no Cartesian reference frame applies.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": null,
+          "source_quote": "gripper is one of the 14 joint dimensions, not a separate inversion flag.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "14 joint angles in canonical left-then-right arm order.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "joint angles follow each servo's native sign convention.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "ambiguous",
+          "actionabi_values": [
+            "absolute",
+            "episode_relative"
+          ],
+          "documentation_confidence": "high",
+          "documented_value": "absolute",
+          "source_quote": "ACT (Zhao et al., RSS 2023) predicts the target joint positions for the next k timesteps; actions are target (absolute) joint angles commanded to the position-controlled 14-DoF bimanual ViperX arms.",
+          "source_url": "https://www.roboticsproceedings.org/rss19/p016.pdf",
+          "verdict": "equivalence_consistent"
+        }
+      },
+      "hf_repo": "lerobot/aloha_sim_insertion_scripted",
+      "outcome": "absolute_episode_relative_equivalence"
+    },
+    "droid": {
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "base",
+          "source_quote": "end-effector pose and velocity are expressed in the robot base frame (6D).",
+          "source_url": "https://arxiv.org/abs/2403.12945",
+          "verdict": "abstention_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "documented",
+          "source_quote": "1-DoF velocity command controls the aperture of the parallel gripper.",
+          "source_url": "https://arxiv.org/abs/2403.12945",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action = [cartesian_velocity(6), gripper_velocity(1)] in canonical order.",
+          "source_url": "https://droid-dataset.github.io/",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "velocity axes follow the standard base-frame +XYZ/+RPY convention.",
+          "source_url": "https://droid-dataset.github.io/",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "velocity",
+          "source_quote": "DROID (Khazatsky et al. 2024): the environment exposes a 7-DoF action space - 6-DoF end-effector Cartesian velocity control and a 1-DoF velocity command for the parallel gripper aperture.",
+          "source_url": "https://arxiv.org/abs/2403.12945",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/droid_100",
+      "outcome": "report_without_unique_requirement"
+    },
+    "hydra": {
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "tool",
+          "source_quote": "the delta is an end-effector positional/orientation delta; the frame (tool vs base) is not stated unambiguously in the RLDS feature doc.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/stanford_hydra_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "documented",
+          "source_quote": "1x close gripper channel.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/stanford_hydra_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action = [pos_delta(3), orient_delta(3), gripper(1)] in canonical order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/stanford_hydra_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "deltas follow the standard +XYZ/+RPY convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/stanford_hydra_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "delta",
+          "source_quote": "action (7,) float32 = 3x end-effector positional delta, 3x EEF orientation delta in euler angle, 1x close gripper - a delta (relative) Cartesian EEF action.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/stanford_hydra_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/stanford_hydra_dataset",
+      "outcome": "report_without_unique_requirement"
+    },
+    "pusht": {
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "world",
+          "source_quote": "Diffusion Policy (Chi et al. 2023) PushT: the 2D end-effector target position is expressed in the fixed workspace/world image frame.",
+          "source_url": "https://arxiv.org/abs/2303.04137",
+          "verdict": "abstention_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "PushT has no gripper degree of freedom.",
+          "source_url": "https://huggingface.co/datasets/lerobot/pusht",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action features are the (x, y) end-effector coordinates in canonical order.",
+          "source_url": "https://huggingface.co/datasets/lerobot/pusht",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "positive",
+          "source_quote": "action axes follow the canonical +x/+y workspace convention.",
+          "source_url": "https://huggingface.co/datasets/lerobot/pusht",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "identified",
+          "actionabi_values": [
+            "absolute"
+          ],
+          "documentation_confidence": "high",
+          "documented_value": "absolute",
+          "source_quote": "The action at each timestep is the target 2D position of the (cylindrical) end-effector used to prod the T-shaped block; absolute position/orientation actions are used for the diffusion policy on PushT.",
+          "source_url": "https://huggingface.co/docs/lerobot/il_sim",
+          "verdict": "agreement"
+        }
+      },
+      "hf_repo": "lerobot/pusht",
+      "outcome": "unique_absolute"
+    },
+    "ur5": {
+      "fields": {
+        "frame": {
+          "actionabi_best_fit": "tool",
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "world",
+          "source_quote": "the translation component is named 'world_vector' (delta change in XYZ), indicating a world/base reference frame for the delta.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_autolab_ur5",
+          "verdict": "partial_discrepant"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "documented",
+          "source_quote": "gripper_closedness_action: 1 = close gripper, -1 = open gripper, 0 = no change.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_autolab_ur5",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action = [world_vector(3), rotation_delta(3), gripper] in canonical order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_autolab_ur5",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "world_vector / rotation_delta follow the standard +XYZ / +RPY convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_autolab_ur5",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [
+            "delta"
+          ],
+          "documentation_confidence": "high",
+          "documented_value": "delta",
+          "source_quote": "action.world_vector = 'delta change in XYZ'; action.rotation_delta = 'delta change in roll, pitch, yaw' - i.e. a delta (relative) Cartesian end-effector action (Open X-Embodiment berkeley_autolab_ur5).",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_autolab_ur5",
+          "verdict": "partial_consistent"
+        }
+      },
+      "hf_repo": "lerobot/berkeley_autolab_ur5",
+      "outcome": "partial_cartesian"
+    },
+    "xarm": {
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "base",
+          "source_quote": "the delta end-effector displacement is applied in the simulator base frame; not stated explicitly.",
+          "source_url": "https://github.com/huggingface/gym-xarm",
+          "verdict": "abstention_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "documented",
+          "source_quote": "one gripper command channel in the 4-D action.",
+          "source_url": "https://github.com/huggingface/gym-xarm",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action = [dx, dy, dz, gripper] in canonical order.",
+          "source_url": "https://github.com/huggingface/gym-xarm",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "displacement axes follow the standard +XYZ convention.",
+          "source_url": "https://github.com/huggingface/gym-xarm",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "delta",
+          "source_quote": "gym-xarm / LeRobot xarm_lift exposes a 4-D action (action_dim = 4): a delta end-effector displacement (x, y, z) plus a gripper command, in [-1, 1].",
+          "source_url": "https://github.com/huggingface/gym-xarm",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/xarm_lift_medium",
+      "outcome": "report_without_unique_requirement"
+    }
+  },
+  "discipline": "documentation is a scoring label only; never an inference input",
+  "schema_version": "1.0",
+  "verdict_vocabulary": [
+    "agreement",
+    "equivalence_consistent",
+    "partial_consistent",
+    "partial_discrepant",
+    "abstention_consistent",
+    "contradiction",
+    "unlabeled",
+    "not_applicable"
+  ]
+}

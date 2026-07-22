@@ -1,0 +1,79 @@
+{
+  "action_dim": 15,
+  "actionabi_best_fit_frame": "world",
+  "cartesian_translation_frame": "world",
+  "cartesian_translation_nrmse": 5.903392583981132e-09,
+  "cli_corroboration": null,
+  "config_action_names": "motor_0..motor_14 (RLDS names stripped)",
+  "converter_status": "blocked",
+  "dataset": "nyu_franka_play_dataset",
+  "ecosystem": "OXE-port",
+  "episodes_evaluated": 456,
+  "equivalence_fields": {
+    "frame": "partially_identified",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "partially_identified"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_best_fit": "world",
+      "actionabi_status": "partially_identified",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "mixed joint-velocity + EE-delta action; single Cartesian frame does not apply.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_franka_play_dataset_converted_externally_to_rlds",
+      "verdict": "unlabeled"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "documented",
+      "source_quote": "1x gripper position channel.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_franka_play_dataset_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": null,
+      "source_quote": "mixed layout; canonical permutation not a clean single-space claim.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_franka_play_dataset_converted_externally_to_rlds",
+      "verdict": "unlabeled"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_franka_play_dataset_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "partially_identified",
+      "actionabi_values": [
+        "delta",
+        "velocity"
+      ],
+      "documentation_confidence": "medium",
+      "documented_value": "delta",
+      "source_quote": "action(15): '[7x joint velocities, 3x EE delta xyz, 3x EE delta rpy, 1x gripper position, 1x terminate]' -- MIXED joint-velocity + EE-delta.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_franka_play_dataset_converted_externally_to_rlds",
+      "verdict": "partial_consistent"
+    }
+  },
+  "hf_repo": "lerobot/nyu_franka_play_dataset",
+  "outcome": "partial_cartesian",
+  "ranked_best": [],
+  "revision": "3b2367d09641846e50f865ea54b52b0cdfab4e18",
+  "rows_evaluated": 44875,
+  "runtime_seconds": 0.45165158502641134,
+  "state_dim": 13
+}

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use ActionABI, cite this software and the underlying datasets you evaluate."
+title: "ActionABI: Evidence-first auditing of robot action-tensor contracts"
+type: software
+authors:
+  - given-names: "Krishi"
+    family-names: "Attri"
+    email: "krishiattriwork@gmail.com"
+version: 1.0.0
+date-released: 2026-07-22
+license: MIT
+repository-code: "https://github.com/Archerkattri/brain/tree/main/code/actionabi"
+keywords:
+  - "robot learning"
+  - "action interface"
+  - "imitation learning"
+  - "held-out scoring"
+  - "calibrated equivalence"
+  - "abstention"
+  - "forensic recovery"
+abstract: >-
+  A C++20/CUDA research tool for forensic recovery of undocumented robot action-tensor
+  contracts. It scores a finite declared grammar on held-out trajectory episodes, retains
+  calibrated equivalence sets instead of breaking ties, proposes bounded safe separating
+  probes, and emits a converter only when every required field is supported by evidence.
+  Its defining discipline is calibrated abstention, and its scoring core is exposed as a
+  pybind11 fusion backend.

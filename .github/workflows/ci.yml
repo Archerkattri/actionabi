@@ -1,0 +1,81 @@
+name: ActionABI CI
+
+"on":
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      run_cuda:
+        description: Build the optional CUDA backend
+        required: false
+        default: false
+        type: boolean
+      run_pinocchio:
+        description: Test the optional Pinocchio backend
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  cpu:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [gcc, clang]
+        include:
+          - compiler: gcc
+            cc: gcc
+            cxx: g++
+          - compiler: clang
+            cc: clang
+            cxx: clang++
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jwlawson/actions-setup-cmake@v2
+        with:
+          cmake-version: 3.31.x
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -r requirements-experiments.txt
+      - run: cmake -S . -B build -DACTIONABI_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release
+        env:
+          CC: ${{ matrix.cc }}
+          CXX: ${{ matrix.cxx }}
+      - run: cmake --build build -j 2
+      - run: ctest --test-dir build --output-on-failure
+      - run: python -m unittest discover -s experiments -p 'test_*.py' -v
+
+  cuda:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_cuda }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jwlawson/actions-setup-cmake@v2
+        with:
+          cmake-version: 3.31.x
+      - uses: Jimver/cuda-toolkit@v0.2.29
+        with:
+          cuda: "12.8.0"
+      - run: cmake -S . -B build -DACTIONABI_ENABLE_CUDA=ON -DACTIONABI_BUILD_TESTS=OFF
+      - run: cmake --build build -j 2
+
+  pinocchio:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_pinocchio }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jwlawson/actions-setup-cmake@v2
+        with:
+          cmake-version: 3.31.x
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: >-
+          python -m pip install pin==3.8.0 cmeel-eigen==3.4.1
+          cmeel-urdfdom==4.0.1 cmeel-urdfdom-headers==3.0.0 cmeel-tinyxml2==10.0.0
+      - run: echo "CMAKE_PREFIX_PATH=$(python -c 'import site; print(site.getsitepackages()[0] + "/cmeel.prefix")')" >> "$GITHUB_ENV"
+      - run: cmake -S . -B build -DACTIONABI_ENABLE_PINOCCHIO=ON -DACTIONABI_BUILD_TESTS=ON
+      - run: cmake --build build --target test_pinocchio -j 2
+      - run: ctest --test-dir build -R pinocchio --output-on-failure

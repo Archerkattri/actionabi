@@ -1,0 +1,38 @@
+{
+  "converter_status": "blocked",
+  "coverage_note": "No labeled real-data contract ground truth; synthetic calibration does not transfer automatically.",
+  "dataset": "ur5",
+  "empirical_coverage": null,
+  "episodes": 1000,
+  "equivalence_fields": {
+    "frame": "partially_identified",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "partially_identified"
+  },
+  "evidence_assessment": {
+    "clinical / device relevance": "not evaluated; no clinical or safety certification",
+    "missing population": "robots, operators, and tasks outside this dataset revision",
+    "missing sensor modality": "torque, controller internals, and calibrated frame metadata",
+    "missing validation setting": "active on-robot separating probes and deployment shift",
+    "strong evidence": "held-out passive transition fit for the reported outcome",
+    "weak evidence": "finite diagonal-affine grammar and a single validation corpus"
+  },
+  "expected_outcome": "partial_cartesian",
+  "matched_expected_outcome": true,
+  "outcome": "partial_cartesian",
+  "probe_utility": {
+    "note": "A probe is a proposal only; execute it only after device-specific bounds are supplied.",
+    "status": "candidate_required"
+  },
+  "ranked_hypotheses": [],
+  "rows": 97939,
+  "runtime_seconds": 0.6797343399957754,
+  "schema_version": "1.0",
+  "source_filename": "ur5",
+  "source_sha256": "05875cf3fb151b89d013148badd777e2a0043707c290315c4219768b449a7b58",
+  "worst_residuals": []
+}

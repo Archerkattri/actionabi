@@ -1,0 +1,103 @@
+{
+  "claim_boundary": "supervised accuracy is synthetic-only; real logs provide unlabeled passive evidence",
+  "methods": {
+    "actionabi": {
+      "abstention_rate": 0.25,
+      "calibration": {
+        "brier_score": 0.0,
+        "count": 100,
+        "expected_calibration_error": 0.0
+      },
+      "cases": 100,
+      "equivalence_set_coverage": 1.0,
+      "false_unique_certifications": 0,
+      "per_field_accuracy": {
+        "lag": 1.0,
+        "target": 1.0
+      }
+    },
+    "metadata_only": {
+      "abstention_rate": 1.0,
+      "calibration": {
+        "brier_score": 0.0,
+        "count": 100,
+        "expected_calibration_error": 0.0
+      },
+      "cases": 100,
+      "equivalence_set_coverage": 0.0,
+      "false_unique_certifications": 0,
+      "per_field_accuracy": {
+        "lag": null,
+        "target": null
+      }
+    },
+    "uncalibrated_argmin": {
+      "abstention_rate": 0.0,
+      "calibration": {
+        "brier_score": 0.25,
+        "count": 100,
+        "expected_calibration_error": 0.25
+      },
+      "cases": 100,
+      "equivalence_set_coverage": 1.0,
+      "false_unique_certifications": 25,
+      "per_field_accuracy": {
+        "lag": 0.82,
+        "target": 0.82
+      }
+    }
+  },
+  "real_passive_evidence": [
+    {
+      "accuracy_exclusion": "latent contract is not labeled in passive data",
+      "dataset": "pusht",
+      "episodes": 206,
+      "outcome": "unique_absolute",
+      "rows": 25650,
+      "source_sha256": "a653dacf6e80328bbd4ff5cc7d10b79c8439e964f995e8344ebfd39dc5d630a2"
+    },
+    {
+      "accuracy_exclusion": "latent contract is not labeled in passive data",
+      "dataset": "aloha",
+      "episodes": 50,
+      "outcome": "absolute_episode_relative_equivalence",
+      "rows": 20000,
+      "source_sha256": "3387d4fe059a42b354086a702b798bb91922e0c3782ee5a695f9d70e73764d51"
+    },
+    {
+      "accuracy_exclusion": "latent contract is not labeled in passive data",
+      "dataset": "ur5",
+      "episodes": 1000,
+      "outcome": "partial_cartesian",
+      "rows": 97939,
+      "source_sha256": "05875cf3fb151b89d013148badd777e2a0043707c290315c4219768b449a7b58"
+    },
+    {
+      "accuracy_exclusion": "latent contract is not labeled in passive data",
+      "dataset": "droid",
+      "episodes": 100,
+      "outcome": "report_without_unique_requirement",
+      "rows": 32212,
+      "source_sha256": "1fc83e0681cee46fe7229941670c1427c5f56000a595c8c7648c45fbfc3b4138"
+    },
+    {
+      "accuracy_exclusion": "latent contract is not labeled in passive data",
+      "dataset": "hydra",
+      "episodes": 570,
+      "outcome": "report_without_unique_requirement",
+      "rows": 358234,
+      "source_sha256": "68c8615c929d1710bf320fdcd5ba38e9c7d836d25cf895c0993efb04868a3f50"
+    },
+    {
+      "accuracy_exclusion": "latent contract is not labeled in passive data",
+      "dataset": "xarm",
+      "episodes": 800,
+      "outcome": "report_without_unique_requirement",
+      "rows": 20000,
+      "source_sha256": "9397398ded0e4358544b8d9a291a14ace00fc28ab56a16e507e9aaaa01be2067"
+    }
+  ],
+  "schema_version": "1.0",
+  "seed": 20260718,
+  "synthetic_trials": 100
+}

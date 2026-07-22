@@ -1,0 +1,613 @@
+{
+ "trace_id": "c029_policy",
+ "excitation": "policy",
+ "total_episodes": 16,
+ "binary": "build-bridge/actionabi",
+ "truth": {
+  "target": "delta",
+  "lag": 0,
+  "permutation": [
+   0,
+   1,
+   2,
+   5,
+   3,
+   4
+  ],
+  "sign": [
+   1,
+   -1,
+   1,
+   -1,
+   -1,
+   -1
+  ],
+  "scale": [
+   1.5,
+   2.0,
+   2.0,
+   1.25,
+   1.0,
+   1.5
+  ],
+  "gripper_inverted": true,
+  "frame": "base"
+ },
+ "note": "Real held-out Huber residuals via ActionABI C++ scorer (parity-gated); calibrated equivalence set over the confusable candidate pool at each evidence level. Consensus = fraction of the equivalence set agreeing with the MAP value on that channel.",
+ "frames": [
+  {
+   "eq_size": 52,
+   "misspec": false,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.769,
+    "permutation": 0.888,
+    "sign": 0.949,
+    "scale": 0.776
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     0,
+     3,
+     2,
+     5,
+     1,
+     4
+    ],
+    "sign": [
+     1,
+     1,
+     1,
+     -1,
+     1,
+     -1
+    ],
+    "scale": [
+     2.0,
+     2.0,
+     1.5,
+     1.0,
+     1.0,
+     2.0
+    ]
+   },
+   "truth_in_set": true,
+   "k_episodes": 3
+  },
+  {
+   "eq_size": 54,
+   "misspec": false,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.741,
+    "permutation": 0.864,
+    "sign": 0.954,
+    "scale": 0.704
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     0,
+     5,
+     2,
+     3,
+     1,
+     4
+    ],
+    "sign": [
+     1,
+     1,
+     1,
+     -1,
+     1,
+     -1
+    ],
+    "scale": [
+     0.5,
+     2.0,
+     1.5,
+     0.5,
+     1.0,
+     1.5
+    ]
+   },
+   "truth_in_set": true,
+   "k_episodes": 4
+  },
+  {
+   "eq_size": 55,
+   "misspec": true,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.745,
+    "permutation": 0.873,
+    "sign": 0.918,
+    "scale": 0.77
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     1,
+     5,
+     2,
+     0,
+     3,
+     4
+    ],
+    "sign": [
+     -1,
+     1,
+     1,
+     -1,
+     -1,
+     -1
+    ],
+    "scale": [
+     0.5,
+     2.0,
+     1.5,
+     0.5,
+     1.0,
+     1.5
+    ]
+   },
+   "truth_in_set": true,
+   "k_episodes": 5
+  },
+  {
+   "eq_size": 55,
+   "misspec": false,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.745,
+    "permutation": 0.891,
+    "sign": 0.927,
+    "scale": 0.761
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     0,
+     5,
+     2,
+     1,
+     3,
+     4
+    ],
+    "sign": [
+     -1,
+     1,
+     1,
+     -1,
+     -1,
+     -1
+    ],
+    "scale": [
+     0.5,
+     2.0,
+     1.5,
+     0.5,
+     1.0,
+     2.0
+    ]
+   },
+   "truth_in_set": true,
+   "k_episodes": 6
+  },
+  {
+   "eq_size": 53,
+   "misspec": false,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.736,
+    "permutation": 0.881,
+    "sign": 0.899,
+    "scale": 0.814
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     0,
+     5,
+     2,
+     1,
+     3,
+     4
+    ],
+    "sign": [
+     1,
+     1,
+     1,
+     -1,
+     -1,
+     -1
+    ],
+    "scale": [
+     0.5,
+     2.0,
+     2.0,
+     0.5,
+     1.0,
+     2.0
+    ]
+   },
+   "truth_in_set": true,
+   "k_episodes": 7
+  },
+  {
+   "eq_size": 50,
+   "misspec": false,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.72,
+    "permutation": 0.853,
+    "sign": 0.943,
+    "scale": 0.74
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     3,
+     5,
+     2,
+     0,
+     1,
+     4
+    ],
+    "sign": [
+     -1,
+     1,
+     1,
+     1,
+     1,
+     -1
+    ],
+    "scale": [
+     0.5,
+     2.0,
+     2.0,
+     1.0,
+     1.25,
+     2.0
+    ]
+   },
+   "truth_in_set": false,
+   "k_episodes": 8
+  },
+  {
+   "eq_size": 55,
+   "misspec": true,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.745,
+    "permutation": 0.867,
+    "sign": 0.903,
+    "scale": 0.791
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     4
+    ],
+    "sign": [
+     1,
+     -1,
+     1,
+     -1,
+     -1,
+     -1
+    ],
+    "scale": [
+     0.5,
+     1.5,
+     2.0,
+     0.5,
+     2.0,
+     1.5
+    ]
+   },
+   "truth_in_set": true,
+   "k_episodes": 9
+  },
+  {
+   "eq_size": 55,
+   "misspec": true,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.745,
+    "permutation": 0.894,
+    "sign": 0.948,
+    "scale": 0.727
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     0,
+     1,
+     2,
+     5,
+     3,
+     4
+    ],
+    "sign": [
+     1,
+     -1,
+     1,
+     -1,
+     -1,
+     -1
+    ],
+    "scale": [
+     0.5,
+     1.5,
+     1.5,
+     0.5,
+     1.0,
+     1.5
+    ]
+   },
+   "truth_in_set": true,
+   "k_episodes": 10
+  },
+  {
+   "eq_size": 54,
+   "misspec": true,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.741,
+    "permutation": 0.877,
+    "sign": 0.91,
+    "scale": 0.756
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     0,
+     1,
+     2,
+     5,
+     3,
+     4
+    ],
+    "sign": [
+     1,
+     -1,
+     1,
+     -1,
+     -1,
+     -1
+    ],
+    "scale": [
+     0.5,
+     1.5,
+     1.5,
+     0.5,
+     1.0,
+     2.0
+    ]
+   },
+   "truth_in_set": true,
+   "k_episodes": 11
+  },
+  {
+   "eq_size": 55,
+   "misspec": true,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.745,
+    "permutation": 0.873,
+    "sign": 0.973,
+    "scale": 0.706
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     4
+    ],
+    "sign": [
+     1,
+     -1,
+     1,
+     -1,
+     -1,
+     -1
+    ],
+    "scale": [
+     0.75,
+     1.5,
+     1.5,
+     0.5,
+     1.5,
+     1.5
+    ]
+   },
+   "truth_in_set": true,
+   "k_episodes": 12
+  },
+  {
+   "eq_size": 56,
+   "misspec": false,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.75,
+    "permutation": 0.899,
+    "sign": 0.94,
+    "scale": 0.729
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     0,
+     1,
+     2,
+     5,
+     3,
+     4
+    ],
+    "sign": [
+     1,
+     -1,
+     1,
+     -1,
+     -1,
+     -1
+    ],
+    "scale": [
+     0.5,
+     1.5,
+     1.25,
+     0.5,
+     1.25,
+     1.5
+    ]
+   },
+   "truth_in_set": true,
+   "k_episodes": 13
+  },
+  {
+   "eq_size": 55,
+   "misspec": true,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.745,
+    "permutation": 0.891,
+    "sign": 0.924,
+    "scale": 0.724
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     0,
+     1,
+     2,
+     5,
+     3,
+     4
+    ],
+    "sign": [
+     1,
+     -1,
+     1,
+     -1,
+     -1,
+     -1
+    ],
+    "scale": [
+     0.5,
+     1.5,
+     1.5,
+     0.5,
+     1.0,
+     1.5
+    ]
+   },
+   "truth_in_set": true,
+   "k_episodes": 14
+  },
+  {
+   "eq_size": 56,
+   "misspec": false,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.75,
+    "permutation": 0.872,
+    "sign": 0.899,
+    "scale": 0.723
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     0,
+     1,
+     2,
+     5,
+     3,
+     4
+    ],
+    "sign": [
+     1,
+     -1,
+     1,
+     -1,
+     -1,
+     -1
+    ],
+    "scale": [
+     0.5,
+     1.25,
+     1.25,
+     0.5,
+     1.25,
+     1.5
+    ]
+   },
+   "truth_in_set": true,
+   "k_episodes": 15
+  },
+  {
+   "eq_size": 56,
+   "misspec": false,
+   "consensus": {
+    "target": 1.0,
+    "lag": 0.75,
+    "permutation": 0.872,
+    "sign": 0.946,
+    "scale": 0.717
+   },
+   "argmin": {
+    "target": "delta_position",
+    "lag": 0,
+    "permutation": [
+     0,
+     1,
+     2,
+     5,
+     3,
+     4
+    ],
+    "sign": [
+     -1,
+     -1,
+     1,
+     -1,
+     -1,
+     -1
+    ],
+    "scale": [
+     0.5,
+     1.25,
+     1.25,
+     0.5,
+     1.25,
+     1.5
+    ]
+   },
+   "truth_in_set": true,
+   "k_episodes": 16
+  }
+ ]
+}

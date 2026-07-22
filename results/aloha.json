@@ -1,0 +1,75 @@
+{
+  "converter_status": "blocked",
+  "coverage_note": "No labeled real-data contract ground truth; synthetic calibration does not transfer automatically.",
+  "dataset": "aloha",
+  "empirical_coverage": null,
+  "episodes": 50,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "ambiguous"
+  },
+  "evidence_assessment": {
+    "clinical / device relevance": "not evaluated; no clinical or safety certification",
+    "missing population": "robots, operators, and tasks outside this dataset revision",
+    "missing sensor modality": "torque, controller internals, and calibrated frame metadata",
+    "missing validation setting": "active on-robot separating probes and deployment shift",
+    "strong evidence": "held-out passive transition fit for the reported outcome",
+    "weak evidence": "finite diagonal-affine grammar and a single validation corpus"
+  },
+  "expected_outcome": "absolute_episode_relative_equivalence",
+  "matched_expected_outcome": true,
+  "outcome": "absolute_episode_relative_equivalence",
+  "probe_utility": {
+    "note": "A probe is a proposal only; execute it only after device-specific bounds are supplied.",
+    "status": "candidate_required"
+  },
+  "ranked_hypotheses": [
+    {
+      "lag": 3,
+      "median_scale": 0.9928544672037602,
+      "nrmse": 0.2532644426974086,
+      "target": "absolute"
+    },
+    {
+      "lag": 3,
+      "median_scale": 0.9928544672037602,
+      "nrmse": 0.2532644426974086,
+      "target": "episode_relative"
+    },
+    {
+      "lag": 4,
+      "median_scale": 0.9937632488341566,
+      "nrmse": 0.2548253754777888,
+      "target": "absolute"
+    },
+    {
+      "lag": 4,
+      "median_scale": 0.9937632488341566,
+      "nrmse": 0.25482537547778883,
+      "target": "episode_relative"
+    },
+    {
+      "lag": 2,
+      "median_scale": 0.998550556920662,
+      "nrmse": 0.2548925344467835,
+      "target": "absolute"
+    },
+    {
+      "lag": 2,
+      "median_scale": 0.9985505569206619,
+      "nrmse": 0.2548925344467835,
+      "target": "episode_relative"
+    }
+  ],
+  "rows": 20000,
+  "runtime_seconds": 0.3509201720007695,
+  "schema_version": "1.0",
+  "source_filename": "aloha",
+  "source_sha256": "3387d4fe059a42b354086a702b798bb91922e0c3782ee5a695f9d70e73764d51",
+  "worst_residuals": []
+}

@@ -1,0 +1,79 @@
+{
+  "action_dim": 7,
+  "actionabi_best_fit_frame": "world",
+  "cartesian_translation_frame": "world",
+  "cartesian_translation_nrmse": 0.3012209222778378,
+  "cli_corroboration": null,
+  "config_action_names": "'actions' (single opaque name -- config-level convention absent)",
+  "converter_status": "blocked",
+  "dataset": "libero",
+  "ecosystem": "LIBERO",
+  "episodes_evaluated": 117,
+  "equivalence_fields": {
+    "frame": "partially_identified",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "partially_identified"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_best_fit": "world",
+      "actionabi_status": "partially_identified",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "tool",
+      "source_quote": "OSC_POSE delta in the controller/EE frame.",
+      "source_url": "https://libero-project.github.io/",
+      "verdict": "partial_discrepant"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "documented",
+      "source_quote": "gripper continuous in [-1,1].",
+      "source_url": "https://libero-project.github.io/",
+      "verdict": "abstention_consistent"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "identity",
+      "source_quote": "config action name is the opaque 'actions'; canonical order assumed.",
+      "source_url": "https://huggingface.co/datasets/lerobot/libero",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://huggingface.co/datasets/lerobot/libero",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "partially_identified",
+      "actionabi_values": [
+        "delta",
+        "velocity"
+      ],
+      "documentation_confidence": "medium",
+      "documented_value": "delta",
+      "source_quote": "LIBERO uses the robosuite OSC_POSE controller -> 6-D delta EE pose + gripper; the LeRobot config only labels the 7-vector 'actions' (opaque).",
+      "source_url": "https://libero-project.github.io/",
+      "verdict": "partial_consistent"
+    }
+  },
+  "hf_repo": "lerobot/libero",
+  "outcome": "partial_cartesian",
+  "ranked_best": [],
+  "revision": "a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4",
+  "rows_evaluated": 32259,
+  "runtime_seconds": 0.22673354600556195,
+  "state_dim": 8
+}

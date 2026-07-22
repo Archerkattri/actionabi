@@ -1,0 +1,38 @@
+{
+  "converter_status": "blocked",
+  "coverage_note": "No labeled real-data contract ground truth; synthetic calibration does not transfer automatically.",
+  "dataset": "hydra",
+  "empirical_coverage": null,
+  "episodes": 570,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "unsupported"
+  },
+  "evidence_assessment": {
+    "clinical / device relevance": "not evaluated; no clinical or safety certification",
+    "missing population": "robots, operators, and tasks outside this dataset revision",
+    "missing sensor modality": "torque, controller internals, and calibrated frame metadata",
+    "missing validation setting": "active on-robot separating probes and deployment shift",
+    "strong evidence": "none sufficient for a unique contract",
+    "weak evidence": "finite diagonal-affine grammar and a single validation corpus"
+  },
+  "expected_outcome": "report_without_unique_requirement",
+  "matched_expected_outcome": true,
+  "outcome": "report_without_unique_requirement",
+  "probe_utility": {
+    "note": "A probe is a proposal only; execute it only after device-specific bounds are supplied.",
+    "status": "insufficient_observability"
+  },
+  "ranked_hypotheses": [],
+  "rows": 358234,
+  "runtime_seconds": 2.67866647199844,
+  "schema_version": "1.0",
+  "source_filename": "hydra",
+  "source_sha256": "68c8615c929d1710bf320fdcd5ba38e9c7d836d25cf895c0993efb04868a3f50",
+  "worst_residuals": []
+}

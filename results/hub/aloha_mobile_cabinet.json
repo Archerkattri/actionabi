@@ -1,0 +1,122 @@
+{
+  "action_dim": 14,
+  "actionabi_best_fit_frame": null,
+  "cartesian_translation_frame": null,
+  "cartesian_translation_nrmse": null,
+  "cli_corroboration": {
+    "heldout_loss": {
+      "absolute": 0.004111771128948562,
+      "delta": 0.18278846450685948,
+      "velocity": 0.25103395723949745
+    },
+    "min_loss_target": "absolute"
+  },
+  "config_action_names": "left_waist..left_gripper,right_waist..right_gripper (14-DoF arms; Mobile-ALOHA base dims NOT in this action)",
+  "converter_status": "blocked",
+  "dataset": "aloha_mobile_cabinet",
+  "ecosystem": "ALOHA",
+  "episodes_evaluated": 85,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "ambiguous"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "14-DoF joint-space action; no Cartesian frame applies.",
+      "source_url": "https://tonyzhaozh.github.io/aloha/",
+      "verdict": "unlabeled"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": null,
+      "source_quote": "gripper is a joint dimension (ALOHA 0=closed,1=open), not a separate inversion flag.",
+      "source_url": "https://tonyzhaozh.github.io/aloha/",
+      "verdict": "unlabeled"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "identity",
+      "source_quote": "14 joint angles in canonical left-then-right arm order.",
+      "source_url": "https://tonyzhaozh.github.io/aloha/",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://tonyzhaozh.github.io/aloha/",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "ambiguous",
+      "actionabi_values": [
+        "absolute",
+        "episode_relative"
+      ],
+      "documentation_confidence": "high",
+      "documented_value": "absolute",
+      "source_quote": "ACT/ALOHA commands ABSOLUTE target joint positions to the position-controlled 14-DoF bimanual ViperX arms.",
+      "source_url": "https://www.roboticsproceedings.org/rss19/p016.pdf",
+      "verdict": "equivalence_consistent"
+    }
+  },
+  "hf_repo": "lerobot/aloha_mobile_cabinet",
+  "outcome": "absolute_episode_relative_equivalence",
+  "ranked_best": [
+    {
+      "lag": 6,
+      "median_scale": 0.9982289360727123,
+      "nrmse": 0.18261888158876305,
+      "target": "absolute"
+    },
+    {
+      "lag": 6,
+      "median_scale": 0.9982833114857728,
+      "nrmse": 0.18272583614268942,
+      "target": "episode_relative"
+    },
+    {
+      "lag": 5,
+      "median_scale": 0.9980420233842265,
+      "nrmse": 0.18427840189102676,
+      "target": "absolute"
+    },
+    {
+      "lag": 5,
+      "median_scale": 0.9980963435895389,
+      "nrmse": 0.1843847832063006,
+      "target": "episode_relative"
+    },
+    {
+      "lag": 4,
+      "median_scale": 0.9976444629717329,
+      "nrmse": 0.18860481648249156,
+      "target": "absolute"
+    },
+    {
+      "lag": 4,
+      "median_scale": 0.9976956911226144,
+      "nrmse": 0.1887090825003359,
+      "target": "episode_relative"
+    }
+  ],
+  "revision": "7a752b39f7e69de7e38aee485a6bab07528a061a",
+  "rows_evaluated": 127500,
+  "runtime_seconds": 1.8722041069995612,
+  "state_dim": 14
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://actionabi.dev/schemas/action_spec.schema.json",
+  "title": "ActionABI ActionSpec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "target",
+    "space",
+    "frame",
+    "permutation",
+    "sign",
+    "scale",
+    "lag_steps",
+    "gripper_inverted"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "target": {"enum": ["absolute_position", "delta_position", "velocity"]},
+    "space": {"enum": ["joint", "cartesian"]},
+    "frame": {"enum": ["unspecified", "world", "base", "tool"]},
+    "permutation": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "integer", "minimum": 0}
+    },
+    "sign": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"enum": [-1, 1]}
+    },
+    "scale": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "number", "exclusiveMinimum": 0}
+    },
+    "lag_steps": {"type": "integer", "minimum": 0},
+    "gripper_inverted": {"type": "boolean"}
+  }
+}

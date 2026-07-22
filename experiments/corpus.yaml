@@ -1,0 +1,20 @@
+seed: 20260718
+schema_version: "1.0"
+split_policy: episode_holdout
+datasets:
+  synthetic:
+    train_episodes: 200
+    test_episodes: 100
+    expected: covered
+  pusht:
+    expected: unique_absolute
+  aloha:
+    expected: absolute_episode_relative_equivalence
+  ur5:
+    expected: partial_cartesian
+  droid:
+    expected: report_without_unique_requirement
+  hydra:
+    expected: report_without_unique_requirement
+  xarm:
+    expected: report_without_unique_requirement

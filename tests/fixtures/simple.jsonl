@@ -1,0 +1,13 @@
+{"record_type":"metadata","schema_version":"1.0","source_filename":"generated-simple.json","source_sha256":"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc","extraction_date":"2026-07-18","state_columns":["q0"],"state_units":["rad"]}
+{"record_type":"sample","episode_id":0,"t_ns":0,"state":[0.0],"action":[1.0]}
+{"record_type":"sample","episode_id":0,"t_ns":100000000,"state":[1.0],"action":[2.0]}
+{"record_type":"sample","episode_id":0,"t_ns":200000000,"state":[2.0],"action":[2.0]}
+{"record_type":"sample","episode_id":1,"t_ns":0,"state":[0.0],"action":[1.0]}
+{"record_type":"sample","episode_id":1,"t_ns":100000000,"state":[1.0],"action":[2.0]}
+{"record_type":"sample","episode_id":1,"t_ns":200000000,"state":[2.0],"action":[2.0]}
+{"record_type":"sample","episode_id":2,"t_ns":0,"state":[0.0],"action":[1.0]}
+{"record_type":"sample","episode_id":2,"t_ns":100000000,"state":[1.0],"action":[2.0]}
+{"record_type":"sample","episode_id":2,"t_ns":200000000,"state":[2.0],"action":[2.0]}
+{"record_type":"sample","episode_id":3,"t_ns":0,"state":[0.0],"action":[1.0]}
+{"record_type":"sample","episode_id":3,"t_ns":100000000,"state":[1.0],"action":[2.0]}
+{"record_type":"sample","episode_id":3,"t_ns":200000000,"state":[2.0],"action":[2.0]}

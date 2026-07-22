@@ -1,0 +1,121 @@
+{
+  "action_dim": 6,
+  "actionabi_best_fit_frame": null,
+  "cartesian_translation_frame": null,
+  "cartesian_translation_nrmse": null,
+  "cli_corroboration": {
+    "heldout_loss": {
+      "absolute": 1.0471339149862784,
+      "delta": 47.04664813466609,
+      "velocity": 48.28274168214331
+    },
+    "min_loss_target": "absolute"
+  },
+  "config_action_names": "main_shoulder_pan,main_shoulder_lift,main_elbow_flex,main_wrist_flex,main_wrist_roll,main_gripper",
+  "converter_status": "blocked",
+  "dataset": "svla_so100_sorting",
+  "ecosystem": "SO-100/101",
+  "episodes_evaluated": 52,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "identified"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "6-DoF joint-space action; no Cartesian frame applies.",
+      "source_url": "https://huggingface.co/datasets/lerobot/svla_so100_sorting",
+      "verdict": "unlabeled"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": null,
+      "source_quote": "gripper is a joint position channel, not a separate inversion flag.",
+      "source_url": "https://huggingface.co/datasets/lerobot/svla_so100_sorting",
+      "verdict": "unlabeled"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "identity",
+      "source_quote": "6 joint positions in canonical shoulder->gripper order.",
+      "source_url": "https://huggingface.co/datasets/lerobot/svla_so100_sorting",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://huggingface.co/datasets/lerobot/svla_so100_sorting",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "identified",
+      "actionabi_values": [
+        "absolute"
+      ],
+      "documentation_confidence": "medium",
+      "documented_value": "absolute",
+      "source_quote": "SO-100/101 leader-follower teleoperation records ABSOLUTE follower joint positions (the '.pos' / joint-name channels are position targets).",
+      "source_url": "https://huggingface.co/docs/lerobot/so101",
+      "verdict": "agreement"
+    }
+  },
+  "hf_repo": "lerobot/svla_so100_sorting",
+  "outcome": "unique_absolute",
+  "ranked_best": [
+    {
+      "lag": 3,
+      "median_scale": 0.9980430303614256,
+      "nrmse": 0.09172450807287191,
+      "target": "absolute"
+    },
+    {
+      "lag": 4,
+      "median_scale": 0.9980421608908593,
+      "nrmse": 0.09251190565536006,
+      "target": "absolute"
+    },
+    {
+      "lag": 2,
+      "median_scale": 0.9975045658287317,
+      "nrmse": 0.1033788354907615,
+      "target": "absolute"
+    },
+    {
+      "lag": 5,
+      "median_scale": 0.9975417442670608,
+      "nrmse": 0.10488723396033277,
+      "target": "absolute"
+    },
+    {
+      "lag": 1,
+      "median_scale": 0.9964334444127945,
+      "nrmse": 0.12364477420305604,
+      "target": "absolute"
+    },
+    {
+      "lag": 6,
+      "median_scale": 0.9965559094411615,
+      "nrmse": 0.12480132950831963,
+      "target": "absolute"
+    }
+  ],
+  "revision": "13870ca969084d8ce4d8a0391b06cead78e804ba",
+  "rows_evaluated": 35713,
+  "runtime_seconds": 0.26561177300754935,
+  "state_dim": 6
+}

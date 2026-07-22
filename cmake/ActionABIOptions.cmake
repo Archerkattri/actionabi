@@ -1,0 +1,6 @@
+option(ACTIONABI_ENABLE_CUDA "Build the optional CUDA scoring backend" OFF)
+option(ACTIONABI_ENABLE_PINOCCHIO "Build optional URDF/FK evidence" OFF)
+option(ACTIONABI_BUILD_TESTS "Build and register ActionABI tests" ON)
+option(ACTIONABI_BUILD_BENCHMARKS "Build ActionABI benchmarks" OFF)
+option(ACTIONABI_BUILD_PYBIND "Build the pybind11 ActionShift scoring backend" OFF)
+option(ACTIONABI_CELLS_ENABLE_CUDA "Add a CUDA path to the pybind scoring backend" OFF)

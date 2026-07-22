@@ -1,0 +1,79 @@
+{
+  "action_dim": 7,
+  "actionabi_best_fit_frame": "world",
+  "cartesian_translation_frame": "world",
+  "cartesian_translation_nrmse": 0.0,
+  "cli_corroboration": null,
+  "config_action_names": "motor_0..motor_6 (RLDS names stripped)",
+  "converter_status": "blocked",
+  "dataset": "roboturk",
+  "ecosystem": "OXE-port",
+  "episodes_evaluated": 1995,
+  "equivalence_fields": {
+    "frame": "partially_identified",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "partially_identified"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_best_fit": "world",
+      "actionabi_status": "partially_identified",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "world",
+      "source_quote": "translation channel named world_vector -> world/base frame.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/roboturk",
+      "verdict": "partial_consistent"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "high",
+      "documented_value": "documented",
+      "source_quote": "gripper_closedness_action (OXE closedness convention).",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/roboturk",
+      "verdict": "abstention_consistent"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "identity",
+      "source_quote": "action channels documented in canonical (source) order.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/roboturk",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/roboturk",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "partially_identified",
+      "actionabi_values": [
+        "delta",
+        "velocity"
+      ],
+      "documentation_confidence": "high",
+      "documented_value": "delta",
+      "source_quote": "action: world_vector(3) + rotation_delta(3) + gripper_closedness_action(1); rotation_delta named as a delta -> delta EE.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/roboturk",
+      "verdict": "partial_consistent"
+    }
+  },
+  "hf_repo": "lerobot/roboturk",
+  "outcome": "partial_cartesian",
+  "ranked_best": [],
+  "revision": "d38c91900282c484d91710a1c4581597476cbc64",
+  "rows_evaluated": 187507,
+  "runtime_seconds": 1.1196984960115515,
+  "state_dim": 8
+}

@@ -1,0 +1,79 @@
+{
+  "action_dim": 7,
+  "actionabi_best_fit_frame": "world",
+  "cartesian_translation_frame": "world",
+  "cartesian_translation_nrmse": 0.0,
+  "cli_corroboration": null,
+  "config_action_names": "motor_0..motor_6 (RLDS names stripped)",
+  "converter_status": "blocked",
+  "dataset": "nyu_door_opening_surprising_effectiveness",
+  "ecosystem": "OXE-port",
+  "episodes_evaluated": 484,
+  "equivalence_fields": {
+    "frame": "partially_identified",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "partially_identified"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_best_fit": "world",
+      "actionabi_status": "partially_identified",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "world",
+      "source_quote": "world_vector naming; frame origin not explicitly stated.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_door_opening_surprising_effectiveness",
+      "verdict": "partial_consistent"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "documented",
+      "source_quote": "gripper_closedness_action (0.0=open, 1.0=closed).",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_door_opening_surprising_effectiveness",
+      "verdict": "abstention_consistent"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "identity",
+      "source_quote": "action channels documented in canonical (source) order.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_door_opening_surprising_effectiveness",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_door_opening_surprising_effectiveness",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "partially_identified",
+      "actionabi_values": [
+        "delta",
+        "velocity"
+      ],
+      "documentation_confidence": "high",
+      "documented_value": "velocity",
+      "source_quote": "action: world_vector='Velocity in XYZ', rotation_delta='Angular velocity around x,y,z' + gripper_closedness -> Cartesian velocity.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_door_opening_surprising_effectiveness",
+      "verdict": "partial_consistent"
+    }
+  },
+  "hf_repo": "lerobot/nyu_door_opening_surprising_effectiveness",
+  "outcome": "partial_cartesian",
+  "ranked_best": [],
+  "revision": "4ae8986f61485f5026fcff7269fff047149e3cba",
+  "rows_evaluated": 20405,
+  "runtime_seconds": 0.11927849898347631,
+  "state_dim": 8
+}

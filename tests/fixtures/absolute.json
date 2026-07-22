@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "target": "absolute_position",
+  "space": "joint",
+  "frame": "unspecified",
+  "permutation": [0],
+  "sign": [1],
+  "scale": [1.0],
+  "lag_steps": 0,
+  "gripper_inverted": false
+}

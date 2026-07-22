@@ -1,0 +1,75 @@
+{
+  "action_dim": 7,
+  "actionabi_best_fit_frame": null,
+  "cartesian_translation_frame": "world",
+  "cartesian_translation_nrmse": 1.022397050224487,
+  "cli_corroboration": null,
+  "config_action_names": "motor_0..motor_6 (RLDS names stripped)",
+  "converter_status": "blocked",
+  "dataset": "berkeley_fanuc_manipulation",
+  "ecosystem": "OXE-port",
+  "episodes_evaluated": 415,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "unsupported"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "tool",
+      "source_quote": "delta end-effector pose; base-vs-tool frame not stated in the RLDS feature doc.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_fanuc_manipulation",
+      "verdict": "abstention_consistent"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "6-DoF action only; gripper is observed, not actuated.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_fanuc_manipulation",
+      "verdict": "unlabeled"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "identity",
+      "source_quote": "action channels documented in canonical (source) order.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_fanuc_manipulation",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_fanuc_manipulation",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "high",
+      "documented_value": "delta",
+      "source_quote": "action: 'Robot action, consists of [dx, dy, dz] and [droll, dpitch, dyaw]' -> delta end-effector pose.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_fanuc_manipulation",
+      "verdict": "abstention_consistent"
+    }
+  },
+  "hf_repo": "lerobot/berkeley_fanuc_manipulation",
+  "outcome": "report_without_unique_requirement",
+  "ranked_best": [],
+  "revision": "51bdefb6c7f24659fb3cfef61ba70246062193c2",
+  "rows_evaluated": 62613,
+  "runtime_seconds": 0.47537244399427436,
+  "state_dim": 8
+}

@@ -1,0 +1,75 @@
+{
+  "converter_status": "blocked",
+  "coverage_note": "No labeled real-data contract ground truth; synthetic calibration does not transfer automatically.",
+  "dataset": "droid",
+  "empirical_coverage": null,
+  "episodes": 100,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "unsupported"
+  },
+  "evidence_assessment": {
+    "clinical / device relevance": "not evaluated; no clinical or safety certification",
+    "missing population": "robots, operators, and tasks outside this dataset revision",
+    "missing sensor modality": "torque, controller internals, and calibrated frame metadata",
+    "missing validation setting": "active on-robot separating probes and deployment shift",
+    "strong evidence": "none sufficient for a unique contract",
+    "weak evidence": "finite diagonal-affine grammar and a single validation corpus"
+  },
+  "expected_outcome": "report_without_unique_requirement",
+  "matched_expected_outcome": true,
+  "outcome": "report_without_unique_requirement",
+  "probe_utility": {
+    "note": "A probe is a proposal only; execute it only after device-specific bounds are supplied.",
+    "status": "insufficient_observability"
+  },
+  "ranked_hypotheses": [
+    {
+      "lag": 4,
+      "median_scale": 0.28054111709567325,
+      "nrmse": 0.739095385070447,
+      "target": "velocity"
+    },
+    {
+      "lag": 4,
+      "median_scale": 0.0748109657404289,
+      "nrmse": 0.7390953891335529,
+      "target": "delta"
+    },
+    {
+      "lag": 5,
+      "median_scale": 0.09317685692738671,
+      "nrmse": 0.7391491260412384,
+      "target": "delta"
+    },
+    {
+      "lag": 5,
+      "median_scale": 0.2795305675874772,
+      "nrmse": 0.7391491285985217,
+      "target": "velocity"
+    },
+    {
+      "lag": 6,
+      "median_scale": 0.11068269824797072,
+      "nrmse": 0.7434077433571203,
+      "target": "delta"
+    },
+    {
+      "lag": 6,
+      "median_scale": 0.2767067443375788,
+      "nrmse": 0.7434077484054629,
+      "target": "velocity"
+    }
+  ],
+  "rows": 32212,
+  "runtime_seconds": 0.24691296799574047,
+  "schema_version": "1.0",
+  "source_filename": "droid",
+  "source_sha256": "1fc83e0681cee46fe7229941670c1427c5f56000a595c8c7648c45fbfc3b4138",
+  "worst_residuals": []
+}

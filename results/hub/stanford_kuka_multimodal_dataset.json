@@ -1,0 +1,119 @@
+{
+  "action_dim": 7,
+  "actionabi_best_fit_frame": null,
+  "cartesian_translation_frame": null,
+  "cartesian_translation_nrmse": null,
+  "cli_corroboration": {
+    "heldout_loss": {
+      "absolute": 0.10426601614314672,
+      "delta": 0.000787305895235946,
+      "velocity": 0.0019949012323695597
+    },
+    "min_loss_target": "delta"
+  },
+  "config_action_names": "motor_0..motor_6 (RLDS names stripped)",
+  "converter_status": "blocked",
+  "dataset": "stanford_kuka_multimodal_dataset",
+  "ecosystem": "OXE-port",
+  "episodes_evaluated": 3000,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "unsupported"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "documentation dimension mismatch (see target).",
+      "source_url": "",
+      "verdict": "unlabeled"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "documentation dimension mismatch.",
+      "source_url": "",
+      "verdict": "unlabeled"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "documentation dimension mismatch.",
+      "source_url": "",
+      "verdict": "unlabeled"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "documentation dimension mismatch.",
+      "source_url": "",
+      "verdict": "unlabeled"
+    },
+    "target": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "TFDS action is 4-dim '[3x EEF position, 1x gripper open/close]' but the LeRobot action tensor is 7-dim -> the documented convention does not describe the shipped action; treated as documentation-absent.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/stanford_kuka_multimodal_dataset_converted_externally_to_rlds",
+      "verdict": "unlabeled"
+    }
+  },
+  "hf_repo": "lerobot/stanford_kuka_multimodal_dataset",
+  "outcome": "report_without_unique_requirement",
+  "ranked_best": [
+    {
+      "lag": 1,
+      "median_scale": 8.108336830807207e-05,
+      "nrmse": 0.9675180876598994,
+      "target": "delta"
+    },
+    {
+      "lag": 1,
+      "median_scale": 0.0016216673791097577,
+      "nrmse": 0.9675180878051151,
+      "target": "velocity"
+    },
+    {
+      "lag": 2,
+      "median_scale": 0.0002246084861771575,
+      "nrmse": 0.979830168898029,
+      "target": "delta"
+    },
+    {
+      "lag": 2,
+      "median_scale": 0.0022460841769706766,
+      "nrmse": 0.9798301690000305,
+      "target": "velocity"
+    },
+    {
+      "lag": 3,
+      "median_scale": 0.0022106693219358957,
+      "nrmse": 0.9842440375966466,
+      "target": "velocity"
+    },
+    {
+      "lag": 3,
+      "median_scale": 0.0003316003857869656,
+      "nrmse": 0.984244037599785,
+      "target": "delta"
+    }
+  ],
+  "revision": "93927d10c07233ddbe3d6e3cec433af9430121c7",
+  "rows_evaluated": 149985,
+  "runtime_seconds": 1.2547571230097674,
+  "state_dim": 7
+}

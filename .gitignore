@@ -1,0 +1,10 @@
+/build*/
+__pycache__/
+*.py[cod]
+/results/sprint/*/raw.jsonl
+# Labeled-sim bridge run: large regenerable intermediates stay local; the compact
+# summary.json and per-trace raw.jsonl are committed.
+/results/labeled_sim/cli_reports/
+/results/labeled_sim/grammar_basis/
+/results/labeled_sim_postfix/cli_reports/
+/results/labeled_sim_postfix/grammar_basis/

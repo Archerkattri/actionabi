@@ -1,0 +1,119 @@
+{
+  "action_dim": 4,
+  "actionabi_best_fit_frame": null,
+  "cartesian_translation_frame": null,
+  "cartesian_translation_nrmse": null,
+  "cli_corroboration": {
+    "heldout_loss": {
+      "absolute": 0.20153667377029907,
+      "delta": 0.19945887019516198,
+      "velocity": 0.22690287253366978
+    },
+    "min_loss_target": "delta"
+  },
+  "config_action_names": "x,y,z,gripper (semantic EE-axis names retained in config)",
+  "converter_status": "blocked",
+  "dataset": "metaworld_mt50",
+  "ecosystem": "MetaWorld",
+  "episodes_evaluated": 10,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "unsupported"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "base",
+      "source_quote": "delta EE position in the world/base frame.",
+      "source_url": "https://github.com/Farama-Foundation/Metaworld",
+      "verdict": "abstention_consistent"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "documented",
+      "source_quote": "4th dim = gripper, continuous in [-1,1].",
+      "source_url": "https://github.com/Farama-Foundation/Metaworld",
+      "verdict": "abstention_consistent"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "high",
+      "documented_value": "identity",
+      "source_quote": "action = [x,y,z,gripper] in canonical order (config-documented).",
+      "source_url": "https://huggingface.co/datasets/lerobot/metaworld_mt50",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://huggingface.co/datasets/lerobot/metaworld_mt50",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "high",
+      "documented_value": "delta",
+      "source_quote": "MetaWorld action = 4-D: 3-D delta end-effector position (x,y,z) + gripper, normalized to [-1,1].",
+      "source_url": "https://github.com/Farama-Foundation/Metaworld",
+      "verdict": "abstention_consistent"
+    }
+  },
+  "hf_repo": "lerobot/metaworld_mt50",
+  "outcome": "report_without_unique_requirement",
+  "ranked_best": [
+    {
+      "lag": 6,
+      "median_scale": 0.03116218942167503,
+      "nrmse": 0.5912322801093846,
+      "target": "delta"
+    },
+    {
+      "lag": 6,
+      "median_scale": 0.41549584738470435,
+      "nrmse": 0.5912322886550437,
+      "target": "velocity"
+    },
+    {
+      "lag": 5,
+      "median_scale": 0.41527094511276097,
+      "nrmse": 0.5977309377551121,
+      "target": "velocity"
+    },
+    {
+      "lag": 5,
+      "median_scale": 0.02595443393911219,
+      "nrmse": 0.5977309391035022,
+      "target": "delta"
+    },
+    {
+      "lag": 4,
+      "median_scale": 0.4130434677397241,
+      "nrmse": 0.6092917182402334,
+      "target": "velocity"
+    },
+    {
+      "lag": 4,
+      "median_scale": 0.020652173188389654,
+      "nrmse": 0.6092917254830819,
+      "target": "delta"
+    }
+  ],
+  "revision": "a59f742d218c903328164257ecf180f9b18018a1",
+  "rows_evaluated": 879,
+  "runtime_seconds": 0.10430160898249596,
+  "state_dim": 4
+}

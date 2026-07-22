@@ -1,0 +1,75 @@
+{
+  "action_dim": 4,
+  "actionabi_best_fit_frame": null,
+  "cartesian_translation_frame": "world",
+  "cartesian_translation_nrmse": 0.6278903089884211,
+  "cli_corroboration": null,
+  "config_action_names": "motor_0..motor_3 (RLDS names stripped)",
+  "converter_status": "blocked",
+  "dataset": "ucsd_pick_and_place_dataset",
+  "ecosystem": "OXE-port",
+  "episodes_evaluated": 1355,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "unsupported"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "tool",
+      "source_quote": "xArm end-effector (gripper) velocities; base-vs-tool frame not stated.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_pick_and_place_dataset_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "documented",
+      "source_quote": "1x gripper open/close torque.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_pick_and_place_dataset_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "identity",
+      "source_quote": "action channels documented in canonical (source) order.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_pick_and_place_dataset_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_pick_and_place_dataset_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "high",
+      "documented_value": "velocity",
+      "source_quote": "action(4): 'Robot action, consists of [3x gripper velocities, 1x gripper open/close torque]' -> velocity.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_pick_and_place_dataset_converted_externally_to_rlds",
+      "verdict": "abstention_consistent"
+    }
+  },
+  "hf_repo": "lerobot/ucsd_pick_and_place_dataset",
+  "outcome": "report_without_unique_requirement",
+  "ranked_best": [],
+  "revision": "5af7ee806291f5b95eafafe29eaf1d31012fcc03",
+  "rows_evaluated": 67750,
+  "runtime_seconds": 0.4756425890082028,
+  "state_dim": 7
+}

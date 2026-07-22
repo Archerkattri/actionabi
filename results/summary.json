@@ -1,0 +1,13 @@
+{
+  "datasets": [
+    "aloha",
+    "droid",
+    "hydra",
+    "pusht",
+    "ur5",
+    "xarm"
+  ],
+  "passed": true,
+  "schema_version": "1.0",
+  "seed": 20260718
+}

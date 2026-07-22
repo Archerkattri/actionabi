@@ -1,0 +1,75 @@
+{
+  "action_dim": 7,
+  "actionabi_best_fit_frame": null,
+  "cartesian_translation_frame": "tool_xyzw",
+  "cartesian_translation_nrmse": 0.5891997350896555,
+  "cli_corroboration": null,
+  "config_action_names": "motor_0..motor_6 (semantic RLDS names stripped by LeRobot v3.0 conversion)",
+  "converter_status": "blocked",
+  "dataset": "berkeley_cable_routing",
+  "ecosystem": "OXE-port",
+  "episodes_evaluated": 153,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "unsupported"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "world",
+      "source_quote": "the translation channel is named world_vector (velocity in XYZ) -> world/base frame.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_cable_routing",
+      "verdict": "abstention_consistent"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "cable-routing action has no gripper channel.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_cable_routing",
+      "verdict": "unlabeled"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "identity",
+      "source_quote": "action channels documented in canonical (source) order.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_cable_routing",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_cable_routing",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "high",
+      "documented_value": "velocity",
+      "source_quote": "action: world_vector = 'Velocity in XYZ', rotation_delta = 'Angular velocity about the z axis' -> Cartesian velocity command.",
+      "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_cable_routing",
+      "verdict": "abstention_consistent"
+    }
+  },
+  "hf_repo": "lerobot/berkeley_cable_routing",
+  "outcome": "report_without_unique_requirement",
+  "ranked_best": [],
+  "revision": "20a7774a714a5daf56b220e01635425f2cb9745b",
+  "rows_evaluated": 3998,
+  "runtime_seconds": 0.1038630070106592,
+  "state_dim": 8
+}

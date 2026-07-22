@@ -1,0 +1,3014 @@
+{
+  "aggregate": {
+    "abstention_consistent": 92,
+    "contradictions": 0,
+    "datasets_audited": 29,
+    "equivalence_consistent": 3,
+    "false_unique_certifications": 0,
+    "flagged_partial_discrepancies": 2,
+    "partial_consistent": 11,
+    "scored_field_labels": 112,
+    "unique_certifications_correct": 4,
+    "unique_field_certifications": 4,
+    "verdict_counts": {
+      "abstention_consistent": 92,
+      "agreement": 4,
+      "equivalence_consistent": 3,
+      "partial_consistent": 11,
+      "partial_discrepant": 2,
+      "unlabeled": 33
+    }
+  },
+  "datasets": {
+    "aloha_mobile_cabinet": {
+      "action_dim": 14,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 0.004111771128948562,
+          "delta": 0.18278846450685948,
+          "velocity": 0.25103395723949745
+        },
+        "min_loss_target": "absolute"
+      },
+      "config_action_names": "left_waist..left_gripper,right_waist..right_gripper (14-DoF arms; Mobile-ALOHA base dims NOT in this action)",
+      "converter_status": "blocked",
+      "dataset": "aloha_mobile_cabinet",
+      "ecosystem": "ALOHA",
+      "episodes_evaluated": 85,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "ambiguous"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "14-DoF joint-space action; no Cartesian frame applies.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": null,
+          "source_quote": "gripper is a joint dimension (ALOHA 0=closed,1=open), not a separate inversion flag.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "14 joint angles in canonical left-then-right arm order.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "ambiguous",
+          "actionabi_values": [
+            "absolute",
+            "episode_relative"
+          ],
+          "documentation_confidence": "high",
+          "documented_value": "absolute",
+          "source_quote": "ACT/ALOHA commands ABSOLUTE target joint positions to the position-controlled 14-DoF bimanual ViperX arms.",
+          "source_url": "https://www.roboticsproceedings.org/rss19/p016.pdf",
+          "verdict": "equivalence_consistent"
+        }
+      },
+      "hf_repo": "lerobot/aloha_mobile_cabinet",
+      "outcome": "absolute_episode_relative_equivalence",
+      "ranked_best": [
+        {
+          "lag": 6,
+          "median_scale": 0.9982289360727123,
+          "nrmse": 0.18261888158876305,
+          "target": "absolute"
+        },
+        {
+          "lag": 6,
+          "median_scale": 0.9982833114857728,
+          "nrmse": 0.18272583614268942,
+          "target": "episode_relative"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.9980420233842265,
+          "nrmse": 0.18427840189102676,
+          "target": "absolute"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.9980963435895389,
+          "nrmse": 0.1843847832063006,
+          "target": "episode_relative"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.9976444629717329,
+          "nrmse": 0.18860481648249156,
+          "target": "absolute"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.9976956911226144,
+          "nrmse": 0.1887090825003359,
+          "target": "episode_relative"
+        }
+      ],
+      "revision": "7a752b39f7e69de7e38aee485a6bab07528a061a",
+      "rows_evaluated": 127500,
+      "runtime_seconds": 1.8722041069995612,
+      "state_dim": 14
+    },
+    "aloha_sim_insertion_human": {
+      "action_dim": 14,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 0.008177400808583259,
+          "delta": 0.09290103858179638,
+          "velocity": 0.13700614684474272
+        },
+        "min_loss_target": "absolute"
+      },
+      "config_action_names": "left_waist..left_gripper,right_waist..right_gripper (semantic joint names)",
+      "converter_status": "blocked",
+      "dataset": "aloha_sim_insertion_human",
+      "ecosystem": "ALOHA",
+      "episodes_evaluated": 50,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "ambiguous"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "14-DoF joint-space action; no Cartesian frame applies.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": null,
+          "source_quote": "gripper is a joint dimension (ALOHA 0=closed,1=open), not a separate inversion flag.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "14 joint angles in canonical left-then-right arm order.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "ambiguous",
+          "actionabi_values": [
+            "absolute",
+            "episode_relative"
+          ],
+          "documentation_confidence": "high",
+          "documented_value": "absolute",
+          "source_quote": "ACT/ALOHA commands ABSOLUTE target joint positions to the position-controlled 14-DoF bimanual ViperX arms.",
+          "source_url": "https://www.roboticsproceedings.org/rss19/p016.pdf",
+          "verdict": "equivalence_consistent"
+        }
+      },
+      "hf_repo": "lerobot/aloha_sim_insertion_human",
+      "outcome": "absolute_episode_relative_equivalence",
+      "ranked_best": [
+        {
+          "lag": 4,
+          "median_scale": 0.989909312701598,
+          "nrmse": 0.26126618951037645,
+          "target": "absolute"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.9899093127015985,
+          "nrmse": 0.2612661895103765,
+          "target": "episode_relative"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.9822966175770872,
+          "nrmse": 0.2619081268450767,
+          "target": "absolute"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.9822966175770864,
+          "nrmse": 0.2619081268450767,
+          "target": "episode_relative"
+        },
+        {
+          "lag": 3,
+          "median_scale": 0.991501759651212,
+          "nrmse": 0.26304636455428065,
+          "target": "absolute"
+        },
+        {
+          "lag": 3,
+          "median_scale": 0.9915017596512121,
+          "nrmse": 0.26304636455428065,
+          "target": "episode_relative"
+        }
+      ],
+      "revision": "cc571a3c661df81b566dbfde3d5c1e85fcdf7884",
+      "rows_evaluated": 25000,
+      "runtime_seconds": 0.320557466999162,
+      "state_dim": 14
+    },
+    "aloha_sim_transfer_cube_human": {
+      "action_dim": 14,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 0.005004042444980947,
+          "delta": 0.14845778641927004,
+          "velocity": 0.1923130235305356
+        },
+        "min_loss_target": "absolute"
+      },
+      "config_action_names": "left_waist..left_gripper,right_waist..right_gripper (semantic joint names)",
+      "converter_status": "blocked",
+      "dataset": "aloha_sim_transfer_cube_human",
+      "ecosystem": "ALOHA",
+      "episodes_evaluated": 50,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "ambiguous"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "14-DoF joint-space action; no Cartesian frame applies.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": null,
+          "source_quote": "gripper is a joint dimension (ALOHA 0=closed,1=open), not a separate inversion flag.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "14 joint angles in canonical left-then-right arm order.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "ambiguous",
+          "actionabi_values": [
+            "absolute",
+            "episode_relative"
+          ],
+          "documentation_confidence": "high",
+          "documented_value": "absolute",
+          "source_quote": "ACT/ALOHA commands ABSOLUTE target joint positions to the position-controlled 14-DoF bimanual ViperX arms.",
+          "source_url": "https://www.roboticsproceedings.org/rss19/p016.pdf",
+          "verdict": "equivalence_consistent"
+        }
+      },
+      "hf_repo": "lerobot/aloha_sim_transfer_cube_human",
+      "outcome": "absolute_episode_relative_equivalence",
+      "ranked_best": [
+        {
+          "lag": 4,
+          "median_scale": 0.99519150933067,
+          "nrmse": 0.24757486692606567,
+          "target": "absolute"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.9951915093306698,
+          "nrmse": 0.24757486692606567,
+          "target": "episode_relative"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.9935977163728813,
+          "nrmse": 0.2491155497131154,
+          "target": "absolute"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.9935977163728812,
+          "nrmse": 0.2491155497131154,
+          "target": "episode_relative"
+        },
+        {
+          "lag": 3,
+          "median_scale": 0.9974848942373251,
+          "nrmse": 0.24925882122909576,
+          "target": "absolute"
+        },
+        {
+          "lag": 3,
+          "median_scale": 0.9974848942373246,
+          "nrmse": 0.24925882122909576,
+          "target": "episode_relative"
+        }
+      ],
+      "revision": "6a43d500f101255823a9d2b9dc244eeb01a2cd31",
+      "rows_evaluated": 20000,
+      "runtime_seconds": 0.2631304440146778,
+      "state_dim": 14
+    },
+    "aloha_static_battery": {
+      "action_dim": 14,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 0.0002903036505562403,
+          "delta": 0.09022223913684242,
+          "velocity": 0.11983222158344616
+        },
+        "min_loss_target": "absolute"
+      },
+      "config_action_names": "motor_0..motor_13 (semantic joint names STRIPPED despite ALOHA robot -- intra-ecosystem config inconsistency)",
+      "converter_status": "blocked",
+      "dataset": "aloha_static_battery",
+      "ecosystem": "ALOHA",
+      "episodes_evaluated": 49,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "14-DoF joint-space action; no Cartesian frame applies.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": null,
+          "source_quote": "gripper is a joint dimension (ALOHA 0=closed,1=open), not a separate inversion flag.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "14 joint angles in canonical left-then-right arm order.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "absolute",
+          "source_quote": "ACT/ALOHA commands ABSOLUTE target joint positions to the position-controlled 14-DoF bimanual ViperX arms.",
+          "source_url": "https://www.roboticsproceedings.org/rss19/p016.pdf",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/aloha_static_battery",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [
+        {
+          "lag": 4,
+          "median_scale": 0.9958050940378607,
+          "nrmse": 0.13467783199615663,
+          "target": "absolute"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.9944352916876128,
+          "nrmse": 0.13497482564148583,
+          "target": "absolute"
+        },
+        {
+          "lag": 6,
+          "median_scale": 0.9938686523504501,
+          "nrmse": 0.13940814892328504,
+          "target": "absolute"
+        },
+        {
+          "lag": 3,
+          "median_scale": 0.9932449286606209,
+          "nrmse": 0.13944164559015862,
+          "target": "absolute"
+        },
+        {
+          "lag": 2,
+          "median_scale": 0.9925460334826945,
+          "nrmse": 0.15001227198292588,
+          "target": "absolute"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.9970521988791365,
+          "nrmse": 0.15094923589463755,
+          "target": "episode_relative"
+        }
+      ],
+      "revision": "06dc3da83c4fd3d1889b00f1dfd3780da8421f64",
+      "rows_evaluated": 29400,
+      "runtime_seconds": 0.4122339279856533,
+      "state_dim": 14
+    },
+    "aloha_static_coffee": {
+      "action_dim": 14,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 0.00040051239837268955,
+          "delta": 0.13106302017381674,
+          "velocity": 0.15273402200317826
+        },
+        "min_loss_target": "absolute"
+      },
+      "config_action_names": "left_waist..left_gripper,right_waist..right_gripper (semantic joint names)",
+      "converter_status": "blocked",
+      "dataset": "aloha_static_coffee",
+      "ecosystem": "ALOHA",
+      "episodes_evaluated": 50,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "14-DoF joint-space action; no Cartesian frame applies.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": null,
+          "source_quote": "gripper is a joint dimension (ALOHA 0=closed,1=open), not a separate inversion flag.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "14 joint angles in canonical left-then-right arm order.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "absolute",
+          "source_quote": "ACT/ALOHA commands ABSOLUTE target joint positions to the position-controlled 14-DoF bimanual ViperX arms.",
+          "source_url": "https://www.roboticsproceedings.org/rss19/p016.pdf",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/aloha_static_coffee",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [
+        {
+          "lag": 4,
+          "median_scale": 0.9997924406567213,
+          "nrmse": 0.05345849527377675,
+          "target": "absolute"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.9998203855960341,
+          "nrmse": 0.05475025494159845,
+          "target": "episode_relative"
+        },
+        {
+          "lag": 3,
+          "median_scale": 0.9974363387956346,
+          "nrmse": 0.05579303978017423,
+          "target": "absolute"
+        },
+        {
+          "lag": 3,
+          "median_scale": 0.9984300302013862,
+          "nrmse": 0.057055294217124526,
+          "target": "episode_relative"
+        },
+        {
+          "lag": 5,
+          "median_scale": 1.0000367851846068,
+          "nrmse": 0.057652605138716104,
+          "target": "absolute"
+        },
+        {
+          "lag": 5,
+          "median_scale": 1.0000917006786998,
+          "nrmse": 0.05883208766432093,
+          "target": "episode_relative"
+        }
+      ],
+      "revision": "b144896feb1f37398a862927b22cd3abdf005a6b",
+      "rows_evaluated": 55000,
+      "runtime_seconds": 0.7644434070098214,
+      "state_dim": 14
+    },
+    "aloha_static_cups_open": {
+      "action_dim": 14,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 0.0003849544916174312,
+          "delta": 0.1245427124353644,
+          "velocity": 0.15938728887906176
+        },
+        "min_loss_target": "absolute"
+      },
+      "config_action_names": "left_waist..left_gripper,right_waist..right_gripper (semantic joint names)",
+      "converter_status": "blocked",
+      "dataset": "aloha_static_cups_open",
+      "ecosystem": "ALOHA",
+      "episodes_evaluated": 50,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "14-DoF joint-space action; no Cartesian frame applies.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": null,
+          "source_quote": "gripper is a joint dimension (ALOHA 0=closed,1=open), not a separate inversion flag.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "14 joint angles in canonical left-then-right arm order.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://tonyzhaozh.github.io/aloha/",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "absolute",
+          "source_quote": "ACT/ALOHA commands ABSOLUTE target joint positions to the position-controlled 14-DoF bimanual ViperX arms.",
+          "source_url": "https://www.roboticsproceedings.org/rss19/p016.pdf",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/aloha_static_cups_open",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [
+        {
+          "lag": 5,
+          "median_scale": 0.9982660235651856,
+          "nrmse": 0.06913180682739843,
+          "target": "absolute"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.9983738840765106,
+          "nrmse": 0.07115983867224311,
+          "target": "absolute"
+        },
+        {
+          "lag": 6,
+          "median_scale": 0.9967767431062089,
+          "nrmse": 0.07752827552042627,
+          "target": "absolute"
+        },
+        {
+          "lag": 3,
+          "median_scale": 0.9960987301065856,
+          "nrmse": 0.08289926629406334,
+          "target": "absolute"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.9990737665080922,
+          "nrmse": 0.08313500616313912,
+          "target": "episode_relative"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.9985293588527484,
+          "nrmse": 0.08475497265382968,
+          "target": "episode_relative"
+        }
+      ],
+      "revision": "d793c969cf716001dcca18a0842c3d7e9de9e41b",
+      "rows_evaluated": 20000,
+      "runtime_seconds": 0.2672809780051466,
+      "state_dim": 14
+    },
+    "austin_buds_dataset": {
+      "action_dim": 7,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": "world",
+      "cartesian_translation_nrmse": 0.8865818571253619,
+      "cli_corroboration": null,
+      "config_action_names": "motor_0..motor_6 (RLDS names stripped)",
+      "converter_status": "blocked",
+      "dataset": "austin_buds_dataset",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 50,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "tool",
+          "source_quote": "6x EE delta pose; frame not stated.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/austin_buds_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "documented",
+          "source_quote": "1x gripper position channel.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/austin_buds_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action channels documented in canonical (source) order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/austin_buds_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/austin_buds_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "delta",
+          "source_quote": "action(7): 'Robot action, consists of [6x end effector delta pose, 1x gripper position]' -> delta EE.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/austin_buds_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/austin_buds_dataset",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [],
+      "revision": "d9f9289c349f4985e525bf38f3dea0f1c63ec146",
+      "rows_evaluated": 34112,
+      "runtime_seconds": 0.3403402760159224,
+      "state_dim": 24
+    },
+    "berkeley_cable_routing": {
+      "action_dim": 7,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": "tool_xyzw",
+      "cartesian_translation_nrmse": 0.5891997350896555,
+      "cli_corroboration": null,
+      "config_action_names": "motor_0..motor_6 (semantic RLDS names stripped by LeRobot v3.0 conversion)",
+      "converter_status": "blocked",
+      "dataset": "berkeley_cable_routing",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 153,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "world",
+          "source_quote": "the translation channel is named world_vector (velocity in XYZ) -> world/base frame.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_cable_routing",
+          "verdict": "abstention_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "cable-routing action has no gripper channel.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_cable_routing",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action channels documented in canonical (source) order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_cable_routing",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_cable_routing",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "velocity",
+          "source_quote": "action: world_vector = 'Velocity in XYZ', rotation_delta = 'Angular velocity about the z axis' -> Cartesian velocity command.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_cable_routing",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/berkeley_cable_routing",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [],
+      "revision": "20a7774a714a5daf56b220e01635425f2cb9745b",
+      "rows_evaluated": 3998,
+      "runtime_seconds": 0.1038630070106592,
+      "state_dim": 8
+    },
+    "berkeley_fanuc_manipulation": {
+      "action_dim": 7,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": "world",
+      "cartesian_translation_nrmse": 1.022397050224487,
+      "cli_corroboration": null,
+      "config_action_names": "motor_0..motor_6 (RLDS names stripped)",
+      "converter_status": "blocked",
+      "dataset": "berkeley_fanuc_manipulation",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 415,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "tool",
+          "source_quote": "delta end-effector pose; base-vs-tool frame not stated in the RLDS feature doc.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_fanuc_manipulation",
+          "verdict": "abstention_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "6-DoF action only; gripper is observed, not actuated.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_fanuc_manipulation",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action channels documented in canonical (source) order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_fanuc_manipulation",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_fanuc_manipulation",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "delta",
+          "source_quote": "action: 'Robot action, consists of [dx, dy, dz] and [droll, dpitch, dyaw]' -> delta end-effector pose.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_fanuc_manipulation",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/berkeley_fanuc_manipulation",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [],
+      "revision": "51bdefb6c7f24659fb3cfef61ba70246062193c2",
+      "rows_evaluated": 62613,
+      "runtime_seconds": 0.47537244399427436,
+      "state_dim": 8
+    },
+    "berkeley_mvp": {
+      "action_dim": 8,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": "world",
+      "cartesian_translation_nrmse": 0.7872941096592748,
+      "cli_corroboration": null,
+      "config_action_names": "motor_0..motor_7 (RLDS names stripped)",
+      "converter_status": "blocked",
+      "dataset": "berkeley_mvp",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 480,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "joint-space action; no Cartesian frame applies.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_mvp_converted_externally_to_rlds",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "documented",
+          "source_quote": "1x gripper binary state (1 = closed, 0 = open).",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_mvp_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action channels documented in canonical (source) order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_mvp_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_mvp_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "delta",
+          "source_quote": "action(8): 'Robot action, consists of [7 delta joint pos, 1x gripper binary state]' -> delta JOINT positions.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_mvp_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/berkeley_mvp",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [],
+      "revision": "076135b96e92917da3404c2aa3d97e36f312cf73",
+      "rows_evaluated": 45308,
+      "runtime_seconds": 0.4107055600034073,
+      "state_dim": 15
+    },
+    "berkeley_rpt": {
+      "action_dim": 8,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 0.5213290814823679,
+          "delta": 0.02979895946108505,
+          "velocity": 0.046563920032970454
+        },
+        "min_loss_target": "delta"
+      },
+      "config_action_names": "motor_0..motor_7 (RLDS names stripped)",
+      "converter_status": "blocked",
+      "dataset": "berkeley_rpt",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 908,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "joint-space action; no Cartesian frame applies.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_rpt_converted_externally_to_rlds",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "documented",
+          "source_quote": "1x gripper binary state (1 = closed, 0 = open).",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_rpt_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action channels documented in canonical (source) order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_rpt_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_rpt_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "delta",
+          "source_quote": "action(8): 'Robot action, consists of [7 delta joint pos, 1x gripper binary state]' -> delta JOINT positions.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/berkeley_rpt_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/berkeley_rpt",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [
+        {
+          "lag": 1,
+          "median_scale": 0.99999999999637,
+          "nrmse": 0.35306142163734466,
+          "target": "delta"
+        },
+        {
+          "lag": 1,
+          "median_scale": 29.999999845307492,
+          "nrmse": 0.35306142217675435,
+          "target": "velocity"
+        },
+        {
+          "lag": 2,
+          "median_scale": 29.243671381820377,
+          "nrmse": 0.4137681716097258,
+          "target": "velocity"
+        },
+        {
+          "lag": 2,
+          "median_scale": 1.94957806144556,
+          "nrmse": 0.4137682248202731,
+          "target": "delta"
+        },
+        {
+          "lag": 3,
+          "median_scale": 28.94544866523738,
+          "nrmse": 0.4338517721434718,
+          "target": "velocity"
+        },
+        {
+          "lag": 3,
+          "median_scale": 2.8945448523622317,
+          "nrmse": 0.43385179926835377,
+          "target": "delta"
+        }
+      ],
+      "revision": "692eff9f1d091c33bfad88d77bf0094a14e6fc76",
+      "rows_evaluated": 392578,
+      "runtime_seconds": 4.105268848972628,
+      "state_dim": 8
+    },
+    "jaco_play": {
+      "action_dim": 7,
+      "actionabi_best_fit_frame": "world",
+      "cartesian_translation_frame": "world",
+      "cartesian_translation_nrmse": 0.2648172066782312,
+      "cli_corroboration": null,
+      "config_action_names": "motor_0..motor_6 (RLDS names stripped)",
+      "converter_status": "blocked",
+      "dataset": "jaco_play",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 1085,
+      "equivalence_fields": {
+        "frame": "partially_identified",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "partially_identified"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_best_fit": "world",
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "world",
+          "source_quote": "translation channel named world_vector -> world frame.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/jaco_play",
+          "verdict": "partial_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "documented",
+          "source_quote": "gripper_closedness_action (OXE closedness convention).",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/jaco_play",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action channels documented in canonical (source) order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/jaco_play",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/jaco_play",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [
+            "delta",
+            "velocity"
+          ],
+          "documentation_confidence": "high",
+          "documented_value": "delta",
+          "source_quote": "action: world_vector(3) + gripper_closedness_action(1) + terminate_episode(3); world_vector is a 3D motion delta (no rotation channel).",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/jaco_play",
+          "verdict": "partial_consistent"
+        }
+      },
+      "hf_repo": "lerobot/jaco_play",
+      "outcome": "partial_cartesian",
+      "ranked_best": [],
+      "revision": "265773f4d24610e89040a9e11e1e39cbf4c8a5db",
+      "rows_evaluated": 77965,
+      "runtime_seconds": 0.5786968969914597,
+      "state_dim": 8
+    },
+    "libero": {
+      "action_dim": 7,
+      "actionabi_best_fit_frame": "world",
+      "cartesian_translation_frame": "world",
+      "cartesian_translation_nrmse": 0.3012209222778378,
+      "cli_corroboration": null,
+      "config_action_names": "'actions' (single opaque name -- config-level convention absent)",
+      "converter_status": "blocked",
+      "dataset": "libero",
+      "ecosystem": "LIBERO",
+      "episodes_evaluated": 117,
+      "equivalence_fields": {
+        "frame": "partially_identified",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "partially_identified"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_best_fit": "world",
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "tool",
+          "source_quote": "OSC_POSE delta in the controller/EE frame.",
+          "source_url": "https://libero-project.github.io/",
+          "verdict": "partial_discrepant"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "documented",
+          "source_quote": "gripper continuous in [-1,1].",
+          "source_url": "https://libero-project.github.io/",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "identity",
+          "source_quote": "config action name is the opaque 'actions'; canonical order assumed.",
+          "source_url": "https://huggingface.co/datasets/lerobot/libero",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://huggingface.co/datasets/lerobot/libero",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [
+            "delta",
+            "velocity"
+          ],
+          "documentation_confidence": "medium",
+          "documented_value": "delta",
+          "source_quote": "LIBERO uses the robosuite OSC_POSE controller -> 6-D delta EE pose + gripper; the LeRobot config only labels the 7-vector 'actions' (opaque).",
+          "source_url": "https://libero-project.github.io/",
+          "verdict": "partial_consistent"
+        }
+      },
+      "hf_repo": "lerobot/libero",
+      "outcome": "partial_cartesian",
+      "ranked_best": [],
+      "revision": "a1aaacb7f6cd6ee5fb43120f673cebb0cfea7dd4",
+      "rows_evaluated": 32259,
+      "runtime_seconds": 0.22673354600556195,
+      "state_dim": 8
+    },
+    "libero_10": {
+      "action_dim": 7,
+      "actionabi_best_fit_frame": "world",
+      "cartesian_translation_frame": "world",
+      "cartesian_translation_nrmse": 0.3012209222778378,
+      "cli_corroboration": null,
+      "config_action_names": "x,y,z,roll,pitch,yaw,gripper (semantic EE-axis names retained in config)",
+      "converter_status": "blocked",
+      "dataset": "libero_10",
+      "ecosystem": "LIBERO",
+      "episodes_evaluated": 117,
+      "equivalence_fields": {
+        "frame": "partially_identified",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "partially_identified"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_best_fit": "world",
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "tool",
+          "source_quote": "OSC_POSE delta is applied in the controller/EE frame; robosuite default.",
+          "source_url": "https://libero-project.github.io/",
+          "verdict": "partial_discrepant"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "documented",
+          "source_quote": "gripper continuous in [-1,1] (robosuite/OSC).",
+          "source_url": "https://libero-project.github.io/",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "identity",
+          "source_quote": "action = [x,y,z,roll,pitch,yaw,gripper] in canonical order (config-documented).",
+          "source_url": "https://huggingface.co/datasets/lerobot/libero_10",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://huggingface.co/datasets/lerobot/libero_10",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [
+            "delta",
+            "velocity"
+          ],
+          "documentation_confidence": "high",
+          "documented_value": "delta",
+          "source_quote": "config action.names = [x,y,z,roll,pitch,yaw,gripper]; LIBERO uses the robosuite OSC_POSE controller -> delta end-effector pose + gripper.",
+          "source_url": "https://huggingface.co/datasets/lerobot/libero_10",
+          "verdict": "partial_consistent"
+        }
+      },
+      "hf_repo": "lerobot/libero_10",
+      "outcome": "partial_cartesian",
+      "ranked_best": [],
+      "revision": "551d7d86f25edd0ffeda8b60053c15438cfd1d6a",
+      "rows_evaluated": 32259,
+      "runtime_seconds": 0.23027106901281513,
+      "state_dim": 8
+    },
+    "metaworld_mt50": {
+      "action_dim": 4,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 0.20153667377029907,
+          "delta": 0.19945887019516198,
+          "velocity": 0.22690287253366978
+        },
+        "min_loss_target": "delta"
+      },
+      "config_action_names": "x,y,z,gripper (semantic EE-axis names retained in config)",
+      "converter_status": "blocked",
+      "dataset": "metaworld_mt50",
+      "ecosystem": "MetaWorld",
+      "episodes_evaluated": 10,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "base",
+          "source_quote": "delta EE position in the world/base frame.",
+          "source_url": "https://github.com/Farama-Foundation/Metaworld",
+          "verdict": "abstention_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "documented",
+          "source_quote": "4th dim = gripper, continuous in [-1,1].",
+          "source_url": "https://github.com/Farama-Foundation/Metaworld",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "identity",
+          "source_quote": "action = [x,y,z,gripper] in canonical order (config-documented).",
+          "source_url": "https://huggingface.co/datasets/lerobot/metaworld_mt50",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://huggingface.co/datasets/lerobot/metaworld_mt50",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "delta",
+          "source_quote": "MetaWorld action = 4-D: 3-D delta end-effector position (x,y,z) + gripper, normalized to [-1,1].",
+          "source_url": "https://github.com/Farama-Foundation/Metaworld",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/metaworld_mt50",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [
+        {
+          "lag": 6,
+          "median_scale": 0.03116218942167503,
+          "nrmse": 0.5912322801093846,
+          "target": "delta"
+        },
+        {
+          "lag": 6,
+          "median_scale": 0.41549584738470435,
+          "nrmse": 0.5912322886550437,
+          "target": "velocity"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.41527094511276097,
+          "nrmse": 0.5977309377551121,
+          "target": "velocity"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.02595443393911219,
+          "nrmse": 0.5977309391035022,
+          "target": "delta"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.4130434677397241,
+          "nrmse": 0.6092917182402334,
+          "target": "velocity"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.020652173188389654,
+          "nrmse": 0.6092917254830819,
+          "target": "delta"
+        }
+      ],
+      "revision": "a59f742d218c903328164257ecf180f9b18018a1",
+      "rows_evaluated": 879,
+      "runtime_seconds": 0.10430160898249596,
+      "state_dim": 4
+    },
+    "nyu_door_opening_surprising_effectiveness": {
+      "action_dim": 7,
+      "actionabi_best_fit_frame": "world",
+      "cartesian_translation_frame": "world",
+      "cartesian_translation_nrmse": 0.0,
+      "cli_corroboration": null,
+      "config_action_names": "motor_0..motor_6 (RLDS names stripped)",
+      "converter_status": "blocked",
+      "dataset": "nyu_door_opening_surprising_effectiveness",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 484,
+      "equivalence_fields": {
+        "frame": "partially_identified",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "partially_identified"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_best_fit": "world",
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "world",
+          "source_quote": "world_vector naming; frame origin not explicitly stated.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_door_opening_surprising_effectiveness",
+          "verdict": "partial_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "documented",
+          "source_quote": "gripper_closedness_action (0.0=open, 1.0=closed).",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_door_opening_surprising_effectiveness",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action channels documented in canonical (source) order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_door_opening_surprising_effectiveness",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_door_opening_surprising_effectiveness",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [
+            "delta",
+            "velocity"
+          ],
+          "documentation_confidence": "high",
+          "documented_value": "velocity",
+          "source_quote": "action: world_vector='Velocity in XYZ', rotation_delta='Angular velocity around x,y,z' + gripper_closedness -> Cartesian velocity.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_door_opening_surprising_effectiveness",
+          "verdict": "partial_consistent"
+        }
+      },
+      "hf_repo": "lerobot/nyu_door_opening_surprising_effectiveness",
+      "outcome": "partial_cartesian",
+      "ranked_best": [],
+      "revision": "4ae8986f61485f5026fcff7269fff047149e3cba",
+      "rows_evaluated": 20405,
+      "runtime_seconds": 0.11927849898347631,
+      "state_dim": 8
+    },
+    "nyu_franka_play_dataset": {
+      "action_dim": 15,
+      "actionabi_best_fit_frame": "world",
+      "cartesian_translation_frame": "world",
+      "cartesian_translation_nrmse": 5.903392583981132e-09,
+      "cli_corroboration": null,
+      "config_action_names": "motor_0..motor_14 (RLDS names stripped)",
+      "converter_status": "blocked",
+      "dataset": "nyu_franka_play_dataset",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 456,
+      "equivalence_fields": {
+        "frame": "partially_identified",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "partially_identified"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_best_fit": "world",
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "mixed joint-velocity + EE-delta action; single Cartesian frame does not apply.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_franka_play_dataset_converted_externally_to_rlds",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "documented",
+          "source_quote": "1x gripper position channel.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_franka_play_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": null,
+          "source_quote": "mixed layout; canonical permutation not a clean single-space claim.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_franka_play_dataset_converted_externally_to_rlds",
+          "verdict": "unlabeled"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_franka_play_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [
+            "delta",
+            "velocity"
+          ],
+          "documentation_confidence": "medium",
+          "documented_value": "delta",
+          "source_quote": "action(15): '[7x joint velocities, 3x EE delta xyz, 3x EE delta rpy, 1x gripper position, 1x terminate]' -- MIXED joint-velocity + EE-delta.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/nyu_franka_play_dataset_converted_externally_to_rlds",
+          "verdict": "partial_consistent"
+        }
+      },
+      "hf_repo": "lerobot/nyu_franka_play_dataset",
+      "outcome": "partial_cartesian",
+      "ranked_best": [],
+      "revision": "3b2367d09641846e50f865ea54b52b0cdfab4e18",
+      "rows_evaluated": 44875,
+      "runtime_seconds": 0.45165158502641134,
+      "state_dim": 13
+    },
+    "pusht-subtask": {
+      "action_dim": 2,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 8.751400192953811,
+          "delta": 269.20740259459205,
+          "velocity": 270.20977779750035
+        },
+        "min_loss_target": "absolute"
+      },
+      "config_action_names": "motor_0,motor_1 (2D end-effector target)",
+      "converter_status": "blocked",
+      "dataset": "pusht-subtask",
+      "ecosystem": "gym-pusht",
+      "episodes_evaluated": 206,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "identified"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "world",
+          "source_quote": "2D EE target in the fixed workspace/world frame.",
+          "source_url": "https://arxiv.org/abs/2303.04137",
+          "verdict": "abstention_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "PushT has no gripper degree of freedom.",
+          "source_url": "https://huggingface.co/datasets/lerobot/pusht-subtask",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "(x, y) in canonical order.",
+          "source_url": "https://huggingface.co/datasets/lerobot/pusht-subtask",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://huggingface.co/datasets/lerobot/pusht-subtask",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "identified",
+          "actionabi_values": [
+            "absolute"
+          ],
+          "documentation_confidence": "high",
+          "documented_value": "absolute",
+          "source_quote": "PushT action is the ABSOLUTE 2D target position of the cylindrical end-effector (same convention as lerobot/pusht).",
+          "source_url": "https://huggingface.co/docs/lerobot/il_sim",
+          "verdict": "agreement"
+        }
+      },
+      "hf_repo": "lerobot/pusht-subtask",
+      "outcome": "unique_absolute",
+      "ranked_best": [
+        {
+          "lag": 2,
+          "median_scale": 0.9928557029897842,
+          "nrmse": 0.04785451511917413,
+          "target": "absolute"
+        },
+        {
+          "lag": 3,
+          "median_scale": 0.9871164206804535,
+          "nrmse": 0.06539111320227227,
+          "target": "absolute"
+        },
+        {
+          "lag": 1,
+          "median_scale": 0.9912126378461956,
+          "nrmse": 0.12571964260724702,
+          "target": "absolute"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.9744691806073615,
+          "nrmse": 0.14509746321784509,
+          "target": "absolute"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.9559267561482796,
+          "nrmse": 0.2250082337676777,
+          "target": "absolute"
+        },
+        {
+          "lag": 6,
+          "median_scale": 0.9327562087269177,
+          "nrmse": 0.30073142980472434,
+          "target": "absolute"
+        }
+      ],
+      "revision": "184ff45bdafc06900b1dbdca25750e18aefbb0ab",
+      "rows_evaluated": 25650,
+      "runtime_seconds": 0.11738306499319151,
+      "state_dim": 2
+    },
+    "roboturk": {
+      "action_dim": 7,
+      "actionabi_best_fit_frame": "world",
+      "cartesian_translation_frame": "world",
+      "cartesian_translation_nrmse": 0.0,
+      "cli_corroboration": null,
+      "config_action_names": "motor_0..motor_6 (RLDS names stripped)",
+      "converter_status": "blocked",
+      "dataset": "roboturk",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 1995,
+      "equivalence_fields": {
+        "frame": "partially_identified",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "partially_identified"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_best_fit": "world",
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "world",
+          "source_quote": "translation channel named world_vector -> world/base frame.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/roboturk",
+          "verdict": "partial_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "documented",
+          "source_quote": "gripper_closedness_action (OXE closedness convention).",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/roboturk",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action channels documented in canonical (source) order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/roboturk",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/roboturk",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [
+            "delta",
+            "velocity"
+          ],
+          "documentation_confidence": "high",
+          "documented_value": "delta",
+          "source_quote": "action: world_vector(3) + rotation_delta(3) + gripper_closedness_action(1); rotation_delta named as a delta -> delta EE.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/roboturk",
+          "verdict": "partial_consistent"
+        }
+      },
+      "hf_repo": "lerobot/roboturk",
+      "outcome": "partial_cartesian",
+      "ranked_best": [],
+      "revision": "d38c91900282c484d91710a1c4581597476cbc64",
+      "rows_evaluated": 187507,
+      "runtime_seconds": 1.1196984960115515,
+      "state_dim": 8
+    },
+    "stanford_kuka_multimodal_dataset": {
+      "action_dim": 7,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 0.10426601614314672,
+          "delta": 0.000787305895235946,
+          "velocity": 0.0019949012323695597
+        },
+        "min_loss_target": "delta"
+      },
+      "config_action_names": "motor_0..motor_6 (RLDS names stripped)",
+      "converter_status": "blocked",
+      "dataset": "stanford_kuka_multimodal_dataset",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 3000,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "documentation dimension mismatch (see target).",
+          "source_url": "",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "documentation dimension mismatch.",
+          "source_url": "",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "documentation dimension mismatch.",
+          "source_url": "",
+          "verdict": "unlabeled"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "documentation dimension mismatch.",
+          "source_url": "",
+          "verdict": "unlabeled"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "TFDS action is 4-dim '[3x EEF position, 1x gripper open/close]' but the LeRobot action tensor is 7-dim -> the documented convention does not describe the shipped action; treated as documentation-absent.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/stanford_kuka_multimodal_dataset_converted_externally_to_rlds",
+          "verdict": "unlabeled"
+        }
+      },
+      "hf_repo": "lerobot/stanford_kuka_multimodal_dataset",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [
+        {
+          "lag": 1,
+          "median_scale": 8.108336830807207e-05,
+          "nrmse": 0.9675180876598994,
+          "target": "delta"
+        },
+        {
+          "lag": 1,
+          "median_scale": 0.0016216673791097577,
+          "nrmse": 0.9675180878051151,
+          "target": "velocity"
+        },
+        {
+          "lag": 2,
+          "median_scale": 0.0002246084861771575,
+          "nrmse": 0.979830168898029,
+          "target": "delta"
+        },
+        {
+          "lag": 2,
+          "median_scale": 0.0022460841769706766,
+          "nrmse": 0.9798301690000305,
+          "target": "velocity"
+        },
+        {
+          "lag": 3,
+          "median_scale": 0.0022106693219358957,
+          "nrmse": 0.9842440375966466,
+          "target": "velocity"
+        },
+        {
+          "lag": 3,
+          "median_scale": 0.0003316003857869656,
+          "nrmse": 0.984244037599785,
+          "target": "delta"
+        }
+      ],
+      "revision": "93927d10c07233ddbe3d6e3cec433af9430121c7",
+      "rows_evaluated": 149985,
+      "runtime_seconds": 1.2547571230097674,
+      "state_dim": 7
+    },
+    "svla_so100_pickplace": {
+      "action_dim": 6,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 0.8322250159439383,
+          "delta": 46.88528683205748,
+          "velocity": 48.15569175168094
+        },
+        "min_loss_target": "absolute"
+      },
+      "config_action_names": "main_shoulder_pan,main_shoulder_lift,main_elbow_flex,main_wrist_flex,main_wrist_roll,main_gripper",
+      "converter_status": "blocked",
+      "dataset": "svla_so100_pickplace",
+      "ecosystem": "SO-100/101",
+      "episodes_evaluated": 50,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "identified"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "6-DoF joint-space action; no Cartesian frame applies.",
+          "source_url": "https://huggingface.co/datasets/lerobot/svla_so100_pickplace",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": null,
+          "source_quote": "gripper is a joint position channel, not a separate inversion flag.",
+          "source_url": "https://huggingface.co/datasets/lerobot/svla_so100_pickplace",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "6 joint positions in canonical shoulder->gripper order.",
+          "source_url": "https://huggingface.co/datasets/lerobot/svla_so100_pickplace",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://huggingface.co/datasets/lerobot/svla_so100_pickplace",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "identified",
+          "actionabi_values": [
+            "absolute"
+          ],
+          "documentation_confidence": "medium",
+          "documented_value": "absolute",
+          "source_quote": "SO-100/101 leader-follower teleoperation records ABSOLUTE follower joint positions (the '.pos' / joint-name channels are position targets).",
+          "source_url": "https://huggingface.co/docs/lerobot/so101",
+          "verdict": "agreement"
+        }
+      },
+      "hf_repo": "lerobot/svla_so100_pickplace",
+      "outcome": "unique_absolute",
+      "ranked_best": [
+        {
+          "lag": 3,
+          "median_scale": 0.9939193278511018,
+          "nrmse": 0.09045019615353639,
+          "target": "absolute"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.9937866603952822,
+          "nrmse": 0.09151062185015969,
+          "target": "absolute"
+        },
+        {
+          "lag": 2,
+          "median_scale": 0.9927620818637741,
+          "nrmse": 0.10102421735861719,
+          "target": "absolute"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.992478477655293,
+          "nrmse": 0.10316668094636372,
+          "target": "absolute"
+        },
+        {
+          "lag": 1,
+          "median_scale": 0.9903153126883255,
+          "nrmse": 0.12000394032480997,
+          "target": "absolute"
+        },
+        {
+          "lag": 6,
+          "median_scale": 0.9900272100375158,
+          "nrmse": 0.12189729933091499,
+          "target": "absolute"
+        }
+      ],
+      "revision": "728583b5eaf9e739a7f119e2def466fa1d552402",
+      "rows_evaluated": 19631,
+      "runtime_seconds": 0.13879290799377486,
+      "state_dim": 6
+    },
+    "svla_so100_sorting": {
+      "action_dim": 6,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 1.0471339149862784,
+          "delta": 47.04664813466609,
+          "velocity": 48.28274168214331
+        },
+        "min_loss_target": "absolute"
+      },
+      "config_action_names": "main_shoulder_pan,main_shoulder_lift,main_elbow_flex,main_wrist_flex,main_wrist_roll,main_gripper",
+      "converter_status": "blocked",
+      "dataset": "svla_so100_sorting",
+      "ecosystem": "SO-100/101",
+      "episodes_evaluated": 52,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "identified"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "6-DoF joint-space action; no Cartesian frame applies.",
+          "source_url": "https://huggingface.co/datasets/lerobot/svla_so100_sorting",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": null,
+          "source_quote": "gripper is a joint position channel, not a separate inversion flag.",
+          "source_url": "https://huggingface.co/datasets/lerobot/svla_so100_sorting",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "6 joint positions in canonical shoulder->gripper order.",
+          "source_url": "https://huggingface.co/datasets/lerobot/svla_so100_sorting",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://huggingface.co/datasets/lerobot/svla_so100_sorting",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "identified",
+          "actionabi_values": [
+            "absolute"
+          ],
+          "documentation_confidence": "medium",
+          "documented_value": "absolute",
+          "source_quote": "SO-100/101 leader-follower teleoperation records ABSOLUTE follower joint positions (the '.pos' / joint-name channels are position targets).",
+          "source_url": "https://huggingface.co/docs/lerobot/so101",
+          "verdict": "agreement"
+        }
+      },
+      "hf_repo": "lerobot/svla_so100_sorting",
+      "outcome": "unique_absolute",
+      "ranked_best": [
+        {
+          "lag": 3,
+          "median_scale": 0.9980430303614256,
+          "nrmse": 0.09172450807287191,
+          "target": "absolute"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.9980421608908593,
+          "nrmse": 0.09251190565536006,
+          "target": "absolute"
+        },
+        {
+          "lag": 2,
+          "median_scale": 0.9975045658287317,
+          "nrmse": 0.1033788354907615,
+          "target": "absolute"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.9975417442670608,
+          "nrmse": 0.10488723396033277,
+          "target": "absolute"
+        },
+        {
+          "lag": 1,
+          "median_scale": 0.9964334444127945,
+          "nrmse": 0.12364477420305604,
+          "target": "absolute"
+        },
+        {
+          "lag": 6,
+          "median_scale": 0.9965559094411615,
+          "nrmse": 0.12480132950831963,
+          "target": "absolute"
+        }
+      ],
+      "revision": "13870ca969084d8ce4d8a0391b06cead78e804ba",
+      "rows_evaluated": 35713,
+      "runtime_seconds": 0.26561177300754935,
+      "state_dim": 6
+    },
+    "svla_so101_pickplace": {
+      "action_dim": 6,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 2.081108719407218,
+          "delta": 49.81690712870981,
+          "velocity": 55.229782244868886
+        },
+        "min_loss_target": "absolute"
+      },
+      "config_action_names": "shoulder_pan.pos,shoulder_lift.pos,elbow_flex.pos,wrist_flex.pos,wrist_roll.pos,gripper.pos ('.pos' documents position control)",
+      "converter_status": "blocked",
+      "dataset": "svla_so101_pickplace",
+      "ecosystem": "SO-100/101",
+      "episodes_evaluated": 50,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "identified"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "6-DoF joint-space action; no Cartesian frame applies.",
+          "source_url": "https://huggingface.co/datasets/lerobot/svla_so101_pickplace",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": null,
+          "source_quote": "gripper is a joint position channel, not a separate inversion flag.",
+          "source_url": "https://huggingface.co/datasets/lerobot/svla_so101_pickplace",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "6 joint positions in canonical shoulder->gripper order.",
+          "source_url": "https://huggingface.co/datasets/lerobot/svla_so101_pickplace",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://huggingface.co/datasets/lerobot/svla_so101_pickplace",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "identified",
+          "actionabi_values": [
+            "absolute"
+          ],
+          "documentation_confidence": "medium",
+          "documented_value": "absolute",
+          "source_quote": "SO-100/101 leader-follower teleoperation records ABSOLUTE follower joint positions (the '.pos' / joint-name channels are position targets).",
+          "source_url": "https://huggingface.co/docs/lerobot/so101",
+          "verdict": "agreement"
+        }
+      },
+      "hf_repo": "lerobot/svla_so101_pickplace",
+      "outcome": "unique_absolute",
+      "ranked_best": [
+        {
+          "lag": 4,
+          "median_scale": 0.9905298586723097,
+          "nrmse": 0.10962479322565757,
+          "target": "absolute"
+        },
+        {
+          "lag": 3,
+          "median_scale": 0.9886973415798557,
+          "nrmse": 0.12534906736149648,
+          "target": "absolute"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.9880313193980826,
+          "nrmse": 0.12822042822078722,
+          "target": "absolute"
+        },
+        {
+          "lag": 2,
+          "median_scale": 0.9825513873277673,
+          "nrmse": 0.1652126224791443,
+          "target": "absolute"
+        },
+        {
+          "lag": 6,
+          "median_scale": 0.9813807195116089,
+          "nrmse": 0.16741866557241603,
+          "target": "absolute"
+        },
+        {
+          "lag": 1,
+          "median_scale": 0.972408195144399,
+          "nrmse": 0.2128329924339502,
+          "target": "absolute"
+        }
+      ],
+      "revision": "f641879e22172be7e8161d5e6c1503c2d2feb657",
+      "rows_evaluated": 11939,
+      "runtime_seconds": 0.08662113701575436,
+      "state_dim": 6
+    },
+    "taco_play": {
+      "action_dim": 7,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": null,
+      "cartesian_translation_nrmse": null,
+      "cli_corroboration": {
+        "heldout_loss": {
+          "absolute": 0.5054306297499098,
+          "delta": 0.09040773869708457,
+          "velocity": 0.3357306482505127
+        },
+        "min_loss_target": "delta"
+      },
+      "config_action_names": "motor_0..motor_6 (RLDS names stripped; source has THREE candidate action fields)",
+      "converter_status": "blocked",
+      "dataset": "taco_play",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 3603,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "base",
+          "source_quote": "the absolute 'actions' field is in robot base frame (rel_actions_world also base).",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/taco_play",
+          "verdict": "abstention_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "documented",
+          "source_quote": "gripper channel: -1=open, 1=close.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/taco_play",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action channels documented in canonical (source) order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/taco_play",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/taco_play",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "absolute",
+          "source_quote": "action.actions(7): 'Absolute desired values for gripper pose (x,y,z,yaw,pitch,roll,gripper)'; source also carries rel_actions_gripper/world deltas -> which field LeRobot used is not documented at config level.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/taco_play",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/taco_play",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [
+        {
+          "lag": 6,
+          "median_scale": 0.08264784936791388,
+          "nrmse": 0.7262134961738428,
+          "target": "delta"
+        },
+        {
+          "lag": 6,
+          "median_scale": 0.20661962359800903,
+          "nrmse": 0.7262134967086565,
+          "target": "velocity"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.06762457744779428,
+          "nrmse": 0.7395015638478177,
+          "target": "delta"
+        },
+        {
+          "lag": 5,
+          "median_scale": 0.202873732091651,
+          "nrmse": 0.739501565466614,
+          "target": "velocity"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.05271524190440244,
+          "nrmse": 0.7560967684303405,
+          "target": "delta"
+        },
+        {
+          "lag": 4,
+          "median_scale": 0.1976821556208486,
+          "nrmse": 0.7560967709970341,
+          "target": "velocity"
+        }
+      ],
+      "revision": "15f69c9346a10fa5e9a93f0460febd86d3450206",
+      "rows_evaluated": 237798,
+      "runtime_seconds": 2.159957091003889,
+      "state_dim": 7
+    },
+    "toto": {
+      "action_dim": 7,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": "tool_wxyz",
+      "cartesian_translation_nrmse": 0.9904912890904336,
+      "cli_corroboration": null,
+      "config_action_names": "motor_0..motor_6 (RLDS names stripped)",
+      "converter_status": "blocked",
+      "dataset": "toto",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 1003,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "world",
+          "source_quote": "translation channel named world_vector -> world frame.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/toto",
+          "verdict": "abstention_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "documented",
+          "source_quote": "open_gripper boolean (True=open) -- inverted naming vs closedness convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/toto",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action channels documented in canonical (source) order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/toto",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/toto",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "delta",
+          "source_quote": "action: world_vector(3) + rotation_delta(3) + open_gripper(bool); rotation_delta named as delta -> delta EE (Franka).",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/toto",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/toto",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [],
+      "revision": "51f5a8dc59fe2888f53b938ecc7142980543129e",
+      "rows_evaluated": 325699,
+      "runtime_seconds": 2.5674093940178864,
+      "state_dim": 8
+    },
+    "ucsd_kitchen_dataset": {
+      "action_dim": 8,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": "world",
+      "cartesian_translation_nrmse": 0.950451792068086,
+      "cli_corroboration": null,
+      "config_action_names": "motor_0..motor_7 (RLDS names stripped)",
+      "converter_status": "blocked",
+      "dataset": "ucsd_kitchen_dataset",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 150,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": null,
+          "source_quote": "Cartesian EE action; frame not stated.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_kitchen_dataset_converted_externally_to_rlds",
+          "verdict": "unlabeled"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "documented",
+          "source_quote": "1x gripper open/close channel.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_kitchen_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action channels documented in canonical (source) order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_kitchen_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_kitchen_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "action(8): 'end-effector position and orientation, gripper open/close and episode termination' -- delta-vs-absolute NOT stated -> documentation-absent on target.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_kitchen_dataset_converted_externally_to_rlds",
+          "verdict": "unlabeled"
+        }
+      },
+      "hf_repo": "lerobot/ucsd_kitchen_dataset",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [],
+      "revision": "fd7751e366e56297317beae5db71aa1a193d1e7f",
+      "rows_evaluated": 3970,
+      "runtime_seconds": 0.04333761299494654,
+      "state_dim": 21
+    },
+    "ucsd_pick_and_place_dataset": {
+      "action_dim": 4,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": "world",
+      "cartesian_translation_nrmse": 0.6278903089884211,
+      "cli_corroboration": null,
+      "config_action_names": "motor_0..motor_3 (RLDS names stripped)",
+      "converter_status": "blocked",
+      "dataset": "ucsd_pick_and_place_dataset",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 1355,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "tool",
+          "source_quote": "xArm end-effector (gripper) velocities; base-vs-tool frame not stated.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_pick_and_place_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "documented",
+          "source_quote": "1x gripper open/close torque.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_pick_and_place_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action channels documented in canonical (source) order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_pick_and_place_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_pick_and_place_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "velocity",
+          "source_quote": "action(4): 'Robot action, consists of [3x gripper velocities, 1x gripper open/close torque]' -> velocity.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/ucsd_pick_and_place_dataset_converted_externally_to_rlds",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/ucsd_pick_and_place_dataset",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [],
+      "revision": "5af7ee806291f5b95eafafe29eaf1d31012fcc03",
+      "rows_evaluated": 67750,
+      "runtime_seconds": 0.4756425890082028,
+      "state_dim": 7
+    },
+    "utaustin_mutex": {
+      "action_dim": 7,
+      "actionabi_best_fit_frame": null,
+      "cartesian_translation_frame": "tool_wxyz",
+      "cartesian_translation_nrmse": 0.9324175408386094,
+      "cli_corroboration": null,
+      "config_action_names": "motor_0..motor_6 (RLDS names stripped)",
+      "converter_status": "blocked",
+      "dataset": "utaustin_mutex",
+      "ecosystem": "OXE-port",
+      "episodes_evaluated": 1500,
+      "equivalence_fields": {
+        "frame": "unsupported",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "unsupported"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "tool",
+          "source_quote": "6x EE delta pose; base-vs-tool frame not stated.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/utaustin_mutex",
+          "verdict": "abstention_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "documented",
+          "source_quote": "1x gripper position channel.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/utaustin_mutex",
+          "verdict": "abstention_consistent"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action channels documented in canonical (source) order.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/utaustin_mutex",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/utaustin_mutex",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "high",
+          "documented_value": "delta",
+          "source_quote": "action(7): 'Robot action, consists of [6x end effector delta pose, 1x gripper position]' -> delta EE.",
+          "source_url": "https://www.tensorflow.org/datasets/catalog/utaustin_mutex",
+          "verdict": "abstention_consistent"
+        }
+      },
+      "hf_repo": "lerobot/utaustin_mutex",
+      "outcome": "report_without_unique_requirement",
+      "ranked_best": [],
+      "revision": "a880eaeec88c6fcb6cd75e24ecf78f56fa96e559",
+      "rows_evaluated": 361883,
+      "runtime_seconds": 2.9801236859930214,
+      "state_dim": 8
+    },
+    "xarm_push_medium": {
+      "action_dim": 3,
+      "actionabi_best_fit_frame": "world",
+      "cartesian_translation_frame": "world",
+      "cartesian_translation_nrmse": 0.2995868304983781,
+      "cli_corroboration": null,
+      "config_action_names": "motor_0,motor_1,motor_2 (3D end-effector displacement; no gripper)",
+      "converter_status": "blocked",
+      "dataset": "xarm_push_medium",
+      "ecosystem": "gym-xarm",
+      "episodes_evaluated": 800,
+      "equivalence_fields": {
+        "frame": "partially_identified",
+        "gripper": "unsupported",
+        "lag": "unsupported",
+        "permutation": "unsupported",
+        "scale": "unsupported",
+        "sign": "unsupported",
+        "target": "partially_identified"
+      },
+      "fields": {
+        "frame": {
+          "actionabi_best_fit": "world",
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "base",
+          "source_quote": "delta EE displacement in the simulator base frame; not stated explicitly.",
+          "source_url": "https://github.com/huggingface/gym-xarm",
+          "verdict": "partial_consistent"
+        },
+        "gripper": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "n/a",
+          "documented_value": null,
+          "source_quote": "the push task action has no gripper channel.",
+          "source_url": "https://github.com/huggingface/gym-xarm",
+          "verdict": "unlabeled"
+        },
+        "permutation": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "medium",
+          "documented_value": "identity",
+          "source_quote": "action = [dx, dy, dz] in canonical order.",
+          "source_url": "https://github.com/huggingface/gym-xarm",
+          "verdict": "abstention_consistent"
+        },
+        "sign": {
+          "actionabi_status": "unsupported",
+          "actionabi_values": [],
+          "documentation_confidence": "low",
+          "documented_value": "positive",
+          "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+          "source_url": "https://github.com/huggingface/gym-xarm",
+          "verdict": "abstention_consistent"
+        },
+        "target": {
+          "actionabi_status": "partially_identified",
+          "actionabi_values": [
+            "delta",
+            "velocity"
+          ],
+          "documentation_confidence": "medium",
+          "documented_value": "delta",
+          "source_quote": "gym-xarm push exposes a 3-D delta end-effector displacement (x,y,z) in [-1,1]; the push task has no gripper action.",
+          "source_url": "https://github.com/huggingface/gym-xarm",
+          "verdict": "partial_consistent"
+        }
+      },
+      "hf_repo": "lerobot/xarm_push_medium",
+      "outcome": "partial_cartesian",
+      "ranked_best": [],
+      "revision": "50352b1fd09fd7cb440a3f09c0c0f0b362e45876",
+      "rows_evaluated": 20000,
+      "runtime_seconds": 0.07580822799354792,
+      "state_dim": 4
+    }
+  },
+  "discipline": "documentation is a scoring label only; never an inference input",
+  "ecosystem_clusters": {
+    "ALOHA": {
+      "datasets": [
+        "aloha_sim_transfer_cube_human",
+        "aloha_sim_insertion_human",
+        "aloha_static_coffee",
+        "aloha_static_cups_open",
+        "aloha_mobile_cabinet",
+        "aloha_static_battery"
+      ],
+      "documented_targets": {
+        "absolute": 6
+      },
+      "outcomes": {
+        "absolute_episode_relative_equivalence": 3,
+        "report_without_unique_requirement": 3
+      }
+    },
+    "LIBERO": {
+      "datasets": [
+        "libero_10",
+        "libero"
+      ],
+      "documented_targets": {
+        "delta": 2
+      },
+      "outcomes": {
+        "partial_cartesian": 2
+      }
+    },
+    "MetaWorld": {
+      "datasets": [
+        "metaworld_mt50"
+      ],
+      "documented_targets": {
+        "delta": 1
+      },
+      "outcomes": {
+        "report_without_unique_requirement": 1
+      }
+    },
+    "OXE-port": {
+      "datasets": [
+        "berkeley_cable_routing",
+        "berkeley_fanuc_manipulation",
+        "berkeley_mvp",
+        "berkeley_rpt",
+        "jaco_play",
+        "nyu_door_opening_surprising_effectiveness",
+        "nyu_franka_play_dataset",
+        "roboturk",
+        "stanford_kuka_multimodal_dataset",
+        "taco_play",
+        "toto",
+        "ucsd_kitchen_dataset",
+        "ucsd_pick_and_place_dataset",
+        "utaustin_mutex",
+        "austin_buds_dataset"
+      ],
+      "documented_targets": {
+        "None": 2,
+        "absolute": 1,
+        "delta": 9,
+        "velocity": 3
+      },
+      "outcomes": {
+        "partial_cartesian": 4,
+        "report_without_unique_requirement": 11
+      }
+    },
+    "SO-100/101": {
+      "datasets": [
+        "svla_so100_pickplace",
+        "svla_so101_pickplace",
+        "svla_so100_sorting"
+      ],
+      "documented_targets": {
+        "absolute": 3
+      },
+      "outcomes": {
+        "unique_absolute": 3
+      }
+    },
+    "gym-pusht": {
+      "datasets": [
+        "pusht-subtask"
+      ],
+      "documented_targets": {
+        "absolute": 1
+      },
+      "outcomes": {
+        "unique_absolute": 1
+      }
+    },
+    "gym-xarm": {
+      "datasets": [
+        "xarm_push_medium"
+      ],
+      "documented_targets": {
+        "delta": 1
+      },
+      "outcomes": {
+        "partial_cartesian": 1
+      }
+    }
+  },
+  "flagged_cases": [
+    {
+      "cli_heldout_loss": {
+        "absolute": 0.5054306297499098,
+        "delta": 0.09040773869708457,
+        "velocity": 0.3357306482505127
+      },
+      "cli_min_loss_target": "delta",
+      "dataset": "taco_play",
+      "documentation_confidence": "medium",
+      "documented_target": "absolute",
+      "gate_outcome": "report_without_unique_requirement",
+      "note": "the C++ scorer decisively prefers a target the documentation does not name; the gate abstained (no unique certification), so this is a surfaced tension, not a false certification.",
+      "type": "target_evidence_documentation_tension"
+    },
+    {
+      "actionabi_best_fit": "world",
+      "dataset": "libero_10",
+      "documentation_confidence": "low",
+      "documented": "tool",
+      "field": "frame",
+      "note": "partial (uncertified) frame fit; passive diagonal-affine frame identification is degenerate -- needs an active on-robot probe to adjudicate.",
+      "nrmse": 0.3012209222778378,
+      "type": "frame_discrepancy"
+    },
+    {
+      "actionabi_best_fit": "world",
+      "dataset": "libero",
+      "documentation_confidence": "low",
+      "documented": "tool",
+      "field": "frame",
+      "note": "partial (uncertified) frame fit; passive diagonal-affine frame identification is degenerate -- needs an active on-robot probe to adjudicate.",
+      "nrmse": 0.3012209222778378,
+      "type": "frame_discrepancy"
+    }
+  ],
+  "gripper_conventions_by_ecosystem": {
+    "ALOHA": "gripper is a joint dimension; ACT/ALOHA convention 0=closed, 1=open",
+    "LIBERO": "gripper continuous in [-1, 1] (OSC_POSE controller, robosuite)",
+    "MetaWorld": "gripper continuous in [-1, 1] (4th action dim)",
+    "OXE-binary-closed": "binary gripper state: 1=closed, 0=open (berkeley MVP/RPT)",
+    "OXE-closedness": "gripper_closedness_action: 1=close, -1/0=open (Open X-Embodiment RT-1 lineage)",
+    "OXE-open_gripper-bool": "open_gripper boolean: True=open (TOTO) -- inverted naming vs closedness",
+    "OXE-openpose": "gripper channel -1=open, +1=close (taco_play rel/abs actions)",
+    "SO-100/101": "gripper is a joint position channel (main_gripper / gripper.pos)"
+  },
+  "schema_version": "1.0"
+}

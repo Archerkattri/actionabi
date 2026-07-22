@@ -1,0 +1,39 @@
+{
+  "build_type": "Release",
+  "compiler": "GNU 12.3.0",
+  "cpu": "AMD Ryzen Threadripper PRO 7975WX 32-Cores",
+  "cpu_threads": 64,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "schema_version": "1.0",
+  "workloads": [
+    {
+      "cuda_kernel_only_ms": {
+        "median": 2.375839948654175,
+        "p10": 2.3533759117126465,
+        "p90": 2.3915200233459473
+      },
+      "cuda_transfer_inclusive_ms": {
+        "median": 2.962848,
+        "p10": 2.792993,
+        "p90": 8.9188
+      },
+      "estimated_peak_device_bytes": 375104,
+      "hypotheses": 1024,
+      "measurements": 30,
+      "multicore_cpu_ms": {
+        "median": 4.105067,
+        "p10": 3.885086,
+        "p90": 4.303326
+      },
+      "residual_evaluations": 10010624,
+      "rows": 4888,
+      "single_thread_cpu_ms": {
+        "median": 87.321583,
+        "p10": 85.616677,
+        "p90": 88.815511
+      },
+      "speedup_over_multicore_cpu": 1.3855138704381729,
+      "warmups": 5
+    }
+  ]
+}

@@ -1,0 +1,457 @@
+{
+  "binary": "build-fix/actionabi",
+  "by_excitation": {
+    "policy": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.4444444444444444,
+        "false_unique_certifications": 0,
+        "mean_bias_slack": 0.052305915786120386,
+        "mean_equivalence_set_size": 43.17777777777778,
+        "misspecification_flag_rate": 0.8222222222222222,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.5777777777777777,
+          "permutation": 0.8185185185185185,
+          "scale": 0.274074074074074,
+          "sign": 0.8703703703703703,
+          "target": 0.9333333333333333
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.08072315686700102,
+        "mean_argmin_heldout_loss": 0.3585460084105525,
+        "median": 0.06608861270989269
+      },
+      "traces": 45
+    },
+    "random": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.3333333333333333,
+        "false_unique_certifications": 0,
+        "mean_bias_slack": 0.009386200637139231,
+        "mean_equivalence_set_size": 23.444444444444443,
+        "misspecification_flag_rate": 0.37777777777777777,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.7333333333333333,
+          "permutation": 0.7777777777777779,
+          "scale": 0.34814814814814815,
+          "sign": 0.8,
+          "target": 0.5555555555555556
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.24994377059050846,
+        "mean_argmin_heldout_loss": 0.29026721290266466,
+        "median": 0.018920010523888753
+      },
+      "traces": 45
+    }
+  },
+  "by_lag": {
+    "0": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.2727272727272727,
+        "false_unique_certifications": 0,
+        "mean_bias_slack": 0.03429073736551879,
+        "mean_equivalence_set_size": 34.77272727272727,
+        "misspecification_flag_rate": 0.6818181818181818,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.45454545454545453,
+          "permutation": 0.7196969696969696,
+          "scale": 0.303030303030303,
+          "sign": 0.75,
+          "target": 0.6818181818181818
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.18307901298846715,
+        "mean_argmin_heldout_loss": 0.3737943618058877,
+        "median": 0.07989891268004293
+      },
+      "traces": 22
+    },
+    "1": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.2857142857142857,
+        "false_unique_certifications": 0,
+        "mean_bias_slack": 0.030696746735046958,
+        "mean_equivalence_set_size": 37.214285714285715,
+        "misspecification_flag_rate": 0.6071428571428571,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.5,
+          "permutation": 0.726190476190476,
+          "scale": 0.29761904761904756,
+          "sign": 0.7797619047619049,
+          "target": 0.7142857142857143
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.20553862664331746,
+        "mean_argmin_heldout_loss": 0.3115632335603917,
+        "median": 0.06604148750921743
+      },
+      "traces": 28
+    },
+    "2": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.525,
+        "false_unique_certifications": 0,
+        "mean_bias_slack": 0.029056002710598848,
+        "mean_equivalence_set_size": 29.775,
+        "misspecification_flag_rate": 0.55,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.875,
+          "permutation": 0.8916666666666666,
+          "scale": 0.325,
+          "sign": 0.9208333333333334,
+          "target": 0.8
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.12742979759571904,
+        "mean_argmin_heldout_loss": 0.30623371149185685,
+        "median": 0.05272225035504669
+      },
+      "traces": 40
+    }
+  },
+  "by_lag_and_excitation": {
+    "lag0_policy": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.36363636363636365,
+        "false_unique_certifications": 0,
+        "mean_bias_slack": 0.05782043558974254,
+        "mean_equivalence_set_size": 43.36363636363637,
+        "misspecification_flag_rate": 0.8181818181818182,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.36363636363636365,
+          "permutation": 0.7727272727272727,
+          "scale": 0.303030303030303,
+          "sign": 0.8181818181818182,
+          "target": 0.9090909090909091
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.09601884653470796,
+        "mean_argmin_heldout_loss": 0.4278660475543335,
+        "median": 0.07821549102113595
+      },
+      "traces": 11
+    },
+    "lag0_random": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.18181818181818182,
+        "false_unique_certifications": 0,
+        "mean_bias_slack": 0.010761039141295047,
+        "mean_equivalence_set_size": 26.181818181818183,
+        "misspecification_flag_rate": 0.5454545454545454,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.5454545454545454,
+          "permutation": 0.6666666666666666,
+          "scale": 0.30303030303030304,
+          "sign": 0.6818181818181818,
+          "target": 0.45454545454545453
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.2701391794422264,
+        "mean_argmin_heldout_loss": 0.31972267605744203,
+        "median": 0.22905435041585476
+      },
+      "traces": 11
+    },
+    "lag1_policy": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.35714285714285715,
+        "false_unique_certifications": 0,
+        "mean_bias_slack": 0.046610791801070146,
+        "mean_equivalence_set_size": 47.5,
+        "misspecification_flag_rate": 0.7857142857142857,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.5,
+          "permutation": 0.7857142857142857,
+          "scale": 0.32142857142857145,
+          "sign": 0.8928571428571429,
+          "target": 0.9285714285714286
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.07688750659371826,
+        "mean_argmin_heldout_loss": 0.3234749763775179,
+        "median": 0.06604148750921743
+      },
+      "traces": 14
+    },
+    "lag1_random": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.21428571428571427,
+        "false_unique_certifications": 0,
+        "mean_bias_slack": 0.014782701669023771,
+        "mean_equivalence_set_size": 26.928571428571427,
+        "misspecification_flag_rate": 0.42857142857142855,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.5,
+          "permutation": 0.6666666666666666,
+          "scale": 0.2738095238095238,
+          "sign": 0.6666666666666667,
+          "target": 0.5
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.3341897466929166,
+        "mean_argmin_heldout_loss": 0.2996514907432655,
+        "median": 0.25579827932873767
+      },
+      "traces": 14
+    },
+    "lag2_policy": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.55,
+        "false_unique_certifications": 0,
+        "mean_bias_slack": 0.053259516683663355,
+        "mean_equivalence_set_size": 40.05,
+        "misspecification_flag_rate": 0.85,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 0.75,
+          "permutation": 0.8666666666666668,
+          "scale": 0.225,
+          "sign": 0.8833333333333332,
+          "target": 0.95
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.07499548274106009,
+        "mean_argmin_heldout_loss": 0.34496970930459725,
+        "median": 0.06389644999937742
+      },
+      "traces": 20
+    },
+    "lag2_random": {
+      "actionabi_calibrated": {
+        "abstention_rate": 1.0,
+        "emitted": 0,
+        "equivalence_set_coverage": 0.5,
+        "false_unique_certifications": 0,
+        "mean_bias_slack": 0.004852488737534355,
+        "mean_equivalence_set_size": 19.5,
+        "misspecification_flag_rate": 0.25,
+        "per_field_accuracy_when_emitted": {
+          "lag": null,
+          "permutation": null,
+          "scale": null,
+          "sign": null,
+          "target": null
+        }
+      },
+      "forced_argmin": {
+        "exact_contract_accuracy": 0.0,
+        "per_field_accuracy": {
+          "lag": 1.0,
+          "permutation": 0.9166666666666666,
+          "scale": 0.425,
+          "sign": 0.9583333333333333,
+          "target": 0.65
+        }
+      },
+      "loss_gap_truth_minus_argmin": {
+        "mean": 0.179864112450378,
+        "mean_argmin_heldout_loss": 0.26749771367911646,
+        "median": 0.0059965358326226625
+      },
+      "traces": 20
+    }
+  },
+  "cpp_python_parity_max_gap": 2.7755575615628914e-16,
+  "dataset": "../actionshift/artifacts/actionabi_bridge",
+  "dataset_manifest_backbone_sha256": "3e6c95d63a2132843323e24cf7ba962b8cf2610f04b2a5a43f3efb6fef8497a8",
+  "dataset_manifest_sha256": "aaee673a5e97fcfdad4cac22dc73db05c945188500475de0f8ee0a40c070d0ac",
+  "declared_grammar": {
+    "basis_contracts_per_trace": 432,
+    "frame": "declared base; base/tool degenerate under identity rotation (equivalence)",
+    "gripper": "excluded (unobservable from pose response; structural limitation)",
+    "lags": [
+      0,
+      1,
+      2
+    ],
+    "permutations": "all 720",
+    "scales": [
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5,
+      2.0
+    ],
+    "signs": [
+      -1,
+      1
+    ],
+    "targets": [
+      "delta_position",
+      "absolute_position"
+    ]
+  },
+  "num_traces": 90,
+  "overall": {
+    "actionabi_calibrated": {
+      "abstention_rate": 1.0,
+      "emitted": 0,
+      "equivalence_set_coverage": 0.3888888888888889,
+      "false_unique_certifications": 0,
+      "mean_bias_slack": 0.0308460582116298,
+      "mean_equivalence_set_size": 33.31111111111111,
+      "misspecification_flag_rate": 0.6,
+      "per_field_accuracy_when_emitted": {
+        "lag": null,
+        "permutation": null,
+        "scale": null,
+        "sign": null,
+        "target": null
+      }
+    },
+    "forced_argmin": {
+      "exact_contract_accuracy": 0.0,
+      "per_field_accuracy": {
+        "lag": 0.6555555555555556,
+        "permutation": 0.798148148148148,
+        "scale": 0.3111111111111111,
+        "sign": 0.835185185185185,
+        "target": 0.7444444444444445
+      }
+    },
+    "loss_gap_truth_minus_argmin": {
+      "mean": 0.16533346372875476,
+      "mean_argmin_heldout_loss": 0.3244066106566086,
+      "median": 0.06283702873844417
+    },
+    "traces": 90
+  },
+  "results_sha256": "b001ea6da20c8953efbf34832fc5141507aade5b3544ffcd1dbcd124b886cc7d",
+  "schema_version": "1.0",
+  "structural_limitations": {
+    "frame": "identity end-effector rotation makes base/tool observationally identical; not identifiable",
+    "gripper_inverted": "labeled but not observable from the tcp-pose response; ActionABI abstains on this field",
+    "lag_gt_0": "ActionABI C++ delta observable spans lag+1 steps whereas the physical response is a single-step delay; see by_lag strata",
+    "space": "always cartesian; not varied"
+  }
+}

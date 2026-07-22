@@ -1,0 +1,35 @@
+{
+  "datasets": [
+    {
+      "dataset": "aloha",
+      "outcome": "absolute_episode_relative_equivalence",
+      "source_sha256": "3387d4fe059a42b354086a702b798bb91922e0c3782ee5a695f9d70e73764d51"
+    },
+    {
+      "dataset": "droid",
+      "outcome": "report_without_unique_requirement",
+      "source_sha256": "1fc83e0681cee46fe7229941670c1427c5f56000a595c8c7648c45fbfc3b4138"
+    },
+    {
+      "dataset": "hydra",
+      "outcome": "report_without_unique_requirement",
+      "source_sha256": "68c8615c929d1710bf320fdcd5ba38e9c7d836d25cf895c0993efb04868a3f50"
+    },
+    {
+      "dataset": "pusht",
+      "outcome": "unique_absolute",
+      "source_sha256": "a653dacf6e80328bbd4ff5cc7d10b79c8439e964f995e8344ebfd39dc5d630a2"
+    },
+    {
+      "dataset": "ur5",
+      "outcome": "partial_cartesian",
+      "source_sha256": "05875cf3fb151b89d013148badd777e2a0043707c290315c4219768b449a7b58"
+    },
+    {
+      "dataset": "xarm",
+      "outcome": "report_without_unique_requirement",
+      "source_sha256": "9397398ded0e4358544b8d9a291a14ace00fc28ab56a16e507e9aaaa01be2067"
+    }
+  ],
+  "schema_version": "1.0"
+}

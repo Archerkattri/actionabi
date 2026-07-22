@@ -1,0 +1,75 @@
+{
+  "converter_status": "blocked",
+  "coverage_note": "No labeled real-data contract ground truth; synthetic calibration does not transfer automatically.",
+  "dataset": "pusht",
+  "empirical_coverage": null,
+  "episodes": 206,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "identified"
+  },
+  "evidence_assessment": {
+    "clinical / device relevance": "not evaluated; no clinical or safety certification",
+    "missing population": "robots, operators, and tasks outside this dataset revision",
+    "missing sensor modality": "torque, controller internals, and calibrated frame metadata",
+    "missing validation setting": "active on-robot separating probes and deployment shift",
+    "strong evidence": "held-out passive transition fit for the reported outcome",
+    "weak evidence": "finite diagonal-affine grammar and a single validation corpus"
+  },
+  "expected_outcome": "unique_absolute",
+  "matched_expected_outcome": true,
+  "outcome": "unique_absolute",
+  "probe_utility": {
+    "note": "A probe is a proposal only; execute it only after device-specific bounds are supplied.",
+    "status": "not_required_for_target"
+  },
+  "ranked_hypotheses": [
+    {
+      "lag": 2,
+      "median_scale": 0.9928557029897842,
+      "nrmse": 0.04785451511917413,
+      "target": "absolute"
+    },
+    {
+      "lag": 3,
+      "median_scale": 0.9871164206804535,
+      "nrmse": 0.06539111320227227,
+      "target": "absolute"
+    },
+    {
+      "lag": 1,
+      "median_scale": 0.9912126378461956,
+      "nrmse": 0.12571964260724702,
+      "target": "absolute"
+    },
+    {
+      "lag": 4,
+      "median_scale": 0.9744691806073615,
+      "nrmse": 0.14509746321784509,
+      "target": "absolute"
+    },
+    {
+      "lag": 5,
+      "median_scale": 0.9559267561482796,
+      "nrmse": 0.2250082337676777,
+      "target": "absolute"
+    },
+    {
+      "lag": 6,
+      "median_scale": 0.9327562087269177,
+      "nrmse": 0.30073142980472434,
+      "target": "absolute"
+    }
+  ],
+  "rows": 25650,
+  "runtime_seconds": 0.10817741500795819,
+  "schema_version": "1.0",
+  "source_filename": "pusht",
+  "source_sha256": "a653dacf6e80328bbd4ff5cc7d10b79c8439e964f995e8344ebfd39dc5d630a2",
+  "worst_residuals": []
+}

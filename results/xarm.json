@@ -1,0 +1,75 @@
+{
+  "converter_status": "blocked",
+  "coverage_note": "No labeled real-data contract ground truth; synthetic calibration does not transfer automatically.",
+  "dataset": "xarm",
+  "empirical_coverage": null,
+  "episodes": 800,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "unsupported"
+  },
+  "evidence_assessment": {
+    "clinical / device relevance": "not evaluated; no clinical or safety certification",
+    "missing population": "robots, operators, and tasks outside this dataset revision",
+    "missing sensor modality": "torque, controller internals, and calibrated frame metadata",
+    "missing validation setting": "active on-robot separating probes and deployment shift",
+    "strong evidence": "none sufficient for a unique contract",
+    "weak evidence": "finite diagonal-affine grammar and a single validation corpus"
+  },
+  "expected_outcome": "report_without_unique_requirement",
+  "matched_expected_outcome": true,
+  "outcome": "report_without_unique_requirement",
+  "probe_utility": {
+    "note": "A probe is a proposal only; execute it only after device-specific bounds are supplied.",
+    "status": "insufficient_observability"
+  },
+  "ranked_hypotheses": [
+    {
+      "lag": 1,
+      "median_scale": 1.1237598494312713,
+      "nrmse": 0.5129967245426432,
+      "target": "velocity"
+    },
+    {
+      "lag": 1,
+      "median_scale": 0.07491732480436766,
+      "nrmse": 0.5129967326540171,
+      "target": "delta"
+    },
+    {
+      "lag": 2,
+      "median_scale": 0.484259251842887,
+      "nrmse": 0.8519763652276678,
+      "target": "velocity"
+    },
+    {
+      "lag": 2,
+      "median_scale": 0.06456789945180068,
+      "nrmse": 0.8519763671680166,
+      "target": "delta"
+    },
+    {
+      "lag": 1,
+      "median_scale": 0.04966549522592564,
+      "nrmse": 0.872754018194179,
+      "target": "absolute"
+    },
+    {
+      "lag": 3,
+      "median_scale": 0.2658410581670489,
+      "nrmse": 0.9114203645493119,
+      "target": "velocity"
+    }
+  ],
+  "rows": 20000,
+  "runtime_seconds": 0.10184055397985503,
+  "schema_version": "1.0",
+  "source_filename": "xarm",
+  "source_sha256": "9397398ded0e4358544b8d9a291a14ace00fc28ab56a16e507e9aaaa01be2067",
+  "worst_residuals": []
+}

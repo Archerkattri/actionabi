@@ -1,0 +1,79 @@
+{
+  "action_dim": 3,
+  "actionabi_best_fit_frame": "world",
+  "cartesian_translation_frame": "world",
+  "cartesian_translation_nrmse": 0.2995868304983781,
+  "cli_corroboration": null,
+  "config_action_names": "motor_0,motor_1,motor_2 (3D end-effector displacement; no gripper)",
+  "converter_status": "blocked",
+  "dataset": "xarm_push_medium",
+  "ecosystem": "gym-xarm",
+  "episodes_evaluated": 800,
+  "equivalence_fields": {
+    "frame": "partially_identified",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "partially_identified"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_best_fit": "world",
+      "actionabi_status": "partially_identified",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "base",
+      "source_quote": "delta EE displacement in the simulator base frame; not stated explicitly.",
+      "source_url": "https://github.com/huggingface/gym-xarm",
+      "verdict": "partial_consistent"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "the push task action has no gripper channel.",
+      "source_url": "https://github.com/huggingface/gym-xarm",
+      "verdict": "unlabeled"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "identity",
+      "source_quote": "action = [dx, dy, dz] in canonical order.",
+      "source_url": "https://github.com/huggingface/gym-xarm",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://github.com/huggingface/gym-xarm",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "partially_identified",
+      "actionabi_values": [
+        "delta",
+        "velocity"
+      ],
+      "documentation_confidence": "medium",
+      "documented_value": "delta",
+      "source_quote": "gym-xarm push exposes a 3-D delta end-effector displacement (x,y,z) in [-1,1]; the push task has no gripper action.",
+      "source_url": "https://github.com/huggingface/gym-xarm",
+      "verdict": "partial_consistent"
+    }
+  },
+  "hf_repo": "lerobot/xarm_push_medium",
+  "outcome": "partial_cartesian",
+  "ranked_best": [],
+  "revision": "50352b1fd09fd7cb440a3f09c0c0f0b362e45876",
+  "rows_evaluated": 20000,
+  "runtime_seconds": 0.07580822799354792,
+  "state_dim": 4
+}

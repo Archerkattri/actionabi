@@ -1,0 +1,121 @@
+{
+  "action_dim": 2,
+  "actionabi_best_fit_frame": null,
+  "cartesian_translation_frame": null,
+  "cartesian_translation_nrmse": null,
+  "cli_corroboration": {
+    "heldout_loss": {
+      "absolute": 8.751400192953811,
+      "delta": 269.20740259459205,
+      "velocity": 270.20977779750035
+    },
+    "min_loss_target": "absolute"
+  },
+  "config_action_names": "motor_0,motor_1 (2D end-effector target)",
+  "converter_status": "blocked",
+  "dataset": "pusht-subtask",
+  "ecosystem": "gym-pusht",
+  "episodes_evaluated": 206,
+  "equivalence_fields": {
+    "frame": "unsupported",
+    "gripper": "unsupported",
+    "lag": "unsupported",
+    "permutation": "unsupported",
+    "scale": "unsupported",
+    "sign": "unsupported",
+    "target": "identified"
+  },
+  "fields": {
+    "frame": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "world",
+      "source_quote": "2D EE target in the fixed workspace/world frame.",
+      "source_url": "https://arxiv.org/abs/2303.04137",
+      "verdict": "abstention_consistent"
+    },
+    "gripper": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "n/a",
+      "documented_value": null,
+      "source_quote": "PushT has no gripper degree of freedom.",
+      "source_url": "https://huggingface.co/datasets/lerobot/pusht-subtask",
+      "verdict": "unlabeled"
+    },
+    "permutation": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "medium",
+      "documented_value": "identity",
+      "source_quote": "(x, y) in canonical order.",
+      "source_url": "https://huggingface.co/datasets/lerobot/pusht-subtask",
+      "verdict": "abstention_consistent"
+    },
+    "sign": {
+      "actionabi_status": "unsupported",
+      "actionabi_values": [],
+      "documentation_confidence": "low",
+      "documented_value": "positive",
+      "source_quote": "axes follow the source's native +XYZ/+RPY (or servo) sign convention.",
+      "source_url": "https://huggingface.co/datasets/lerobot/pusht-subtask",
+      "verdict": "abstention_consistent"
+    },
+    "target": {
+      "actionabi_status": "identified",
+      "actionabi_values": [
+        "absolute"
+      ],
+      "documentation_confidence": "high",
+      "documented_value": "absolute",
+      "source_quote": "PushT action is the ABSOLUTE 2D target position of the cylindrical end-effector (same convention as lerobot/pusht).",
+      "source_url": "https://huggingface.co/docs/lerobot/il_sim",
+      "verdict": "agreement"
+    }
+  },
+  "hf_repo": "lerobot/pusht-subtask",
+  "outcome": "unique_absolute",
+  "ranked_best": [
+    {
+      "lag": 2,
+      "median_scale": 0.9928557029897842,
+      "nrmse": 0.04785451511917413,
+      "target": "absolute"
+    },
+    {
+      "lag": 3,
+      "median_scale": 0.9871164206804535,
+      "nrmse": 0.06539111320227227,
+      "target": "absolute"
+    },
+    {
+      "lag": 1,
+      "median_scale": 0.9912126378461956,
+      "nrmse": 0.12571964260724702,
+      "target": "absolute"
+    },
+    {
+      "lag": 4,
+      "median_scale": 0.9744691806073615,
+      "nrmse": 0.14509746321784509,
+      "target": "absolute"
+    },
+    {
+      "lag": 5,
+      "median_scale": 0.9559267561482796,
+      "nrmse": 0.2250082337676777,
+      "target": "absolute"
+    },
+    {
+      "lag": 6,
+      "median_scale": 0.9327562087269177,
+      "nrmse": 0.30073142980472434,
+      "target": "absolute"
+    }
+  ],
+  "revision": "184ff45bdafc06900b1dbdca25750e18aefbb0ab",
+  "rows_evaluated": 25650,
+  "runtime_seconds": 0.11738306499319151,
+  "state_dim": 2
+}
