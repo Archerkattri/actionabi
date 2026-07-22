@@ -1,5 +1,10 @@
 # ActionABI
+[![CI](https://github.com/Archerkattri/actionabi/actions/workflows/ci.yml/badge.svg)](https://github.com/Archerkattri/actionabi/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/Archerkattri/actionabi?color=1f6feb)](https://github.com/Archerkattri/actionabi/releases)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21500715.svg)](https://doi.org/10.5281/zenodo.21500715)
+[![License: MIT](https://img.shields.io/badge/license-MIT-0d9488.svg)](LICENSE)
+[![C++20](https://img.shields.io/badge/C%2B%2B-20-00599c.svg)](CMakeLists.txt)
+[![Hub audit](https://img.shields.io/badge/LeRobot%20audit-35%20datasets%20%C2%B7%200%20contradictions-16a34a.svg)](reports/lerobot_hub_audit.md)
 
 > **A robot's action tensor is a vector of numbers with an undocumented meaning. Given only logged
 > trajectories, can you recover what those numbers mean — and honestly say "I can't" when the data
