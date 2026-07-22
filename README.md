@@ -1,4 +1,5 @@
 # ActionABI
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21500715.svg)](https://doi.org/10.5281/zenodo.21500715)
 
 > **A robot's action tensor is a vector of numbers with an undocumented meaning. Given only logged
 > trajectories, can you recover what those numbers mean — and honestly say "I can't" when the data

@@ -25,3 +25,7 @@ abstract: >-
   probes, and emits a converter only when every required field is supported by evidence.
   Its defining discipline is calibrated abstention, and its scoring core is exposed as a
   pybind11 fusion backend.
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21500715
+    description: "Zenodo software archive"
