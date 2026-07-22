@@ -1086,8 +1086,8 @@ def fig_gripper_conventions_paper():
     def meaning_color(m):
         return OI["blue"] if m == "open" else OI["vermillion"]
 
-    fig, ax = plt.subplots(figsize=(8.4, 2.9))
-    ax.set_xlim(0, 10)
+    fig, ax = plt.subplots(figsize=(9.4, 2.9))
+    ax.set_xlim(0, 11.4)
     ax.set_ylim(-1.5, n + 0.9)
     ax.axis("off")
 
@@ -1144,10 +1144,12 @@ def fig_gripper_conventions_paper():
     # polarity-flip callout linking ALOHA (row0, high=OPEN) and OXE-closedness
     # (row1, high=CLOSE): same numeric 1, opposite physical action.
     yA, yB = n - 1, n - 2
-    bx = x_high + chip_w / 2 + 0.18
+    # Place the connector + callout clearly to the RIGHT of the "1" high-value
+    # labels (x_highlab) so neither the arrow nor the text collides with them.
+    bx = x_highlab + 0.72
     ax.annotate("", xy=(bx, yA), xytext=(bx, yB),
                 arrowprops=dict(arrowstyle="<->", color=OI["black"], lw=1.3))
-    ax.text(bx + 0.12, (yA + yB) / 2, "same value 1,\nopposite action",
+    ax.text(bx + 0.16, (yA + yB) / 2, "same value 1,\nopposite action",
             fontsize=7.6, fontweight="bold", ha="left", va="center",
             color=OI["black"])
 
