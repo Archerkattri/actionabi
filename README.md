@@ -1,6 +1,7 @@
 # ActionABI
 [![Release](https://img.shields.io/github/v/release/Archerkattri/actionabi?color=1f6feb)](https://github.com/Archerkattri/actionabi/releases)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21500715.svg)](https://doi.org/10.5281/zenodo.21500715)
+[![HF audit dataset](https://img.shields.io/badge/%F0%9F%A4%97%20dataset-lerobot%20action--convention%20audit-ff9d00)](https://huggingface.co/datasets/kattri15/lerobot-action-convention-audit)
 [![License: MIT](https://img.shields.io/badge/license-MIT-0d9488.svg)](LICENSE)
 [![C++20](https://img.shields.io/badge/C%2B%2B-20-00599c.svg)](CMakeLists.txt)
 [![Hub audit](https://img.shields.io/badge/LeRobot%20audit-35%20datasets%20%C2%B7%200%20contradictions-16a34a.svg)](reports/lerobot_hub_audit.md)
