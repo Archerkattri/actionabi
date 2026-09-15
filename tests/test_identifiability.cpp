@@ -1,10 +1,13 @@
 #include <map>
+#include <limits>
 #include <set>
 #include <string>
 #include <vector>
 
 #include <catch2/catch_approx.hpp>
 #include <catch2/catch_test_macros.hpp>
+#include <catch2/matchers/catch_matchers.hpp>
+#include <catch2/matchers/catch_matchers_exception.hpp>
 
 #include "actionabi/contract.hpp"
 #include "actionabi/evidence.hpp"
@@ -81,6 +84,39 @@ TEST_CASE("split-conformal threshold uses finite-sample upper quantile") {
       actionabi::split_conformal_threshold(calibration_scores, 0.2);
 
   CHECK(threshold == Catch::Approx(0.09));
+}
+
+TEST_CASE("split-conformal threshold rejects an out-of-range rank") {
+  CHECK_THROWS_MATCHES(
+      actionabi::split_conformal_threshold({0.1}, 0.1),
+      actionabi::InsufficientCalibrationError,
+      Catch::Matchers::Message("insufficient calibration: requested conformal rank 2 exceeds sample count 1"));
+}
+
+TEST_CASE("in-range rank remains finite and exact") {
+  const double threshold =
+      actionabi::split_conformal_threshold({0.1, 0.2}, 0.5);
+  CHECK(threshold == Catch::Approx(0.2));
+}
+
+TEST_CASE("selection refuses a nonfinite threshold") {
+  const std::vector<actionabi::ScoredHypothesis> ranked = {
+      scored(contract(actionabi::TargetKind::AbsolutePosition), 0.1),
+  };
+  CHECK_THROWS_MATCHES(
+      actionabi::analyze_identifiability(ranked, std::numeric_limits<double>::infinity(),
+                                         0.9, {}),
+      std::invalid_argument,
+      Catch::Matchers::Message("score_threshold must be finite and nonnegative"));
+}
+
+TEST_CASE("selection refuses a nonfinite hypothesis score") {
+  auto bad = scored(contract(actionabi::TargetKind::AbsolutePosition), 0.1);
+  bad.score.heldout_loss = std::numeric_limits<double>::quiet_NaN();
+  CHECK_THROWS_MATCHES(
+      actionabi::analyze_identifiability({bad}, 0.0, 0.9, {}),
+      std::invalid_argument,
+      Catch::Matchers::Message("hypothesis scores must be finite"));
 }
 
 TEST_CASE("Wilson interval contains observed coverage") {

@@ -44,6 +44,15 @@ EquivalenceReport analyze_identifiability(
       calibrated_coverage > 1.0) {
     throw std::invalid_argument("calibrated_coverage must be between zero and one");
   }
+  for (const auto& hypothesis : ranked) {
+    if (!std::isfinite(hypothesis.score.train_loss) ||
+        !std::isfinite(hypothesis.score.heldout_loss) ||
+        std::any_of(hypothesis.score.per_dimension_loss.begin(),
+                    hypothesis.score.per_dimension_loss.end(),
+                    [](double value) { return !std::isfinite(value); })) {
+      throw std::invalid_argument("hypothesis scores must be finite");
+    }
+  }
   const double best = std::min_element(
                           ranked.begin(), ranked.end(),
                           [](const ScoredHypothesis& left,
@@ -112,8 +121,13 @@ double split_conformal_threshold(const std::vector<double>& calibration_scores,
   std::sort(sorted.begin(), sorted.end());
   const auto rank = static_cast<std::size_t>(std::ceil(
       (static_cast<double>(sorted.size()) + 1.0) * (1.0 - alpha)));
-  const auto index = std::min(std::max<std::size_t>(rank, 1), sorted.size()) - 1;
-  return sorted[index];
+  if (rank == 0 || rank > sorted.size()) {
+    throw InsufficientCalibrationError(
+        "insufficient calibration: requested conformal rank " +
+        std::to_string(rank) + " exceeds sample count " +
+        std::to_string(sorted.size()));
+  }
+  return sorted[rank - 1];
 }
 
 CoverageInterval wilson_interval(std::size_t successes, std::size_t trials,

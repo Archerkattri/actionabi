@@ -757,3 +757,11 @@ general executable-specification idea or a new robot dataset.
 ActionABI code is licensed under **MIT** (`LICENSE`). Cite via `CITATION.cff`. Dataset files are not
 included; each source retains its own license and attribution requirements. The small generated JSONL/URDF
 test fixtures contain no private robot data.
+
+## Current release status
+
+The current checkout has a verified CPU C++20 build, CLI/converter path,
+pybind binding smoke test and 9/9 CTests. CUDA kernels, nuisance-model
+inference, real trajectories and quality/performance comparisons require their
+corresponding external toolchains and data; the CPU result is not a CUDA or
+SOTA claim.

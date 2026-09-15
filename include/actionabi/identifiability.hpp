@@ -3,6 +3,7 @@
 #include <cstddef>
 #include <map>
 #include <set>
+#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -21,6 +22,11 @@ struct EquivalenceReport {
 struct CoverageInterval {
   double lower;
   double upper;
+};
+
+class InsufficientCalibrationError : public std::invalid_argument {
+ public:
+  using std::invalid_argument::invalid_argument;
 };
 
 EquivalenceReport analyze_identifiability(
