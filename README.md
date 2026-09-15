@@ -34,6 +34,11 @@ tool: when two contracts fit the data equally well, ActionABI keeps both and abs
 picking one and certifying a lie.*
 
 ## Part of the Action-Interface pair
+## Architecture at a glance
+
+![ActionABI architecture](media/readme_flow.svg)
+
+The operational path is evidence in, a calibrated equivalence set in the middle, and either a supported converter or an explicit abstention out.
 
 ActionABI is one half of a two-project attack on the **hidden action-interface contract** problem —
 when the meaning of a robot's action numbers is undocumented or silently changed. ActionABI is the
