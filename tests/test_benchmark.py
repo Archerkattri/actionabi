@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import tempfile
 import unittest
@@ -11,6 +12,10 @@ class BenchmarkContractTest(unittest.TestCase):
     def test_smoke_benchmark_emits_transfer_inclusive_comparison(self) -> None:
         root = Path(__file__).resolve().parents[1]
         binary = root / "build-cuda" / "score_benchmark"
+        if not binary.is_file():
+            self.skipTest("CUDA benchmark has not been built")
+        if os.name == "nt" and binary.suffix.lower() != ".exe":
+            self.skipTest("configured benchmark is a non-Windows build artifact")
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "benchmark.json"
             completed = subprocess.run(

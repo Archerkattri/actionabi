@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-import re
 import json
+import os
+import re
 import subprocess
 import tempfile
 import unittest
@@ -9,21 +10,26 @@ from pathlib import Path
 
 
 class CliContractTest(unittest.TestCase):
-    def test_version_reports_semver_and_git_revision(self) -> None:
-        binary = Path(__file__).resolve().parents[1] / "build" / "actionabi"
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.binary = Path(__file__).resolve().parents[1] / "build" / "actionabi"
+        if not cls.binary.is_file():
+            raise unittest.SkipTest("ActionABI CLI has not been built")
+        if os.name == "nt" and cls.binary.suffix.lower() != ".exe":
+            raise unittest.SkipTest("configured CLI is a non-Windows build artifact")
 
+    def test_version_reports_semver_and_git_revision(self) -> None:
         completed = subprocess.run(
-            [binary, "--version"], check=False, capture_output=True, text=True
+            [self.binary, "--version"], check=False, capture_output=True, text=True
         )
 
         self.assertEqual(completed.returncode, 0, completed.stderr)
         self.assertRegex(
             completed.stdout.strip(),
-            re.compile(r"^ActionABI 0\.1\.0 \(git (?:[0-9a-f]{7,40}|unknown)\)$"),
+            re.compile(r"^ActionABI 1\.0\.0 \(git (?:[0-9a-f]{7,40}|unknown)\)$"),
         )
 
     def test_infer_writes_an_evidence_report_for_supplied_hypotheses(self) -> None:
-        binary = Path(__file__).resolve().parents[1] / "build" / "actionabi"
         metadata = {
             "record_type": "metadata",
             "schema_version": "1.0",
@@ -65,7 +71,7 @@ class CliContractTest(unittest.TestCase):
             output = root / "report.json"
 
             completed = subprocess.run(
-                [binary, "infer", "--input", trajectory, "--contract", contract_path,
+                [self.binary, "infer", "--input", trajectory, "--contract", contract_path,
                  "--output", output],
                 check=False,
                 capture_output=True,

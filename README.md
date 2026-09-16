@@ -657,6 +657,18 @@ python -c "import sys; sys.path.insert(0,'build-pybind'); import actionabi_cells
 Add `-DACTIONABI_CELLS_ENABLE_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=120` for the CUDA path. See the
 [Python bindings](#python-bindings-pybind11-fusion-backend) section for the API and how ActionShift consumes it.
 
+### Installed artifact
+
+```bash
+cmake --install build --prefix /tmp/actionabi-install
+/tmp/actionabi-install/bin/actionabi --version
+```
+
+The CTest `install_smoke` case performs this in a disposable build-local prefix
+and verifies the installed CLI version and public headers. When the pybind
+backend is enabled, its extension is installed under the selected library
+directory as well.
+
 ## Report index
 
 | Report | Contents |

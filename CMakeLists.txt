@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.26)
 
-project(ActionABI VERSION 0.1.0 LANGUAGES CXX)
+project(ActionABI VERSION 1.0.0 LANGUAGES CXX)
 
 include(cmake/ActionABIOptions.cmake)
 include(FetchContent)
+include(GNUInstallDirs)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -40,7 +41,12 @@ endif()
 add_library(actionabi_core src/contract.cpp src/trajectory.cpp src/score_cpu.cpp
              src/evidence.cpp src/identifiability.cpp src/probe.cpp
              src/converter.cpp)
-target_include_directories(actionabi_core PUBLIC include)
+target_include_directories(
+  actionabi_core
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+)
 target_link_libraries(actionabi_core PUBLIC nlohmann_json::nlohmann_json)
 
 if(ACTIONABI_ENABLE_PINOCCHIO)
@@ -115,7 +121,20 @@ if(ACTIONABI_BUILD_PYBIND)
     set_target_properties(actionabi_cells PROPERTIES
                           CUDA_STANDARD 20 CUDA_STANDARD_REQUIRED ON)
   endif()
+  install(
+    TARGETS actionabi_cells
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  )
 endif()
+
+install(
+  TARGETS actionabi actionabi_core
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 if(ACTIONABI_BUILD_TESTS)
   enable_testing()
@@ -175,6 +194,14 @@ if(ACTIONABI_BUILD_TESTS)
     target_compile_options(test_converter PRIVATE -Wall -Wextra -Wpedantic -Werror)
   endif()
   add_test(NAME converter COMMAND test_converter)
+  add_test(
+    NAME install_smoke
+    COMMAND
+      "${CMAKE_COMMAND}"
+      -DACTIONABI_BINARY_DIR=${CMAKE_BINARY_DIR}
+      -DACTIONABI_EXECUTABLE_SUFFIX=${CMAKE_EXECUTABLE_SUFFIX}
+      -P "${CMAKE_CURRENT_SOURCE_DIR}/tests/install_smoke.cmake"
+  )
   if(ACTIONABI_ENABLE_PINOCCHIO)
     add_executable(test_pinocchio tests/test_pinocchio.cpp)
     target_link_libraries(test_pinocchio PRIVATE actionabi_core Catch2::Catch2WithMain)

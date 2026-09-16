@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-import unittest
 import os
 import subprocess
 import sys
+import unittest
 from pathlib import Path
 
 import numpy as np
@@ -119,7 +119,7 @@ class ReferenceScorerTest(unittest.TestCase):
         name, path = parse_dataset_spec("pusht=/tmp/pusht.parquet")
 
         self.assertEqual(name, "pusht")
-        self.assertEqual(str(path), "/tmp/pusht.parquet")
+        self.assertEqual(path.as_posix(), "/tmp/pusht.parquet")
 
     def test_real_gate_requires_every_expected_outcome(self) -> None:
         expected = {
