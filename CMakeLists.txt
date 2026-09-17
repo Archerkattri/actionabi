@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.26)
 
-project(ActionABI VERSION 1.1.0 LANGUAGES CXX)
+project(ActionABI VERSION 1.1.1 LANGUAGES CXX)
 
 include(cmake/ActionABIOptions.cmake)
 include(FetchContent)

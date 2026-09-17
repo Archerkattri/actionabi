@@ -26,7 +26,7 @@ class CliContractTest(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stderr)
         self.assertRegex(
             completed.stdout.strip(),
-            re.compile(r"^ActionABI 1.1.0 \(git (?:[0-9a-f]{7,40}|unknown)\)$"),
+            re.compile(r"^ActionABI 1.1.1 \(git (?:[0-9a-f]{7,40}|unknown)\)$"),
         )
 
     def test_infer_writes_an_evidence_report_for_supplied_hypotheses(self) -> None:
