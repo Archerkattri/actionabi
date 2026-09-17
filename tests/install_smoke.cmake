@@ -31,6 +31,6 @@ execute_process(
 if(NOT smoke_result EQUAL 0)
   message(FATAL_ERROR "installed CLI failed:\n${smoke_output}\n${smoke_error}")
 endif()
-if(NOT smoke_output MATCHES "ActionABI 1\\.0\\.0")
+if(NOT smoke_output MATCHES "ActionABI 1.1.0")
   message(FATAL_ERROR "unexpected installed CLI version: ${smoke_output}")
 endif()
