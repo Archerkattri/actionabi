@@ -1,0 +1,35 @@
+ActionABI — third-party software notices
+========================================
+
+ActionABI itself is MIT-licensed (see LICENSE). The build fetches or discovers
+the following third-party components; their own licenses apply to them.
+
+Always fetched (CMake FetchContent, versions pinned in CMakeLists.txt):
+
+- CLI11 v2.5.0 — command-line parsing for the `actionabi` executable.
+  https://github.com/CLIUtils/CLI11 — BSD-3-Clause.
+- nlohmann/json v3.11.3 — JSON evidence I/O, linked PUBLIC into
+  `actionabi_core`, so downstream consumers inherit this dependency.
+  https://github.com/nlohmann/json — MIT.
+
+Test-only (fetched when ACTIONABI_BUILD_TESTS is ON, the default):
+
+- Catch2 v3.8.1 — C++ test framework for the Catch2 suites.
+  https://github.com/catchorg/Catch2 — BSL-1.0.
+
+Optional, enabled by CMake options (all OFF by default):
+
+- pybind11 v2.13.6 — Python bindings module `actionabi_cells`
+  (ACTIONABI_BUILD_PYBIND); discovered from an installed CMake config first,
+  with a FetchContent fallback to the pinned tag.
+  https://github.com/pybind/pybind11 — BSD-3-Clause.
+- pinocchio 3 — rigid-body dynamics scoring backend
+  (ACTIONABI_ENABLE_PINOCCHIO); found via find_package, never fetched.
+  https://github.com/stack-of-tasks/pinocchio — BSD-2-Clause.
+  Its transitive Eigen dependency comes from the pinocchio installation.
+- NVIDIA CUDA Toolkit — GPU scoring backend and benchmarks
+  (ACTIONABI_ENABLE_CUDA / ACTIONABI_CELLS_ENABLE_CUDA); subject to the
+  NVIDIA EULA and not redistributed here.
+
+Python-side test drivers (`tests/test_cli.py`, `tests/test_benchmark.py`) use
+the standard library unittest module only.
