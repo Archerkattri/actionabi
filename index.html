@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>actionabi — Forensic recovery of undocumented robot action-tensor semantics from trajectories — calibrated equivalence sets, honest abstention, verified converters. C++20 with CUDA and pybind11.</title>
+<meta name="description" content="ActionABI is an evidence-first C++20 audit tool for forensic recovery of undocumented robot action-tensor contracts. Given provenance-preserving trajectories and a finite set of candidate contracts, it scores candidates on held-out episodes, retains a calibrated equivalence set instead of breaking ties, proposes bounded separating probes, and emits a converter only when every required field is supported by an evidence report.">
+<style>
+  :root{
+    --bg:#ffffff; --ink:#17202a; --muted:#5a6572; --line:#e3e8ee;
+    --accent:#0c52d6; --accent-ink:#0c52d6; --code-bg:#f4f6f8; --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16px;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  /* top bar */
+  .top{border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;align-items:baseline;gap:14px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+  .top .repo{font-weight:700;font-size:17px;color:var(--ink)}
+  .top .repo a{color:var(--ink)}
+  .top .ver{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);padding:1px 8px;border-radius:20px}
+  .top nav{margin-left:auto;display:flex;gap:16px;font-size:14px}
+  /* hero */
+  .hero{padding:34px 0 8px}
+  .hero img.banner{width:100%;height:auto;border:1px solid var(--line);display:block}
+  .hero h1{font-size:30px;line-height:1.25;margin:22px 0 6px;letter-spacing:-0.01em}
+  .hero p.lede{color:var(--muted);margin:0 0 14px;max-width:62ch}
+  pre{background:var(--code-bg);border:1px solid var(--line);padding:12px 14px;overflow-x:auto;
+    font-family:var(--mono);font-size:13px;line-height:1.55;margin:0 0 8px}
+  pre .c{color:#6a737d}
+  /* sections */
+  section{padding:26px 0 6px;border-top:1px solid var(--line);margin-top:26px}
+  section:first-of-type{border-top:0}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:12px}
+  .sec-num{font-family:var(--mono);font-size:13px;color:var(--accent-ink);font-weight:700}
+  .sec-head h2{font-size:20px;margin:0}
+  table.ev{width:100%;border-collapse:collapse;font-size:14px}
+  table.ev th,table.ev td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.ev th{color:var(--muted);font-weight:600;width:34%}
+  table.ev td b{font-variant-numeric:tabular-nums}
+  .ok{color:#0a7b3c;font-weight:700}
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .gallery figure{margin:0;border:1px solid var(--line)}
+  .gallery img,.gallery video{width:100%;height:auto;display:block}
+  .gallery figcaption{font-size:13px;color:var(--muted);padding:8px 10px;border-top:1px solid var(--line)}
+  .limits{background:#fbfcfd;border:1px solid var(--line);padding:14px 16px;font-size:14px}
+  .limits ul{margin:8px 0 0;padding-left:20px}
+  .limits li{margin:4px 0}
+  footer{border-top:1px solid var(--line);margin-top:30px;padding:16px 0 30px;color:var(--muted);font-size:13px}
+  footer .wrap{display:flex;gap:16px;flex-wrap:wrap}
+  @media (max-width:640px){.gallery{grid-template-columns:1fr}.hero h1{font-size:24px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <span class="repo"><a href="https://github.com/Archerkattri/actionabi">actionabi</a></span>
+  <span class="ver">1.1.1</span>
+  <nav><a href="https://github.com/Archerkattri/actionabi">Code</a><a href="https://github.com/Archerkattri/actionabi/releases/tag/v1.1.1">Release</a></nav>
+</div></header>
+<main class="wrap">
+  <div class="hero">
+    <img class="banner" src="assets/diagram_pipeline.png" alt="actionabi banner">
+    <h1>Recover undocumented robot action contracts from logged trajectories</h1>
+    <p class="lede">ActionABI is an evidence-first C++20 audit tool for forensic recovery of undocumented robot action-tensor contracts. Given provenance-preserving trajectories and a finite set of candidate contracts, it scores candidates on held-out episodes, retains a calibrated equivalence set instead of breaking ties, proposes bounded separating probes, and emits a converter only when every required field is supported by an evidence report.</p>
+    <pre>uvx --from cmake cmake -S . -B build -DACTIONABI_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release
+uvx --from cmake cmake --build build -j 8
+uvx --from cmake ctest --test-dir build --output-on-failure
+./build/actionabi --version
+./build/actionabi infer \
+  --input tests/fixtures/simple.jsonl \
+  --contract tests/fixtures/absolute.json \
+  --contract tests/fixtures/delta.json \
+  --output build/evidence.json</pre>
+  </div>
+  <section><div class="sec-head"><span class="sec-num">01</span><h2>Evidence</h2></div>
+    <table class="ev"><tr><th>Synthetic ambiguity gate (100 cases, 25 equivalent)</th><td><b>0</b> false unique certifications vs 25 for forced argmin, at 1.00 equivalence coverage</td></tr>
+    <tr><th>Labeled-sim bridge (90 traces, 45 contracts)</th><td><b>0</b> false uniques post-fix (4 pre-fix); truth coverage 0.02 → 0.39</td></tr>
+    <tr><th>Supervised accuracy, post-fix (90 traces)</th><td>permutation <b>0.80</b>, sign <b>0.84</b> (pre-fix 0.63 / 0.76); lag 0.66</td></tr>
+    <tr><th>35-dataset LeRobot Hub audit (139 labels)</th><td><b>0</b> contradictions; 5/5 unique certifications documentation-correct</td></tr>
+    <tr><th>Frozen case-study matrix (6 pinned datasets)</th><td><b>6/6</b> precommitted falsification gates reproduced; converters blocked on all</td></tr>
+    <tr><th>CUDA scaling (RTX 5090, transfer-inclusive)</th><td>best <b>1.87x</b> vs the 5x gate — CUDA stays experimental</td></tr></table>
+  </section>
+  <section><div class="sec-head"><span class="sec-num">02</span><h2>Media</h2></div>
+    <div class="gallery"><figure><img src="assets/recovery_demo.gif" alt="Recovery demo"><figcaption>Real ManiSkill bridge trace: 56 equivalent contracts retained, honest abstention, no converter.</figcaption></figure>
+    <figure><img src="assets/chart_calibration.png" alt="Calibration chart"><figcaption>Synthetic gate: 0 vs 25 false uniques; bridge: 4 to 0 with coverage 0.02 to 0.39.</figcaption></figure>
+    <figure><img src="assets/chart_hub_audit.png" alt="Hub audit chart"><figcaption>35-dataset audit: 0 contradictions over 139 documented labels.</figcaption></figure>
+    <figure><img src="assets/chart_gripper_conventions.png" alt="Gripper conventions chart"><figcaption>Gripper polarity disagrees across dataset families (ALOHA vs OXE).</figcaption></figure></div>
+  </section>
+  <section><div class="sec-head"><span class="sec-num">03</span><h2>Install &amp; verify</h2></div>
+    <pre><span class="c"># Expected: 9/9 CTests and 42/42 Python experiment tests</span>
+uvx --from cmake cmake -S . -B build-clean -DACTIONABI_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release
+uvx --from cmake cmake --build build-clean -j 8
+uvx --from cmake ctest --test-dir build-clean --output-on-failure
+python -m venv build-data-env
+build-data-env/bin/pip install -r requirements-experiments.txt
+build-data-env/bin/python -m unittest discover -s experiments -p 'test_*.py' -v</pre>
+  </section>
+  <section><div class="sec-head"><span class="sec-num">04</span><h2>Limits</h2></div>
+    <div class="limits"><p style="margin:0">What this release does <b>not</b> claim (from the release notes):</p><ul><li>Not verified in this release (no GPU hardware): the optional CUDA parity path.</li></ul></div>
+  </section>
+</main>
+<footer><div class="wrap"><span>MIT · © 2026 Krishi</span><span>Krishi Attri, ActionABI, 1.1.1, https://doi.org/10.5281/zenodo.21500715</span><span style="margin-left:auto"><a href="https://github.com/Archerkattri/actionabi">actionabi</a></span></div></footer>
+</body>
+</html>
