@@ -3,8 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>actionabi — Forensic recovery of undocumented robot action-tensor semantics from trajectories — calibrated equivalence sets, honest abstention, verified converters. C++20 with CUDA and pybind11.</title>
-<meta name="description" content="ActionABI is an evidence-first C++20 audit tool for forensic recovery of undocumented robot action-tensor contracts. Given provenance-preserving trajectories and a finite set of candidate contracts, it scores candidates on held-out episodes, retains a calibrated equivalence set instead of breaking ties, proposes bounded separating probes, and emits a converter only when every required field is supported by an evidence report.">
+<title>ActionABI — forensic recovery of undocumented robot action contracts</title>
+<meta name="description" content="ActionABI recovers what a robot's action numbers mean from logged trajectories alone — delta or absolute, which sign, which joint — and abstains with a field-by-field evidence report when the data cannot support a unique answer. C++20, CMake, verified Python parity.">
+<meta property="og:title" content="ActionABI — recover the contract, or honestly abstain">
+<meta property="og:description" content="56 observationally equivalent contracts, true one retained, zero certified lies. LeRobot hub audit: 35 datasets, 0 contradictions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://archerkattri.github.io/actionabi/">
 <style>
   :root{
     --bg:#ffffff; --ink:#17202a; --muted:#5a6572; --line:#e3e8ee;
@@ -18,22 +22,19 @@
   .wrap{max-width:860px;margin:0 auto;padding:0 22px}
   a{color:var(--accent);text-decoration:none}
   a:hover{text-decoration:underline}
-  /* top bar */
   .top{border-bottom:1px solid var(--line)}
   .top .wrap{display:flex;align-items:baseline;gap:14px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
   .top .repo{font-weight:700;font-size:17px;color:var(--ink)}
   .top .repo a{color:var(--ink)}
   .top .ver{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);padding:1px 8px;border-radius:20px}
   .top nav{margin-left:auto;display:flex;gap:16px;font-size:14px}
-  /* hero */
   .hero{padding:34px 0 8px}
-  .hero img.banner{width:100%;height:auto;border:1px solid var(--line);display:block}
+  .hero img.banner,.hero video.banner{width:100%;height:auto;border:1px solid var(--line);display:block}
   .hero h1{font-size:30px;line-height:1.25;margin:22px 0 6px;letter-spacing:-0.01em}
   .hero p.lede{color:var(--muted);margin:0 0 14px;max-width:62ch}
   pre{background:var(--code-bg);border:1px solid var(--line);padding:12px 14px;overflow-x:auto;
     font-family:var(--mono);font-size:13px;line-height:1.55;margin:0 0 8px}
   pre .c{color:#6a737d}
-  /* sections */
   section{padding:26px 0 6px;border-top:1px solid var(--line);margin-top:26px}
   section:first-of-type{border-top:0}
   .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:12px}
@@ -43,7 +44,6 @@
   table.ev th,table.ev td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
   table.ev th{color:var(--muted);font-weight:600;width:34%}
   table.ev td b{font-variant-numeric:tabular-nums}
-  .ok{color:#0a7b3c;font-weight:700}
   .gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .gallery figure{margin:0;border:1px solid var(--line)}
   .gallery img,.gallery video{width:100%;height:auto;display:block}
@@ -60,50 +60,39 @@
 <header class="top"><div class="wrap">
   <span class="repo"><a href="https://github.com/Archerkattri/actionabi">actionabi</a></span>
   <span class="ver">1.1.1</span>
-  <nav><a href="https://github.com/Archerkattri/actionabi">Code</a><a href="https://github.com/Archerkattri/actionabi/releases/tag/v1.1.1">Release</a></nav>
+  <nav><a href="https://github.com/Archerkattri/actionabi">Code</a><a href="https://github.com/Archerkattri/actionabi/releases/tag/v1.1.1">Release</a> <a href="https://huggingface.co/datasets/kattri15/lerobot-action-convention-audit">Audit data</a></nav>
 </div></header>
 <main class="wrap">
   <div class="hero">
-    <img class="banner" src="assets/diagram_pipeline.png" alt="actionabi banner">
-    <h1>Recover undocumented robot action contracts from logged trajectories</h1>
-    <p class="lede">ActionABI is an evidence-first C++20 audit tool for forensic recovery of undocumented robot action-tensor contracts. Given provenance-preserving trajectories and a finite set of candidate contracts, it scores candidates on held-out episodes, retains a calibrated equivalence set instead of breaking ties, proposes bounded separating probes, and emits a converter only when every required field is supported by an evidence report.</p>
+    <img class="banner" src="assets/recovery_demo.gif" alt="ActionABI replaying held-out residuals on a ManiSkill trace: target resolves, 56 contracts stay equivalent, tool abstains">
+    <h1>Given only logged trajectories, what do this robot's action numbers mean?</h1>
+    <p class="lede">ActionABI scores a finite declared grammar of candidate contracts on held-out episodes, retains a calibrated equivalence set instead of breaking ties, and emits a converter <b>only</b> when every required field is supported. Its defining discipline is calibrated abstention: it never certifies a unique answer the data does not support. C++20 evidence core, pybind11 Python fusion backend.</p>
+    <pre>uvx --from cmake cmake -S . -B build   <span class="c"># C++20 · CMake 3.26+ · Python 3.11+</span></pre>
+  </div>
+  <section><div class="sec-head"><span class="sec-num">01</span><h2>One half of a pair</h2></div>
+    <p style="margin-top:0">ActionABI is the <b>offline forensic</b> half of the hidden action-interface attack. Its sibling, <a href="https://archerkattri.github.io/actionshift/">ActionShift</a>, is the <b>online adaptation</b> half: a benchmark measuring whether a policy can recover the same contract live, from bounded probes. Both speak one contract grammar — and this project's C++ scorer runs as a live backend inside ActionShift's belief loop, with verified numerical parity.</p>
+  </section>
+  <section><div class="sec-head"><span class="sec-num">02</span><h2>Evidence</h2></div>
+    <table class="ev"><tr><th>Honest abstention, real trace</th><td>On a ManiSkill bridge trace, <b>56 contracts</b> stay observationally equivalent (true one retained) — ActionABI abstains, emits no converter</td></tr><tr><th>LeRobot hub audit</th><td><b>35 datasets</b> audited for action-convention contradictions: <b>0 found</b> (<a href="https://huggingface.co/datasets/kattri15/lerobot-action-convention-audit">audit dataset</a>)</td></tr><tr><th>C++/Python parity</th><td>Held-out Huber residuals match to <b>5e-17</b> across the pybind11 fusion boundary</td></tr><tr><th>Per-channel resolution</th><td>Target resolves to 100% while scale, lag stay ambiguous and gripper/frame stay structurally unobservable — reported field by field, never averaged away</td></tr><tr><th>Open artifacts</th><td>DOI <a href="https://doi.org/10.5281/zenodo.21500715">10.5281/zenodo.21500715</a> · reports carry confidence intervals and disclosed anomalies</td></tr></table>
+  </section>
+  <section><div class="sec-head"><span class="sec-num">03</span><h2>Media</h2></div>
+    <div class="gallery"><figure><img src="assets/diagram_pipeline.png" alt="Evidence in, converter or refusal out"><figcaption>Evidence in, a verified converter or an honest refusal out.</figcaption></figure><figure><img src="assets/chart_hub_audit.png" alt="LeRobot hub audit chart"><figcaption>Hub audit: 35 datasets, 0 action-convention contradictions.</figcaption></figure><figure><img src="assets/chart_calibration.png" alt="Calibration chart"><figcaption>Calibration: the equivalence set stays honest as evidence accumulates.</figcaption></figure><figure><img src="assets/chart_gripper_conventions.png" alt="Gripper convention survey"><figcaption>Gripper conventions across surveyed stacks: 1 = open is not universal.</figcaption></figure></div>
+  </section>
+  <section><div class="sec-head"><span class="sec-num">04</span><h2>Build &amp; run</h2></div>
     <pre>uvx --from cmake cmake -S . -B build -DACTIONABI_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release
 uvx --from cmake cmake --build build -j 8
 uvx --from cmake ctest --test-dir build --output-on-failure
-./build/actionabi --version
-./build/actionabi infer \
-  --input tests/fixtures/simple.jsonl \
-  --contract tests/fixtures/absolute.json \
-  --contract tests/fixtures/delta.json \
-  --output build/evidence.json</pre>
-  </div>
-  <section><div class="sec-head"><span class="sec-num">01</span><h2>Evidence</h2></div>
-    <table class="ev"><tr><th>Synthetic ambiguity gate (100 cases, 25 equivalent)</th><td><b>0</b> false unique certifications vs 25 for forced argmin, at 1.00 equivalence coverage</td></tr>
-    <tr><th>Labeled-sim bridge (90 traces, 45 contracts)</th><td><b>0</b> false uniques post-fix (4 pre-fix); truth coverage 0.02 → 0.39</td></tr>
-    <tr><th>Supervised accuracy, post-fix (90 traces)</th><td>permutation <b>0.80</b>, sign <b>0.84</b> (pre-fix 0.63 / 0.76); lag 0.66</td></tr>
-    <tr><th>35-dataset LeRobot Hub audit (139 labels)</th><td><b>0</b> contradictions; 5/5 unique certifications documentation-correct</td></tr>
-    <tr><th>Frozen case-study matrix (6 pinned datasets)</th><td><b>6/6</b> precommitted falsification gates reproduced; converters blocked on all</td></tr>
-    <tr><th>CUDA scaling (RTX 5090, transfer-inclusive)</th><td>best <b>1.87x</b> vs the 5x gate — CUDA stays experimental</td></tr></table>
+./build/actionabi infer --input tests/fixtures/simple.jsonl \
+  --contract tests/fixtures/absolute.json --contract tests/fixtures/delta.json \
+  --output build/evidence.json   <span class="c"># scored contracts + evidence report</span></pre>
   </section>
-  <section><div class="sec-head"><span class="sec-num">02</span><h2>Media</h2></div>
-    <div class="gallery"><figure><img src="assets/recovery_demo.gif" alt="Recovery demo"><figcaption>Real ManiSkill bridge trace: 56 equivalent contracts retained, honest abstention, no converter.</figcaption></figure>
-    <figure><img src="assets/chart_calibration.png" alt="Calibration chart"><figcaption>Synthetic gate: 0 vs 25 false uniques; bridge: 4 to 0 with coverage 0.02 to 0.39.</figcaption></figure>
-    <figure><img src="assets/chart_hub_audit.png" alt="Hub audit chart"><figcaption>35-dataset audit: 0 contradictions over 139 documented labels.</figcaption></figure>
-    <figure><img src="assets/chart_gripper_conventions.png" alt="Gripper conventions chart"><figcaption>Gripper polarity disagrees across dataset families (ALOHA vs OXE).</figcaption></figure></div>
+  <section><div class="sec-head"><span class="sec-num">05</span><h2>Limits</h2></div>
+    <div class="limits"><p style="margin:0">What this release does <b>not</b> claim (from Honest limits):</p><ul><li>Scale is not identifiable under <b>pd_ee_delta_pose</b> (controller under-tracks large deltas ~0.6x).</li><li>Gripper is unobservable from tcp-pose response — labeled, excluded, reported unsupported.</li><li><b>No hardware validation</b>: all dynamics evidence is simulated; no hardware-safety claim.</li><li>The grammar is finite (6-value scale grid, lag in {0,1,2}); synthetic gates don't imply arbitrary-contract recovery.</li></ul></div>
   </section>
-  <section><div class="sec-head"><span class="sec-num">03</span><h2>Install &amp; verify</h2></div>
-    <pre><span class="c"># Expected: 9/9 CTests and 42/42 Python experiment tests</span>
-uvx --from cmake cmake -S . -B build-clean -DACTIONABI_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release
-uvx --from cmake cmake --build build-clean -j 8
-uvx --from cmake ctest --test-dir build-clean --output-on-failure
-python -m venv build-data-env
-build-data-env/bin/pip install -r requirements-experiments.txt
-build-data-env/bin/python -m unittest discover -s experiments -p 'test_*.py' -v</pre>
-  </section>
-  <section><div class="sec-head"><span class="sec-num">04</span><h2>Limits</h2></div>
-    <div class="limits"><p style="margin:0">What this release does <b>not</b> claim (from the release notes):</p><ul><li>Not verified in this release (no GPU hardware): the optional CUDA parity path.</li></ul></div>
+  <section><div class="sec-head"><span class="sec-num">06</span><h2>Family</h2></div>
+    <table class="ev"><tr><th>Sibling</th><td><a href="https://archerkattri.github.io/actionshift/">ActionShift</a> — online adaptation over the same contract grammar (repo: <a href="https://github.com/Archerkattri/actionshift">Archerkattri/actionshift</a>)</td></tr><tr><th>Consumes</th><td>LeRobot-format trajectories · ManiSkill bridge traces</td></tr><tr><th>More</th><td><a href="https://archerkattri.github.io/">Research portfolio</a> · <a href="https://github.com/Archerkattri/actionabi">code</a></td></tr></table>
   </section>
 </main>
-<footer><div class="wrap"><span>MIT · © 2026 Krishi</span><span>Krishi Attri, ActionABI, 1.1.1, https://doi.org/10.5281/zenodo.21500715</span><span style="margin-left:auto"><a href="https://github.com/Archerkattri/actionabi">actionabi</a></span></div></footer>
+<footer><div class="wrap"><span>MIT · © 2026 Krishi Attri</span><span>DOI <a href="https://doi.org/10.5281/zenodo.21500715">10.5281/zenodo.21500715</a></span><span style="margin-left:auto"><a href="https://github.com/Archerkattri/actionabi">actionabi</a></span></div></footer>
 </body>
 </html>
