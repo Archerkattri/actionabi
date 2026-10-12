@@ -144,7 +144,9 @@ if(ACTIONABI_BUILD_TESTS)
     COMMAND "${Python3_EXECUTABLE}" -m unittest tests.test_cli -v
   )
   set_tests_properties(
-    cli_version PROPERTIES WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+    cli_version PROPERTIES
+    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+    ENVIRONMENT "ACTIONABI_BINARY=$<TARGET_FILE:actionabi>"
   )
   add_executable(test_contract tests/test_contract.cpp)
   target_link_libraries(test_contract PRIVATE actionabi_core Catch2::Catch2WithMain)

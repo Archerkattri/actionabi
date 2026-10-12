@@ -12,7 +12,12 @@ from pathlib import Path
 class CliContractTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.binary = Path(__file__).resolve().parents[1] / "build" / "actionabi"
+        configured_binary = os.environ.get("ACTIONABI_BINARY")
+        cls.binary = (
+            Path(configured_binary)
+            if configured_binary
+            else Path(__file__).resolve().parents[1] / "build" / "actionabi"
+        )
         if not cls.binary.is_file():
             raise unittest.SkipTest("ActionABI CLI has not been built")
         if os.name == "nt" and cls.binary.suffix.lower() != ".exe":
