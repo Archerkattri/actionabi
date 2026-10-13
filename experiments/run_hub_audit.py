@@ -18,21 +18,25 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import subprocess
 import time
 from pathlib import Path
 from typing import Any
 
 try:
-    from experiments.real_dataset_gate import evaluate_dataset
-    from experiments.score_doc_agreement import score_field, _SCORED_FIELDS
-    from experiments.hub_documentation import HUB_DOCUMENTATION_LABELS, GRIPPER_CONVENTIONS
+    from experiments.hub_documentation import (
+        GRIPPER_CONVENTIONS,
+        HUB_DOCUMENTATION_LABELS,
+    )
+    from experiments.real_dataset_gate import evaluate_dataset, sha256_path
+    from experiments.score_doc_agreement import _SCORED_FIELDS, score_field
 except ModuleNotFoundError as error:
     if error.name != "experiments":
         raise
-    from real_dataset_gate import evaluate_dataset
-    from score_doc_agreement import score_field, _SCORED_FIELDS
-    from hub_documentation import HUB_DOCUMENTATION_LABELS, GRIPPER_CONVENTIONS
+    from hub_documentation import GRIPPER_CONVENTIONS, HUB_DOCUMENTATION_LABELS
+    from real_dataset_gate import evaluate_dataset, sha256_path
+    from score_doc_agreement import _SCORED_FIELDS, score_field
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -102,13 +106,14 @@ def make_contract(target: str, dim: int) -> dict[str, Any]:
 
 def cli_corroborate(binary: Path, data_dir: Path, dim: int, work: Path) -> dict[str, Any] | None:
     """Run the FIXED C++ scorer over {absolute,delta,velocity} contracts on a square dataset."""
-    work.mkdir(parents=True, exist_ok=True)
+    work = validate_destination(work, [data_dir], cli_work=True)
+    work.mkdir(parents=True, exist_ok=False)
     jsonl = work / "traj.jsonl"
     adapter = REPO_ROOT / "adapters" / "lerobot_to_jsonl.py"
     import sys
     result = subprocess.run(
         [sys.executable, str(adapter), "--input", str(data_dir), "--output", str(jsonl)],
-        capture_output=True, text=True,
+        check=False, capture_output=True, text=True,
     )
     if result.returncode != 0:
         return {"error": "adapter_failed", "detail": result.stderr[-300:]}
@@ -116,13 +121,13 @@ def cli_corroborate(binary: Path, data_dir: Path, dim: int, work: Path) -> dict[
     contract_paths = []
     for short, cname in targets.items():
         cpath = work / f"contract_{short}.json"
-        cpath.write_text(json.dumps(make_contract(cname, dim)))
+        write_new_json(cpath, make_contract(cname, dim))
         contract_paths.append((short, cpath))
     out = work / "evidence.json"
     cmd = [str(binary), "infer", "--input", str(jsonl), "--output", str(out)]
     for _, cpath in contract_paths:
         cmd += ["--contract", str(cpath)]
-    run = subprocess.run(cmd, capture_output=True, text=True)
+    run = subprocess.run(cmd, check=False, capture_output=True, text=True)
     if run.returncode != 0:
         return {"error": "cli_failed", "detail": run.stderr[-300:]}
     report = json.loads(out.read_text())
@@ -135,11 +140,44 @@ def cli_corroborate(binary: Path, data_dir: Path, dim: int, work: Path) -> dict[
     return {"heldout_loss": losses_short, "min_loss_target": best}
 
 
+def validate_destination(
+    destination: Path, source_paths: list[Path], *, cli_work: bool = False
+) -> Path:
+    """Resolve aliases before any write and reject existing evidence, including dangling links."""
+    if destination.exists() or destination.is_symlink():
+        raise ValueError(f"refusing to reuse or overwrite audit destination: {destination}")
+    resolved = destination.resolve()
+    if any(resolved.is_relative_to(source.resolve()) for source in source_paths):
+        raise ValueError("audit outputs must be outside the source dataset tree")
+    if cli_work and resolved.is_relative_to(REPO_ROOT):
+        raise ValueError("CLI work must be outside the repository source tree")
+    return resolved
+
+
+def write_new_json(path: Path, value: dict[str, Any]) -> None:
+    # Exclusive creation also refuses a link/file introduced after preflight.
+    with path.open("x", encoding="utf-8") as stream:
+        stream.write(json.dumps(value, indent=2, sort_keys=True) + "\n")
+
+
 def audit_dataset(
     name: str, data_dir: Path, meta: dict[str, Any], binary: Path | None, work_root: Path
 ) -> dict[str, Any]:
+    revision = meta.get("revision")
+    if not isinstance(revision, str) or re.fullmatch(r"[0-9a-f]{40}", revision) is None:
+        raise ValueError("real-data audit requires an immutable 40-character dataset revision")
+    labels = HUB_DOCUMENTATION_LABELS[name]
+    if meta.get("hf_repo") != labels["hf_repo"]:
+        raise ValueError("harvest repository does not match the requested dataset")
+    expected_hash = meta.get("source_sha256")
+    if not isinstance(expected_hash, str) or re.fullmatch(r"[0-9a-f]{64}", expected_hash) is None:
+        raise ValueError("harvest requires the expected source_sha256 of the local trajectory input")
+    if sha256_path(data_dir) != expected_hash:
+        raise ValueError("local trajectory content does not match harvest source_sha256")
     start = time.perf_counter()
     evaluated = evaluate_dataset(name, data_dir)
+    if evaluated["source_sha256"] != expected_hash:
+        raise ValueError("trajectory content changed during the audit")
     elapsed = time.perf_counter() - start
     outcome = str(evaluated["outcome"])
     best_fit_frame = None
@@ -147,7 +185,6 @@ def audit_dataset(
         raw_frame = str(evaluated.get("cartesian_translation_frame", ""))
         best_fit_frame = _FRAME_BESTFIT_MAP.get(raw_frame)
 
-    labels = HUB_DOCUMENTATION_LABELS[name]
     fields: dict[str, Any] = {}
     for field in _SCORED_FIELDS:
         label = labels[field]
@@ -166,21 +203,39 @@ def audit_dataset(
             entry["actionabi_best_fit"] = readout["best_fit"]
         fields[field] = entry
 
-    square = int(evaluated.get("state_dimension", meta.get("st_shape", [0])[0])) == \
-        int(evaluated.get("action_dimension", meta.get("act_shape", [0])[0]))
+    square = int(evaluated["state_dimension"]) == int(evaluated["action_dimension"])
     cli = None
     if binary is not None and square:
-        dim = int(meta["act_shape"][0])
+        dim = int(evaluated["action_dimension"])
         cli = cli_corroborate(binary, data_dir, dim, work_root / name)
+        if sha256_path(data_dir) != expected_hash:
+            raise ValueError("trajectory content changed during CLI corroboration")
 
     return {
         "dataset": name,
         "hf_repo": labels["hf_repo"],
         "revision": meta["revision"],
+        "source_sha256": evaluated["source_sha256"],
+        "provenance": {
+            "harvest_metadata": {
+                "hf_repo": labels["hf_repo"], "revision": revision,
+                "declared_license": meta.get("license"),
+            },
+            "content_validation": {
+                "harvest_source_sha256": expected_hash,
+                "local_content_matches_harvest": True,
+                "hash_scope": "real_dataset_gate.sha256_path (trajectory Parquet only)",
+            },
+            "revision_status": "UNVERIFIED_REMOTE_BINDING",
+            "license_status": "UNVERIFIED",
+            "inference_inputs": ["observation.state", "action", "episode_index", "timestamp"],
+            "user_overrides": {},
+            "documentation_role": "scoring labels only",
+        },
         "ecosystem": labels["ecosystem"],
         "config_action_names": labels["config_action_names"],
-        "action_dim": meta.get("act_shape", [None])[0],
-        "state_dim": meta.get("st_shape", [None])[0],
+        "action_dim": evaluated["action_dimension"],
+        "state_dim": evaluated["state_dimension"],
         "episodes_evaluated": evaluated.get("episodes"),
         "rows_evaluated": evaluated.get("rows"),
         "outcome": outcome,
@@ -281,24 +336,50 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     harvest = json.loads(args.harvest.read_text())
-    by_name = {repo.split("/")[-1]: rec for repo, rec in harvest.items()}
+    if not isinstance(harvest, dict):
+        raise TypeError("harvest must be a JSON object keyed by full Hub repository ID")
     binary = None if args.no_cli else (args.binary if args.binary.exists() else None)
-    args.out_dir.mkdir(parents=True, exist_ok=True)
+    sources = [args.data_root, args.harvest] + [
+        args.data_root / name for name in HUB_DOCUMENTATION_LABELS
+    ]
+    args.work = validate_destination(args.work, sources, cli_work=True)
+    args.out_dir = validate_destination(args.out_dir, sources)
+    args.audit_json = validate_destination(args.audit_json, sources)
+    if args.audit_json == args.out_dir or args.audit_json in {
+        args.out_dir / f"{name}.json" for name in HUB_DOCUMENTATION_LABELS
+    }:
+        raise ValueError("aggregate audit path conflicts with a dataset output")
+    if any(
+        path.is_relative_to(args.work) or args.work.is_relative_to(path)
+        for path in (args.out_dir, args.audit_json)
+    ):
+        raise ValueError("CLI work and report destinations must not overlap")
+    if binary is not None:
+        args.work.mkdir(parents=True, exist_ok=False)
+    args.out_dir.mkdir(parents=True, exist_ok=False)
+    args.audit_json.parent.mkdir(parents=True, exist_ok=True)
 
     datasets: dict[str, Any] = {}
+    availability: dict[str, Any] = {}
     for name in HUB_DOCUMENTATION_LABELS:
         data_dir = args.data_root / name
         if not data_dir.exists():
+            availability[name] = {"status": "MISSING_INPUT", "path": str(data_dir)}
             print(f"SKIP {name}: no data at {data_dir}")
             continue
-        meta = by_name.get(name, {})
+        repo = HUB_DOCUMENTATION_LABELS[name]["hf_repo"]
+        meta = harvest.get(repo, {})
+        if isinstance(meta, dict):
+            meta = {"hf_repo": repo, **meta}
         try:
             report = audit_dataset(name, data_dir, meta, binary, args.work)
         except Exception as e:  # noqa: BLE001 - record and continue the audit
+            availability[name] = {"status": "FAILED", "error_type": type(e).__name__}
             print(f"ERROR {name}: {e}")
             continue
         datasets[name] = report
-        (args.out_dir / f"{name}.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+        availability[name] = {"status": "AUDITED", "source_sha256": report["source_sha256"]}
+        write_new_json(args.out_dir / f"{name}.json", report)
         cli = report.get("cli_corroboration")
         cli_s = f" cli={cli['min_loss_target']}" if cli and "min_loss_target" in cli else ""
         tv = report["fields"]["target"]["verdict"]
@@ -312,11 +393,15 @@ def main(argv: list[str] | None = None) -> int:
         "flagged_cases": flagged_cases(datasets),
         "ecosystem_clusters": ecosystem_clusters(datasets),
         "datasets": datasets,
+        "availability": availability,
+        "requested_datasets": len(HUB_DOCUMENTATION_LABELS),
+        "missing_datasets": sum(item["status"] == "MISSING_INPUT" for item in availability.values()),
+        "failed_datasets": sum(item["status"] == "FAILED" for item in availability.values()),
     }
-    args.audit_json.write_text(json.dumps(out, indent=2, sort_keys=True) + "\n")
+    write_new_json(args.audit_json, out)
     print("\n=== AGGREGATE ===")
     print(json.dumps(out["aggregate"], indent=2, sort_keys=True))
-    return 0
+    return 0 if len(datasets) == len(HUB_DOCUMENTATION_LABELS) else 2
 
 
 if __name__ == "__main__":

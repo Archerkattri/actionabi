@@ -1,0 +1,151 @@
+{
+  "aggregate": {
+    "abstention_consistent": 0,
+    "contradictions": 0,
+    "datasets_audited": 0,
+    "equivalence_consistent": 0,
+    "false_unique_certifications": 0,
+    "flagged_partial_discrepancies": 0,
+    "partial_consistent": 0,
+    "scored_field_labels": 0,
+    "unique_certifications_correct": 0,
+    "unique_field_certifications": 0,
+    "verdict_counts": {}
+  },
+  "availability": {
+    "aloha_mobile_cabinet": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\aloha_mobile_cabinet",
+      "status": "MISSING_INPUT"
+    },
+    "aloha_sim_insertion_human": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\aloha_sim_insertion_human",
+      "status": "MISSING_INPUT"
+    },
+    "aloha_sim_transfer_cube_human": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\aloha_sim_transfer_cube_human",
+      "status": "MISSING_INPUT"
+    },
+    "aloha_static_battery": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\aloha_static_battery",
+      "status": "MISSING_INPUT"
+    },
+    "aloha_static_coffee": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\aloha_static_coffee",
+      "status": "MISSING_INPUT"
+    },
+    "aloha_static_cups_open": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\aloha_static_cups_open",
+      "status": "MISSING_INPUT"
+    },
+    "austin_buds_dataset": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\austin_buds_dataset",
+      "status": "MISSING_INPUT"
+    },
+    "berkeley_cable_routing": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\berkeley_cable_routing",
+      "status": "MISSING_INPUT"
+    },
+    "berkeley_fanuc_manipulation": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\berkeley_fanuc_manipulation",
+      "status": "MISSING_INPUT"
+    },
+    "berkeley_mvp": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\berkeley_mvp",
+      "status": "MISSING_INPUT"
+    },
+    "berkeley_rpt": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\berkeley_rpt",
+      "status": "MISSING_INPUT"
+    },
+    "jaco_play": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\jaco_play",
+      "status": "MISSING_INPUT"
+    },
+    "libero": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\libero",
+      "status": "MISSING_INPUT"
+    },
+    "libero_10": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\libero_10",
+      "status": "MISSING_INPUT"
+    },
+    "metaworld_mt50": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\metaworld_mt50",
+      "status": "MISSING_INPUT"
+    },
+    "nyu_door_opening_surprising_effectiveness": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\nyu_door_opening_surprising_effectiveness",
+      "status": "MISSING_INPUT"
+    },
+    "nyu_franka_play_dataset": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\nyu_franka_play_dataset",
+      "status": "MISSING_INPUT"
+    },
+    "pusht-subtask": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\pusht-subtask",
+      "status": "MISSING_INPUT"
+    },
+    "roboturk": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\roboturk",
+      "status": "MISSING_INPUT"
+    },
+    "stanford_kuka_multimodal_dataset": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\stanford_kuka_multimodal_dataset",
+      "status": "MISSING_INPUT"
+    },
+    "svla_so100_pickplace": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\svla_so100_pickplace",
+      "status": "MISSING_INPUT"
+    },
+    "svla_so100_sorting": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\svla_so100_sorting",
+      "status": "MISSING_INPUT"
+    },
+    "svla_so101_pickplace": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\svla_so101_pickplace",
+      "status": "MISSING_INPUT"
+    },
+    "taco_play": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\taco_play",
+      "status": "MISSING_INPUT"
+    },
+    "toto": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\toto",
+      "status": "MISSING_INPUT"
+    },
+    "ucsd_kitchen_dataset": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\ucsd_kitchen_dataset",
+      "status": "MISSING_INPUT"
+    },
+    "ucsd_pick_and_place_dataset": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\ucsd_pick_and_place_dataset",
+      "status": "MISSING_INPUT"
+    },
+    "utaustin_mutex": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\utaustin_mutex",
+      "status": "MISSING_INPUT"
+    },
+    "xarm_push_medium": {
+      "path": "C:\\Users\\krishi\\Documents\\research\\projects\\personal-projects\\repos\\actionabi-current\\data\\xarm_push_medium",
+      "status": "MISSING_INPUT"
+    }
+  },
+  "datasets": {},
+  "discipline": "documentation is a scoring label only; never an inference input",
+  "ecosystem_clusters": {},
+  "failed_datasets": 0,
+  "flagged_cases": [],
+  "gripper_conventions_by_ecosystem": {
+    "ALOHA": "gripper is a joint dimension; ACT/ALOHA convention 0=closed, 1=open",
+    "LIBERO": "gripper continuous in [-1, 1] (OSC_POSE controller, robosuite)",
+    "MetaWorld": "gripper continuous in [-1, 1] (4th action dim)",
+    "OXE-binary-closed": "binary gripper state: 1=closed, 0=open (berkeley MVP/RPT)",
+    "OXE-closedness": "gripper_closedness_action: 1=close, -1/0=open (Open X-Embodiment RT-1 lineage)",
+    "OXE-open_gripper-bool": "open_gripper boolean: True=open (TOTO) -- inverted naming vs closedness",
+    "OXE-openpose": "gripper channel -1=open, +1=close (taco_play rel/abs actions)",
+    "SO-100/101": "gripper is a joint position channel (main_gripper / gripper.pos)"
+  },
+  "missing_datasets": 29,
+  "requested_datasets": 29,
+  "schema_version": "1.0"
+}

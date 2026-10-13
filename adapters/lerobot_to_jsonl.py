@@ -122,7 +122,7 @@ def _read_parquet_rows(
     path: Path, columns: Sequence[str] | None = None
 ) -> list[dict[str, Any]]:
     try:
-        import pyarrow.parquet as parquet
+        from pyarrow import parquet
     except ImportError as error:
         raise RuntimeError(
             "reading parquet requires PyArrow; install the adapter extra"
@@ -132,9 +132,12 @@ def _read_parquet_rows(
     # video blob columns (LeRobot v3.0 can embed them in the data shard) are never loaded.
     projection = None
     if columns:
-        available = set(parquet.read_schema(str(sources[0])).names)
-        if set(columns) <= available:
-            projection = list(columns)
+        for source in sources:
+            available = set(parquet.read_schema(str(source)).names)
+            missing = set(columns) - available
+            if missing:
+                raise ValueError(f"{source.name} is missing columns: {', '.join(sorted(missing))}")
+        projection = list(columns)
     source_paths = [str(source) for source in sources]
     return parquet.read_table(source_paths, columns=projection).to_pylist()
 
