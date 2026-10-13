@@ -132,10 +132,11 @@ def _read_parquet_rows(
     # video blob columns (LeRobot v3.0 can embed them in the data shard) are never loaded.
     projection = None
     if columns:
-        available = set(parquet.read_schema(sources[0]).names)
+        available = set(parquet.read_schema(str(sources[0])).names)
         if set(columns) <= available:
             projection = list(columns)
-    return parquet.read_table(sources, columns=projection).to_pylist()
+    source_paths = [str(source) for source in sources]
+    return parquet.read_table(source_paths, columns=projection).to_pylist()
 
 
 def _records_from_rows(

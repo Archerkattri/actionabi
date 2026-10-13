@@ -1,5 +1,9 @@
 # ActionABI scorer fixes: lag observable + calibration bias robustness
 
+> Historical record: the unit-test drivers and C++ unit suites described here
+> were removed from the current release-readiness branch. Results below are from
+> the earlier revision and are not runnable as a current test suite.
+
 Date: 2026-07-21 UTC. This note documents the two real ActionABI defects surfaced by the
 labeled-trace bridge run (`reports/labeled_sim_traces.md`, findings 4 and 5), the fixes, the tests
 that guard them, and the before/after re-score on the same bridge traces. Pre-fix evidence is
@@ -167,7 +171,7 @@ flag → False), so no coverage is lost.
 | `build-fix` Release CTests | **8/8** (score suite grew by the lag regression test) |
 | `build-fix-asan` ASan/UBSan CTests | **8/8** |
 | `build-fix-cuda` CUDA parity (GPU 3, sm_120) | **pass** |
-| Python experiment suite (`unittest discover experiments`) | **32/32** (24 prior + 8 new bias tests) |
+| Python experiment suite (historical, before unit-test removal) | **32/32** (24 prior + 8 new bias tests) |
 | C++/Python residual parity, lag ≥ 0 | max gap **2.8e-16** |
 | Synthetic 100-case matrix (sprint_accuracy) | unchanged: ActionABI 0 false uniques / 1.00 cov / 0.25 abstain |
 
@@ -178,10 +182,12 @@ cd code/actionabi
 uvx --from cmake cmake -S . -B build-fix -DACTIONABI_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release
 uvx --from cmake cmake --build build-fix -j 8
 uvx --from cmake ctest --test-dir build-fix --output-on-failure        # 8/8
-build-data-env/bin/python -m unittest discover -s experiments -p 'test_*.py'   # 32/32
+# Historical only: the broad unit-test suite and this 32/32 result predate removal.
+# Current retained Parquet-directory adapter integration:
+build-data-env/bin/python -m unittest discover -s experiments -p 'test_corpus_and_adapter.py' -v
 build-data-env/bin/python experiments/score_labeled_traces.py \
   --binary build-fix/actionabi \
   --dataset ../actionshift/artifacts/actionabi_bridge --out results/labeled_sim_postfix
 cp results/labeled_sim_postfix/summary.json results/labeled_sim/summary_postfix.json
-# optional: ASan (build-fix-asan) and CUDA parity (build-fix-cuda, -DCMAKE_CUDA_ARCHITECTURES=120)
+# optional historical checks: ASan (build-fix-asan) and CUDA parity (build-fix-cuda, sm_120)
 ```

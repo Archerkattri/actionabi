@@ -203,26 +203,30 @@ across two actively-used dataset families — independent evidence that action s
 
 ### Three defects found and fixed as measurement-driven hardening
 
-Each was surfaced by a measurement above, root-caused, fixed, and guarded by a regression test:
+Each was surfaced by a measurement above, root-caused, and fixed. Regression tests mentioned below
+belong to the earlier full suite; only the integration checks listed in the build section remain on
+this WIP branch.
 
 1. **Lag observable spanned `lag+1` steps** instead of a single delayed step (`src/score_cpu.cpp`,
    `cuda/score_cuda.cu`). Fixed to `state[row+lag+1] - state[row+lag]`; now matches the Python reference
-   scorer for every lag (C++/Python residual parity max gap `2.8e-16`). Regression test in
-   `tests/test_score.cpp` reproduces the old bug (fails on the span, passes on the fix). lag>0 accuracy
+   scorer for every lag (C++/Python residual parity max gap `2.8e-16`). The prior unit suite's
+   `tests/test_score.cpp` regression reproduced the old bug. lag>0 accuracy
    improves sharply post-fix (e.g. lag=2 permutation 0.49→0.89, lag recovery 0.25→0.88); an honest
    counter-movement at lag=0 (permutation 0.92→0.72) is reported alongside, not hidden.
 2. **Calibration was not robust to systematic response bias** (`experiments/bias_robust.py`). A
    fail-closed guard estimates a systematic-bias bound from the argmin's held-out residual structure and
    abstains under detected misspecification. Drove labeled-sim false uniques 4 → 0; no-op on zero-mean
-   noise, so the synthetic matrix is unchanged. 8 new tests in `experiments/test_bias_robust.py`.
+   noise, so the synthetic matrix is unchanged. The prior full suite had 8 tests in
+   `experiments/test_bias_robust.py`; that unit file is not shipped on this WIP branch.
 3. **Gate false-equivalence bug** (`experiments/real_dataset_gate.py`): a near-static reset trajectory
    made absolute ~ episode-relative fit each other, certifying a 2-way set that *excluded* the
    strictly-better delta (one contradiction on `berkeley_rpt`). Fixed to require the best-fit target in the
-   equivalence branch; all 6 pinned outcomes preserved. Regression test
-   `test_delta_control_with_fixed_resets_is_not_false_equivalence`.
+   equivalence branch; all 6 pinned outcomes preserved. The earlier unit suite included a regression
+   for this case; that test file is not shipped on this WIP branch.
 
-Full verification ledger: 8/8 CTests (Release), 8/8 under ASan/UBSan, CUDA parity pass, 32/32 Python
-tests — `reports/scorer_fixes.md`.
+Historical verification only: the 8/8 CTest, 32/32 Python-test, ASan/UBSan, and CUDA-parity counts in
+`reports/scorer_fixes.md` describe the earlier full suite. Current retained checks cover CLI/install
+behavior, the Parquet-directory adapter, and optional CUDA/Pinocchio integrations.
 
 ## Build and run
 
@@ -243,6 +247,18 @@ uvx --from cmake ctest --test-dir build --output-on-failure
 
 The `infer` CLI scores supplied contracts; it does not silently expand an unbounded search. Python
 adapters and experiments use the pinned packages in `requirements-experiments.txt`.
+
+The CPU CTest run covers the CLI contract and installed-package smoke. The retained Parquet-directory
+adapter integration check is run separately:
+
+```bash
+python -m venv build-data-env
+build-data-env/bin/pip install -r requirements-experiments.txt
+build-data-env/bin/python -m unittest discover -s experiments -p test_corpus_and_adapter.py -v
+```
+
+The benchmark JSON contract test is part of `benchmark_smoke` and runs on a CUDA-equipped host after
+building with `ACTIONABI_ENABLE_CUDA=ON` and `ACTIONABI_BUILD_BENCHMARKS=ON`.
 
 **Test fixtures.** Only synthetic, redistributable trajectories belong in `tests/fixtures/`; each records
 its generator seed, expected contract equivalence set, state-column semantics, units, and source hash.
@@ -434,12 +450,13 @@ in the scoring/calibration code (not measurement artifacts), both root-caused, f
 regression tests shown to fail on the old code and pass on the fix.
 
 **Evidence:** Defect 1 (lag observable scored a multi-step span instead of the correct single-step delay) —
-new CTest verified to fail (7/8 assertions) on the old code and pass (8/8) on the fix; lag>0 accuracy
+historical CTest verified to fail (7/8 assertions) on the old code and pass (8/8) on the fix; lag>0 accuracy
 improves sharply post-fix (lag=2 permutation 0.49→0.89, lag recovery 0.25→0.88). Defect 2 (calibration not
-robust to systematic response bias) — a fail-closed misspecification guard, 8 new tests, reduces false
+robust to systematic response bias) — a fail-closed misspecification guard, covered by 8 tests in the
+earlier full suite, reduces false
 unique certifications on the bridge traces from 4 to **0** while raising truth equivalence-set coverage
-0.02→0.39, with **no regression** on the 100-case synthetic matrix. Full verification ledger: 8/8 CTests
-(Release), 8/8 under ASan/UBSan, CUDA parity pass, 32/32 Python tests — `reports/scorer_fixes.md`. (A
+0.02→0.39, with **no regression** on the 100-case synthetic matrix. The following verification ledger
+is historical; its 8/8 CTests and 32/32 Python tests predate unit-test removal. (A
 third defect — the gate false-equivalence bug — is documented under the evidence summary above.)
 
 **Caveats:** Defect 1 introduces an honest counter-movement at `lag=0` (permutation 0.92→0.72) — report it
@@ -512,7 +529,7 @@ Use **CMake 3.26+**, a C++20 compiler, and Python 3.11+. Commands are run from t
 `/usr/bin/cmake` may be older than 3.26; the reference recipe uses a pinned modern CMake via `uvx`
 (substitute a plain `cmake` 3.26+ if you have one).
 
-### CPU build and falsification tests
+### CPU build, CLI contract, and installed-package smoke
 
 ```bash
 uvx --from cmake cmake -S . -B build-clean -DACTIONABI_BUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release
@@ -520,12 +537,10 @@ uvx --from cmake cmake --build build-clean -j 8
 uvx --from cmake ctest --test-dir build-clean --output-on-failure
 python -m venv build-data-env
 build-data-env/bin/pip install -r requirements-experiments.txt
-build-data-env/bin/python -m unittest discover -s experiments -p 'test_*.py' -v
 ```
 
-Expected: 9/9 CTests (the `cell_score` test builds header-only; `cli_version` runs `tests/test_cli.py`) and
-42/42 Python experiment tests. The premise-only command below returns `needs_real_dataset_gate` by design
-when real inputs are absent:
+CTest runs the installed-artifact smoke check. The premise-only command below returns
+`needs_real_dataset_gate` by design when real inputs are absent:
 
 ```bash
 build-data-env/bin/python experiments/run_falsification.py \
@@ -772,8 +787,9 @@ test fixtures contain no private robot data.
 
 ## Current release status
 
-The current checkout has a verified CPU C++20 build, CLI/converter path,
-pybind binding smoke test and 9/9 CTests. CUDA kernels, nuisance-model
+Historical release evidence reported a CPU C++20 build, CLI/converter path,
+pybind binding smoke test, and 9/9 CTests; those counts predate this WIP test-scope change. The
+retained checks are the CLI/install tests and Parquet adapter integration. CUDA kernels, nuisance-model
 inference, real trajectories and quality/performance comparisons require their
 corresponding external toolchains and data; the CPU result is not a CUDA or
 SOTA claim.

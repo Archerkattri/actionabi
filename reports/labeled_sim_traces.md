@@ -1,5 +1,8 @@
 # Labeled simulated traces: ActionABI supervised accuracy on known latent contracts
 
+> Historical report: the full-suite counts below predate unit-test removal on the current WIP branch.
+> The scores and traces remain historical evidence; the former broad test command is not current.
+
 Run date: 2026-07-21 UTC. This report closes the top open evidence gap in ActionABI's
 handoff — *"labeled real latent contracts or controlled robot/simulator traces across the
 full grammar"* — with the first **supervised** accuracy measurement of ActionABI against
@@ -212,7 +215,7 @@ guard is a no-op under zero-mean noise (estimated slack → 0, flag → False).
 **Verification.** New build `build-fix` (Release, CMake 4.4 via `uvx`): 8/8 CTests
 (the `score` suite grew by the lag regression test); 8/8 CTests under AddressSanitizer/UBSan
 (`build-fix-asan`); CUDA parity green on GPU 3 (`build-fix-cuda`, sm_120). Python experiment suite
-32/32 (24 pre-existing + 8 new `test_bias_robust`).
+32/32 (24 pre-existing + 8 new `test_bias_robust`; historical pre-removal suite).
 
 ## Reproduction
 

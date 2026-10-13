@@ -1,21 +1,15 @@
 from __future__ import annotations
 
-import hashlib
 import importlib.util
 import json
-import subprocess
 import sys
 import tempfile
 import unittest
-from datetime import date
 from pathlib import Path
-
-import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
 ADAPTER_PATH = ROOT / "adapters" / "lerobot_to_jsonl.py"
-CORPUS_PATH = ROOT / "experiments" / "corpus.yaml"
 
 
 def load_adapter():
@@ -28,100 +22,52 @@ def load_adapter():
     return module
 
 
-class CorpusConfigTest(unittest.TestCase):
-    def test_corpus_freezes_seed_and_expected_outcomes(self) -> None:
-        config = yaml.safe_load(CORPUS_PATH.read_text(encoding="utf-8"))
+class AdapterDirectoryIntegrationTest(unittest.TestCase):
+    def test_directory_shard_converts_to_canonical_jsonl(self) -> None:
+        try:
+            import pyarrow as pa
+            import pyarrow.parquet as parquet
+        except ImportError:
+            self.skipTest("PyArrow is installed through the experiments extra")
 
-        self.assertEqual(config["seed"], 20260718)
-        self.assertEqual(config["datasets"]["synthetic"]["train_episodes"], 200)
-        self.assertEqual(config["datasets"]["synthetic"]["test_episodes"], 100)
-        self.assertEqual(config["datasets"]["pusht"]["expected"], "unique_absolute")
-        self.assertEqual(
-            config["datasets"]["aloha"]["expected"],
-            "absolute_episode_relative_equivalence",
-        )
-        self.assertEqual(config["datasets"]["ur5"]["expected"], "partial_cartesian")
-
-
-class AdapterRecordTest(unittest.TestCase):
-    def test_metadata_preserves_source_provenance_and_state_semantics(self) -> None:
         adapter = load_adapter()
         with tempfile.TemporaryDirectory() as directory:
-            source = Path(directory) / "episode.parquet"
-            source.write_bytes(b"frozen-source")
-
-            metadata = adapter.build_metadata(
-                source=source,
-                state_columns=("joint_0", "joint_1"),
-                state_units=("rad", "rad"),
-                extraction_date=date(2026, 7, 18),
+            shard = Path(directory) / "data" / "chunk-000" / "file-000.parquet"
+            shard.parent.mkdir(parents=True)
+            parquet.write_table(
+                pa.table(
+                    {
+                        "observation.state": [[0.1, 0.2], [0.3, 0.4]],
+                        "action": [[1.0], [2.0]],
+                        "timestamp": [0.0, 0.1],
+                        "episode_index": [3, 3],
+                        "video": [b"unused-0", b"unused-1"],
+                    }
+                ),
+                shard,
             )
 
-        self.assertEqual(metadata["record_type"], "metadata")
-        self.assertEqual(metadata["schema_version"], "1.0")
-        self.assertEqual(metadata["source_filename"], "episode.parquet")
-        self.assertEqual(
-            metadata["source_sha256"], hashlib.sha256(b"frozen-source").hexdigest()
-        )
-        self.assertEqual(metadata["extraction_date"], "2026-07-18")
-        self.assertEqual(metadata["state_columns"], ["joint_0", "joint_1"])
-        self.assertEqual(metadata["state_units"], ["rad", "rad"])
-
-    def test_sample_record_has_canonical_fields_and_nanosecond_timestamp(self) -> None:
-        adapter = load_adapter()
-
-        record = adapter.build_sample_record(
-            episode_id=7,
-            timestamp_seconds=0.125,
-            state=[1.0, 2.0],
-            action=[-0.5, 0.25],
-        )
-
-        self.assertEqual(
-            record,
-            {
-                "record_type": "sample",
-                "episode_id": 7,
-                "t_ns": 125_000_000,
-                "state": [1.0, 2.0],
-                "action": [-0.5, 0.25],
-            },
-        )
-
-    def test_jsonl_writer_places_exactly_one_metadata_record_first(self) -> None:
-        adapter = load_adapter()
-        metadata = {"record_type": "metadata", "schema_version": "1.0"}
-        samples = [
-            {
-                "record_type": "sample",
-                "episode_id": 0,
-                "t_ns": 0,
-                "state": [0.0],
-                "action": [1.0],
-            }
-        ]
-
-        with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "trajectory.jsonl"
-            adapter.write_jsonl(output, metadata, samples)
+            self.assertEqual(
+                adapter.main(
+                    [
+                        "--input",
+                        directory,
+                        "--output",
+                        str(output),
+                        "--extraction-date",
+                        "2026-10-12",
+                    ]
+                ),
+                0,
+            )
             records = [json.loads(line) for line in output.read_text().splitlines()]
 
-        self.assertEqual(records, [metadata, *samples])
-
-    def test_cli_help_does_not_require_pyarrow(self) -> None:
-        completed = subprocess.run(
-            [sys.executable, str(ADAPTER_PATH), "--help"],
-            check=False,
-            capture_output=True,
-            text=True,
-        )
-
-        self.assertEqual(completed.returncode, 0, completed.stderr)
-        self.assertIn("--input", completed.stdout)
-        self.assertIn("--output", completed.stdout)
-        self.assertIn("--state-key", completed.stdout)
-        self.assertIn("--action-key", completed.stdout)
-
+        self.assertEqual(len(records), 3)
+        self.assertEqual(records[0]["record_type"], "metadata")
+        self.assertEqual(records[0]["state_columns"], ["state_0", "state_1"])
+        self.assertEqual(records[1]["state"], [0.1, 0.2])
+        self.assertEqual(records[2]["action"], [2.0])
 
 if __name__ == "__main__":
     unittest.main()

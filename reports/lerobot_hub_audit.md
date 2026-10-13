@@ -1,5 +1,9 @@
 # LeRobot Hub convention audit — recovering action conventions from trajectory evidence
 
+> Historical record: the unit-test drivers referenced in this audit were removed
+> from the current release-readiness branch. The results remain historical evidence;
+> the former test commands do not run on this branch.
+
 Run date: 2026-07-21 UTC. CPU-only (threads capped at 4).
 Machine-readable results: `results/hub_audit.json` (+ `results/hub/<dataset>.json` per dataset).
 Baseline it extends: `reports/documentation_agreement.md` (the six pinned datasets, 27 field-labels).
@@ -289,8 +293,9 @@ uvx --from cmake cmake --build build-fix -j 4
 OMP_NUM_THREADS=4 build-data-env/bin/python -m experiments.run_hub_audit \
   --data-root /tmp/hub_audit/data --harvest /tmp/hub_audit/harvest.json \
   --binary build-fix/actionabi --out-dir results/hub --audit-json results/hub_audit.json
-# 4. tests (gate fix + adapter variant + baseline discipline)
-build-data-env/bin/python -m unittest discover -s experiments -p 'test_*.py'
+# 4. Historical tests (gate fix + adapter variant + baseline discipline) ran before unit-test removal.
+# Current retained Parquet-directory adapter integration, separate from this historical audit:
+build-data-env/bin/python -m unittest discover -s experiments -p 'test_corpus_and_adapter.py' -v
 ```
 
 Outputs: `results/hub_audit.json` (aggregate + `flagged_cases` + `ecosystem_clusters` + per-dataset
