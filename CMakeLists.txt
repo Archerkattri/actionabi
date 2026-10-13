@@ -16,16 +16,20 @@ FetchContent_Declare(
   DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 FetchContent_Declare(
-  catch2
-  URL https://github.com/catchorg/Catch2/archive/refs/tags/v3.8.1.tar.gz
-  DOWNLOAD_EXTRACT_TIMESTAMP TRUE
-)
-FetchContent_Declare(
   nlohmann_json
   URL https://github.com/nlohmann/json/archive/refs/tags/v3.11.3.tar.gz
   DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
-FetchContent_MakeAvailable(cli11 catch2 nlohmann_json)
+FetchContent_MakeAvailable(cli11 nlohmann_json)
+
+if(ACTIONABI_BUILD_TESTS AND (ACTIONABI_ENABLE_CUDA OR ACTIONABI_ENABLE_PINOCCHIO))
+  FetchContent_Declare(
+    catch2
+    URL https://github.com/catchorg/Catch2/archive/refs/tags/v3.8.1.tar.gz
+    DOWNLOAD_EXTRACT_TIMESTAMP TRUE
+  )
+  FetchContent_MakeAvailable(catch2)
+endif()
 
 execute_process(
   COMMAND git rev-parse --short=12 HEAD
@@ -140,63 +144,6 @@ if(ACTIONABI_BUILD_TESTS)
   enable_testing()
   find_package(Python3 REQUIRED COMPONENTS Interpreter)
   add_test(
-    NAME cli_version
-    COMMAND "${Python3_EXECUTABLE}" -m unittest tests.test_cli -v
-  )
-  set_tests_properties(
-    cli_version PROPERTIES
-    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-    ENVIRONMENT "ACTIONABI_BINARY=$<TARGET_FILE:actionabi>"
-  )
-  add_executable(test_contract tests/test_contract.cpp)
-  target_link_libraries(test_contract PRIVATE actionabi_core Catch2::Catch2WithMain)
-  if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    target_compile_options(test_contract PRIVATE -Wall -Wextra -Wpedantic -Werror)
-  endif()
-  add_test(NAME contract COMMAND test_contract)
-  add_executable(test_trajectory tests/test_trajectory.cpp)
-  target_link_libraries(test_trajectory PRIVATE actionabi_core Catch2::Catch2WithMain)
-  if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    target_compile_options(test_trajectory PRIVATE -Wall -Wextra -Wpedantic -Werror)
-  endif()
-  add_test(NAME trajectory COMMAND test_trajectory)
-  add_executable(test_score tests/test_score.cpp)
-  target_link_libraries(test_score PRIVATE actionabi_core Catch2::Catch2WithMain)
-  if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    target_compile_options(test_score PRIVATE -Wall -Wextra -Wpedantic -Werror)
-  endif()
-  add_test(NAME score COMMAND test_score)
-  add_executable(test_cell_score tests/test_cell_score.cpp)
-  target_link_libraries(test_cell_score PRIVATE Catch2::Catch2WithMain)
-  if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    target_compile_options(test_cell_score PRIVATE -Wall -Wextra -Wpedantic -Werror)
-  endif()
-  add_test(NAME cell_score COMMAND test_cell_score)
-  add_executable(test_evidence tests/test_evidence.cpp)
-  target_link_libraries(test_evidence PRIVATE actionabi_core Catch2::Catch2WithMain)
-  if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    target_compile_options(test_evidence PRIVATE -Wall -Wextra -Wpedantic -Werror)
-  endif()
-  add_test(NAME evidence COMMAND test_evidence)
-  add_executable(test_identifiability tests/test_identifiability.cpp)
-  target_link_libraries(test_identifiability PRIVATE actionabi_core Catch2::Catch2WithMain)
-  if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    target_compile_options(test_identifiability PRIVATE -Wall -Wextra -Wpedantic -Werror)
-  endif()
-  add_test(NAME identifiability COMMAND test_identifiability)
-  add_executable(test_probe tests/test_probe.cpp)
-  target_link_libraries(test_probe PRIVATE actionabi_core Catch2::Catch2WithMain)
-  if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    target_compile_options(test_probe PRIVATE -Wall -Wextra -Wpedantic -Werror)
-  endif()
-  add_test(NAME probe COMMAND test_probe)
-  add_executable(test_converter tests/test_converter.cpp)
-  target_link_libraries(test_converter PRIVATE actionabi_core Catch2::Catch2WithMain)
-  if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    target_compile_options(test_converter PRIVATE -Wall -Wextra -Wpedantic -Werror)
-  endif()
-  add_test(NAME converter COMMAND test_converter)
-  add_test(
     NAME install_smoke
     COMMAND
       "${CMAKE_COMMAND}"
@@ -204,6 +151,37 @@ if(ACTIONABI_BUILD_TESTS)
       -DACTIONABI_EXECUTABLE_SUFFIX=${CMAKE_EXECUTABLE_SUFFIX}
       -P "${CMAKE_CURRENT_SOURCE_DIR}/tests/install_smoke.cmake"
   )
+  add_test(
+    NAME cli_contract
+    COMMAND "${Python3_EXECUTABLE}" -m unittest discover -s tests -p test_cli.py -v
+  )
+  set_tests_properties(
+    cli_contract PROPERTIES
+    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+    ENVIRONMENT "ACTIONABI_BINARY=$<TARGET_FILE:actionabi>"
+  )
+
+  if(ACTIONABI_ENABLE_CUDA)
+    add_executable(test_cuda_parity tests/test_cuda_parity.cpp)
+    target_link_libraries(test_cuda_parity PRIVATE actionabi_cuda Catch2::Catch2WithMain)
+    if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+      target_compile_options(test_cuda_parity PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    add_test(NAME cuda_parity COMMAND test_cuda_parity)
+
+    if(ACTIONABI_BUILD_BENCHMARKS)
+      add_test(
+        NAME benchmark_smoke
+        COMMAND "${Python3_EXECUTABLE}" -m unittest discover -s tests -p test_benchmark.py -v
+      )
+      set_tests_properties(
+        benchmark_smoke PROPERTIES
+        WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+        ENVIRONMENT "ACTIONABI_BENCHMARK_BINARY=$<TARGET_FILE:score_benchmark>"
+      )
+    endif()
+  endif()
+
   if(ACTIONABI_ENABLE_PINOCCHIO)
     add_executable(test_pinocchio tests/test_pinocchio.cpp)
     target_link_libraries(test_pinocchio PRIVATE actionabi_core Catch2::Catch2WithMain)
@@ -215,22 +193,5 @@ if(ACTIONABI_BUILD_TESTS)
       target_compile_options(test_pinocchio PRIVATE -Wall -Wextra -Wpedantic -Werror)
     endif()
     add_test(NAME pinocchio COMMAND test_pinocchio)
-  endif()
-  if(ACTIONABI_ENABLE_CUDA)
-    add_executable(test_cuda_parity tests/test_cuda_parity.cpp)
-    target_link_libraries(test_cuda_parity PRIVATE actionabi_cuda Catch2::Catch2WithMain)
-    if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-      target_compile_options(test_cuda_parity PRIVATE -Wall -Wextra -Wpedantic -Werror)
-    endif()
-    add_test(NAME cuda_parity COMMAND test_cuda_parity)
-    if(ACTIONABI_BUILD_BENCHMARKS)
-      add_test(
-        NAME benchmark_smoke
-        COMMAND "${Python3_EXECUTABLE}" -m unittest tests.test_benchmark -v
-      )
-      set_tests_properties(
-        benchmark_smoke PROPERTIES WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-      )
-    endif()
   endif()
 endif()

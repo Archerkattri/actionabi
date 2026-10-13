@@ -1,5 +1,8 @@
 # Documentation-agreement scoring of ActionABI's real-data outcomes
 
+> Historical test note: the unit-test path and 9/9 result below describe the
+> pre-removal suite; current retained checks are documented in the repository README.
+
 Run date: 2026-07-21 UTC.
 Scorer: `experiments/score_doc_agreement.py` (unit-tested: `experiments/test_score_doc_agreement.py`, 9/9).
 Machine-readable output: `results/doc_agreement.json`.

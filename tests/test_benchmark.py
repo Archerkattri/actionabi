@@ -11,7 +11,12 @@ from pathlib import Path
 class BenchmarkContractTest(unittest.TestCase):
     def test_smoke_benchmark_emits_transfer_inclusive_comparison(self) -> None:
         root = Path(__file__).resolve().parents[1]
-        binary = root / "build-cuda" / "score_benchmark"
+        configured_binary = os.environ.get("ACTIONABI_BENCHMARK_BINARY")
+        binary = (
+            Path(configured_binary)
+            if configured_binary
+            else root / "build-cuda" / "score_benchmark"
+        )
         if not binary.is_file():
             self.skipTest("CUDA benchmark has not been built")
         if os.name == "nt" and binary.suffix.lower() != ".exe":
