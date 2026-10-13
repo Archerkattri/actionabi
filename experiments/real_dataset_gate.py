@@ -10,7 +10,6 @@ from typing import Any, Literal
 
 import numpy as np
 
-
 PointTarget = Literal["absolute", "delta", "velocity", "episode_relative"]
 
 
@@ -36,6 +35,18 @@ class PassiveDataset:
             raise ValueError("passive dataset must not be empty")
         if not np.all(np.isfinite(self.states)) or not np.all(np.isfinite(self.actions)):
             raise ValueError("states and actions must be finite")
+        if self.episode_ids.ndim != 1 or self.timestamps_seconds.ndim != 1:
+            raise ValueError("episode IDs and timestamps must be rank-one")
+        if not np.issubdtype(self.episode_ids.dtype, np.integer) or np.any(self.episode_ids < 0):
+            raise ValueError("episode IDs must be nonnegative integers")
+        if not np.all(np.isfinite(self.timestamps_seconds)) or np.any(self.timestamps_seconds < 0):
+            raise ValueError("timestamps must be finite and nonnegative")
+        starts = np.r_[True, self.episode_ids[1:] != self.episode_ids[:-1]]
+        if len(np.unique(self.episode_ids[starts])) != np.count_nonzero(starts):
+            raise ValueError("episode rows must be contiguous; an episode cannot reappear")
+        same_episode = self.episode_ids[1:] == self.episode_ids[:-1]
+        if np.any(np.diff(self.timestamps_seconds)[same_episode] <= 0):
+            raise ValueError("timestamps must be strictly increasing within each episode")
 
 
 @dataclass(frozen=True)
@@ -197,7 +208,6 @@ def _cartesian_translation_evidence(
 def classify_dataset(
     name: str, dataset: PassiveDataset, ranked: list[PointResult]
 ) -> dict[str, Any]:
-    normalized_name = name.lower()
     if dataset.states.shape[1] != dataset.actions.shape[1]:
         cartesian_error, cartesian_frame = _cartesian_translation_evidence(dataset)
         outcome = "partial_cartesian" if cartesian_error < 0.35 else "report_without_unique_requirement"
@@ -279,7 +289,7 @@ def _parquet_sources(path: Path) -> Path | list[Path]:
 
 def load_lerobot_parquet(path: Path) -> PassiveDataset:
     try:
-        import pyarrow.parquet as parquet
+        from pyarrow import parquet
     except ImportError as error:
         raise RuntimeError("real-dataset gate requires PyArrow") from error
     sources = _parquet_sources(path)
@@ -322,6 +332,6 @@ def evaluate_dataset(name: str, path: Path) -> dict[str, Any]:
     report = classify_dataset(name, dataset, ranked)
     report["source_filename"] = path.name
     report["source_sha256"] = sha256_path(path)
-    report["episodes"] = int(len(np.unique(dataset.episode_ids)))
-    report["rows"] = int(len(dataset.states))
+    report["episodes"] = len(np.unique(dataset.episode_ids))
+    report["rows"] = len(dataset.states)
     return report
